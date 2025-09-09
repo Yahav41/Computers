@@ -65,6 +65,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Viewbox Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="6" Grid.RowSpan="3">
+            <Button x:Name="StartButton" Click="StartButton_Click" Content="Play"  Background="Transparent" BorderBrush="Transparent" Width="77"></Button>
+        </Viewbox>
+        <Viewbox Grid.Row="13" Grid.Column="10" Grid.ColumnSpan="6" Grid.RowSpan="3">
+            <Button x:Name="SettingsButton" Click="StartButton_Click" Content="Play"  Background="Transparent" BorderBrush="Transparent" Width="77"></Button>
+        </Viewbox>
     </Grid>
 </Page>
