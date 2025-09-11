@@ -20,31 +20,16 @@ namespace final_project.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainMenuPage : Page
+    public sealed partial class SettingsPage : Page
     {
-        public MainMenuPage()
+        public SettingsPage()
         {
             this.InitializeComponent();
         }
 
-        private void StartButton_Click(object sender, RoutedEventArgs e)
+        private void AudioOnOff_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ModePage));
-        }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SettingsPage));
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(LoginPage));
-        }
-
-        private void SignupButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SignupPage));
         }
     }
 }
