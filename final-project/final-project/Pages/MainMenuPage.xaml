@@ -68,11 +68,26 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Viewbox Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="6" Grid.RowSpan="3">
-            <Button x:Name="StartButton" Click="StartButton_Click" Content="Play"  Background="Transparent" BorderBrush="Transparent" Width="77"></Button>
+        <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="StartButton" Click="StartButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/PlayButton.png"></Image>    
+            </Button>
         </Viewbox>
-        <Viewbox Grid.Row="13" Grid.Column="10" Grid.ColumnSpan="6" Grid.RowSpan="3">
-            <Button x:Name="SettingsButton" Click="StartButton_Click" Content="Play"  Background="Transparent" BorderBrush="Transparent" Width="77"></Button>
+        <Viewbox Grid.Row="17" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SettingsButton" Click="SettingsButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/Assets/Buttons/SettingsButton.png"></Image>
+            </Button>
         </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/Assets/Buttons/LoginButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/Assets/Buttons/SignupButton.png"></Image>
+            </Button>
+        </Viewbox>
+        
     </Grid>
 </Page>

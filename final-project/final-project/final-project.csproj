@@ -119,8 +119,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModePage.xaml.cs">
+      <DependentUpon>ModePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignupPage.xaml.cs">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -131,6 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\BackGrounds\MenuBackground.png" />
+    <Content Include="Assets\Buttons\BlankButton.png" />
+    <Content Include="Assets\Buttons\LoginButton.png" />
+    <Content Include="Assets\Buttons\PlayButton.png" />
+    <Content Include="Assets\Buttons\SettingsButton.png" />
+    <Content Include="Assets\Buttons\SignupButton.png" />
     <Content Include="Assets\Icon\gameIcon.png" />
     <Content Include="Assets\Icon\LargeTile.scale-100.png" />
     <Content Include="Assets\Icon\LargeTile.scale-125.png" />
@@ -196,7 +210,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SignupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
