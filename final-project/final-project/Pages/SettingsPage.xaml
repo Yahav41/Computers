@@ -68,8 +68,61 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Viewbox>
-            <ToggleButton x:Name="AudioOnOff" IsChecked="True" Content="Audio" Click="AudioOnOff_Click" ></ToggleButton>
+        <Viewbox Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            
         </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Column="10" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Button x:Name="KeysButton" Click="KeysButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/KeysButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Grid x:Name="KeysGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13">
+            <Grid.Background>
+                <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/Assets/Buttons/CloseButton.png"></Image>
+                </Button>
+            </Viewbox>
+            
+        </Grid>
     </Grid>
 </Page>

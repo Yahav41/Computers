@@ -142,7 +142,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Buttons\CloseButton.png" />
+    <Content Include="Assets\Buttons\KeysButton.png" />
     <Content Include="Assets\BackGrounds\MenuBackground.png" />
+    <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BlankButton.png" />
     <Content Include="Assets\Buttons\LoginButton.png" />
     <Content Include="Assets\Buttons\PlayButton.png" />

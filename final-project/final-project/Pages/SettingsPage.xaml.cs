@@ -29,6 +29,21 @@ namespace final_project.Pages
 
         private void AudioOnOff_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void KeysButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
