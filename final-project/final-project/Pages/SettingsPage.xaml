@@ -68,20 +68,20 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Viewbox Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2">
-            
+        <Viewbox Grid.Column="14" Grid.Row="12" Grid.ColumnSpan="9" Grid.RowSpan="2">
+            <Slider x:Name="VolumeSlider" Minimum="0" Maximum="100" Value="100" ValueChanged="VolumeSlider_ValueChanged" Width="220"></Slider>
         </Viewbox>
-        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>
-        <Viewbox Grid.Column="10" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Viewbox Grid.Column="9" Grid.Row="12" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Button x:Name="KeysButton" Click="KeysButton_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Source="/Assets/Buttons/KeysButton.png"></Image>
             </Button>
         </Viewbox>
-        <Grid x:Name="KeysGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13">
+        <Grid x:Name="KeysGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
             <Grid.Background>
                 <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
             </Grid.Background>

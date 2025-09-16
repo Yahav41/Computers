@@ -20,26 +20,11 @@ namespace final_project.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ModePage : Page
+    public sealed partial class GamePage : Page
     {
-        public ModePage()
+        public GamePage()
         {
             this.InitializeComponent();
-        }
-
-        private void OfflineButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(GamePage));
-        }
-
-        private void localButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OnlineButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

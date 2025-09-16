@@ -88,5 +88,54 @@
                 <Image Source="/Assets/Buttons/SignupButton.png"></Image>
             </Button>
         </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="HelpButton" Click="HelpButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/HelpButton.png"></Image>
+            </Button>
+        </Viewbox>
+
+        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Image Source="/Assets/Buttons/CloseButton.png"></Image>
+                </Button>
+            </Viewbox>
+
+        </Grid>
     </Grid>
 </Page>

@@ -46,5 +46,15 @@ namespace final_project.Pages
         {
             Frame.Navigate(typeof(SignupPage));
         }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpGrid.Visibility = Visibility.Visible;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }

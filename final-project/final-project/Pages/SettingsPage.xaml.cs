@@ -34,7 +34,7 @@ namespace final_project.Pages
 
         private void KeysButton_Click(object sender, RoutedEventArgs e)
         {
-
+            KeysGrid.Visibility = Visibility.Visible;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -44,7 +44,12 @@ namespace final_project.Pages
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            KeysGrid.Visibility = Visibility.Collapsed;
+        }
 
+        private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            
         }
     }
 }
