@@ -9,6 +9,89 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+        </Grid.Background>
+        <Viewbox Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="5">
+            <TextBlock x:Name="LoginMessageTextBlock" Text="Login" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="2">
+            <TextBox x:Name="Username" Text="Enter your username" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></TextBox>
+        </Viewbox>
+        <Viewbox Grid.Row="12" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="2">
+            <PasswordBox x:Name="Password" PasswordChar="*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></PasswordBox>
+        </Viewbox>
+        <Viewbox Grid.Row="15" Grid.Column="11" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Button >
+                <Image Source="/Assets/Buttons/LoginButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/Assets/Buttons/SignupButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
 
     </Grid>
 </Page>

@@ -70,7 +70,7 @@
         </Grid.Background>
         <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Button x:Name="OfflineButton" Click="OfflineButton_Click" Background="Transparent" BorderBrush="Transparent">
-                <Image Source="/Assets/Buttons/PlayButton.png"></Image>
+                <Image Source="/Assets/Buttons/OfflineButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="17   " Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -89,6 +89,11 @@
         <Viewbox>
             <Image Source="/Assets/Logos/player.png"/>
         </Viewbox>
-        
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+
     </Grid>
 </Page>

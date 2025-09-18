@@ -65,15 +65,23 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Assets/BackGrounds/GameBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Canvas x:Name="GameCanvas" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="19" Grid.RowSpan="16" Background="Black">
+        <Canvas x:Name="GameCanvas" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="19" Grid.RowSpan="16" Background="Black">
 
         </Canvas>
-        <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="6" Grid.Column="3" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
-        <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="6" Grid.Column="14" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
-        <Viewbox>
-            <TextBlock x:Name="LeftPlayerBullets" Text="30"></TextBlock>
+        <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="14" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <Viewbox Grid.Column="11" Grid.Row="4">
+            <TextBlock x:Name="LeftPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="13" Grid.Row="4">
+            <TextBlock x:Name="RightPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
         </Viewbox>
     </Grid>
 </Page>

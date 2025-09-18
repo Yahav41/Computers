@@ -145,6 +145,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\BackGrounds\gameBackground.png" />
     <Content Include="Assets\Buttons\CloseButton.png" />
     <Content Include="Assets\Buttons\HelpButton.png" />
     <Content Include="Assets\Buttons\KeysButton.png" />
@@ -153,6 +154,7 @@
     <Content Include="Assets\Buttons\BlankButton.png" />
     <Content Include="Assets\Buttons\LocalButton.png" />
     <Content Include="Assets\Buttons\LoginButton.png" />
+    <Content Include="Assets\Buttons\OfflineButton.png" />
     <Content Include="Assets\Buttons\OnlineButton.png" />
     <Content Include="Assets\Buttons\PlayButton.png" />
     <Content Include="Assets\Buttons\SettingsButton.png" />

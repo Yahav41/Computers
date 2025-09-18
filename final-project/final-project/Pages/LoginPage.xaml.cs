@@ -26,5 +26,15 @@ namespace final_project.Pages
         {
             this.InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainMenuPage));
+        }
+
+        private void SignupButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SignupPage));
+        }
     }
 }
