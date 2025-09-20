@@ -49,7 +49,7 @@ namespace final_project.Pages
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            HelpGrid.Visibility = Visibility.Visible;
+            HelpGrid.Visibility = HelpGrid.Visibility == Visibility.Visible? Visibility.Collapsed:Visibility.Visible;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

@@ -27,14 +27,10 @@ namespace final_project.Pages
             this.InitializeComponent();
         }
 
-        private void AudioOnOff_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void KeysButton_Click(object sender, RoutedEventArgs e)
         {
-            KeysGrid.Visibility = Visibility.Visible;
+            KeysGrid.Visibility = KeysGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            AudioGrid.Visibility = Visibility.Collapsed;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -45,11 +41,18 @@ namespace final_project.Pages
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             KeysGrid.Visibility = Visibility.Collapsed;
+            AudioGrid.Visibility = Visibility.Collapsed;
         }
 
         private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             
+        }
+
+        private void AudioButton_Click(object sender, RoutedEventArgs e)
+        {
+            AudioGrid.Visibility = AudioGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            KeysGrid.Visibility = Visibility.Collapsed;
         }
     }
 }

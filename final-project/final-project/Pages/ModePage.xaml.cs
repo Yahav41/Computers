@@ -32,9 +32,9 @@ namespace final_project.Pages
             Frame.Navigate(typeof(GamePage));
         }
 
-        private void localButton_Click(object sender, RoutedEventArgs e)
+        private void LocalButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(GamePage));
         }
 
         private void OnlineButton_Click(object sender, RoutedEventArgs e)
