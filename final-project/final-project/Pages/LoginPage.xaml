@@ -78,7 +78,7 @@
             <PasswordBox x:Name="Password" PasswordChar="*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></PasswordBox>
         </Viewbox>
         <Viewbox Grid.Row="15" Grid.Column="11" Grid.ColumnSpan="4" Grid.RowSpan="3">
-            <Button >
+            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent">
                 <Image Source="/Assets/Buttons/LoginButton.png"></Image>
             </Button>
         </Viewbox>

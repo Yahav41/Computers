@@ -69,27 +69,27 @@
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="StartButton" Click="StartButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="StartButton" Click="StartButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/PlayButton.png"></Image>    
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="17" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="SettingsButton" Click="SettingsButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+            <Button x:Name="SettingsButton" Click="SettingsButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/SettingsButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/LoginButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/SignupButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="HelpButton" Click="HelpButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="HelpButton" Click="HelpButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/HelpButton.png"></Image>
             </Button>
         </Viewbox>
@@ -131,7 +131,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                     <Image Source="/Assets/Buttons/CloseButton.png"></Image>
                 </Button>
             </Viewbox>

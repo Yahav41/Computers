@@ -69,17 +69,17 @@
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Button x:Name="KeysButton" Click="KeysButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="KeysButton" Click="KeysButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/KeysButton.png"></Image>
             </Button>
         </Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Button x:Name="AudioButton" Click="AudioButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="AudioButton" Click="AudioButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/BlankButton.png"></Image>
             </Button>
         </Viewbox>
@@ -120,7 +120,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <Button x:Name="CloseButtonKeys" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Button x:Name="CloseButtonKeys" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                     <Image Source="/Assets/Buttons/CloseButton.png"></Image>
                 </Button>
             </Viewbox>
@@ -163,7 +163,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <Button x:Name="CloseButtonAudio" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Button x:Name="CloseButtonAudio" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                     <Image Source="/Assets/Buttons/CloseButton.png"></Image>
                 </Button>
             </Viewbox>

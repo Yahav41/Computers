@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +23,8 @@ namespace final_project.Pages
     /// </summary>
     public sealed partial class MainMenuPage : Page
     {
+        private Login _login;
+        private SignUp _signUp;
         public MainMenuPage()
         {
             this.InitializeComponent();
@@ -37,14 +40,16 @@ namespace final_project.Pages
             Frame.Navigate(typeof(SettingsPage));
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(LoginPage));
+            _login = new Login();
+            await _login.ShowAsync();
         }
 
-        private void SignupButton_Click(object sender, RoutedEventArgs e)
+        private async void SignupButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SignupPage));
+            _signUp = new SignUp();
+            await _signUp.ShowAsync();
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)

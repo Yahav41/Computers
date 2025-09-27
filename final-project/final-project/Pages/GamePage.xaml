@@ -79,7 +79,7 @@
             <TextBlock x:Name="RightPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
         </Viewbox>
         <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>

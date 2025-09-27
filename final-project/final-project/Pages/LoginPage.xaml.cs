@@ -36,5 +36,10 @@ namespace final_project.Pages
         {
             Frame.Navigate(typeof(SignupPage));
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

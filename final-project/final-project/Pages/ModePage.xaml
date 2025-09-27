@@ -69,7 +69,7 @@
             <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="OfflineButton" Click="OfflineButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="OfflineButton" Click="OfflineButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/OfflineButton.png"></Image>
             </Button>
         </Viewbox>
@@ -79,7 +79,7 @@
             </Button>
         </Viewbox>
         <Viewbox Grid.Row="20" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="OnlineButton" Click="OnlineButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="OnlineButton" Click="OnlineButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/OnlineButton.png"></Image>
             </Button>
         </Viewbox>
@@ -90,7 +90,7 @@
             <Image Source="/Assets/Logos/player.png"/>
         </Viewbox>
         <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>
