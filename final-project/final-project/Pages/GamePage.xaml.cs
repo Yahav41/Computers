@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameEngine.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace final_project.Pages
     /// </summary>
     public sealed partial class GamePage : Page
     {
+        private Manager _manager;
         public GamePage()
         {
             this.InitializeComponent();
+            _manager = new Manager(scene);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

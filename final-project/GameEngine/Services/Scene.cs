@@ -9,6 +9,9 @@ namespace GameEngine.Services
 {
     public abstract class Scene : Canvas
     {
-
+        public Scene() 
+        {
+            
+        }
     }
 }

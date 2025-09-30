@@ -211,6 +211,10 @@
     <Content Include="Assets\Icon\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Icon\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Icon\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Models\Covers\gameBarrier.png" />
+    <Content Include="Assets\Models\Covers\gameBoxes.png" />
+    <Content Include="Assets\Models\Covers\gameCanister.png" />
+    <Content Include="Assets\Models\Covers\gameFoundation.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
