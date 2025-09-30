@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\BackGrounds\gameBackground.png" />
+    <Content Include="Assets\Buttons\AudioButton.png" />
     <Content Include="Assets\Buttons\CloseButton.png" />
     <Content Include="Assets\Buttons\HelpButton.png" />
     <Content Include="Assets\Buttons\KeysButton.png" />

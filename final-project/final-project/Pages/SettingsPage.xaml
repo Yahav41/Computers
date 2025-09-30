@@ -80,7 +80,7 @@
         </Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <Button x:Name="AudioButton" Click="AudioButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
-                <Image Source="/Assets/Buttons/BlankButton.png"></Image>
+                <Image Source="/Assets/Buttons/AudioButton.png"></Image>
             </Button>
         </Viewbox>
         <Grid x:Name="KeysGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
