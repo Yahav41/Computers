@@ -5,6 +5,7 @@
     xmlns:local="using:final_project.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Shlomi="using:final_project.GameServices"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -67,9 +68,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/BackGrounds/GameBackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Canvas x:Name="scene" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="21" Grid.RowSpan="18">
-            <Image Source="/Assets/BackGrounds/MenuBackground.png" Height="693" Width="1260" Stretch="Fill"></Image> 
-        </Canvas>
+        <Shlomi:GameScene x:Name="scene" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="21" Grid.RowSpan="18" Background="black">
+            
+        </Shlomi:GameScene>
         <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
         <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="15" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
         <Viewbox Grid.Column="10" Grid.Row="4">

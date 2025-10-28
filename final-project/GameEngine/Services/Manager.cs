@@ -11,14 +11,16 @@ namespace GameEngine.Services
 {
     public class Manager
     {
+        private Scene _scene;
         private Random _random = new Random();
         private DispatcherTimer _runTimer;
 
 
         public static GameEvents Events { get; set; } = new GameEvents();
 
-        public Manager()
+        public Manager(Scene scene)
         {
+            _scene = scene;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
         }

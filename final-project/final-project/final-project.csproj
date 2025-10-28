@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="GameObjects\Covers.cs" />
     <Compile Include="GameServices\GameManager.cs" />
+    <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
