@@ -1,17 +1,86 @@
-﻿using System;
+﻿using GameEngine.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace GameEngine.Services
 {
     public abstract class Scene : Canvas
     {
-        public Scene() 
+        private List<GameObject> _gameObjects = new List<GameObject>();  //מאגר כל האובייקטים של המשחק
+        public double Ground { get; set; } //ריצפה
+        protected List<GameObject> _gameObjectsSnapshot => _gameObjects.ToList();   //העתק 
+        private static bool _was = false;
+        public Scene()
         {
-            
+            Manager.Events.OnRun = null;
+            Manager.Events.OnRun += Run;
+            Manager.Events.OnRun += CheckCollisional;
+
+        }
+        public void Init()                                                                        //הפעולה מחזירה את כל האובייקטים למיקום התחלתי
+        {
+            foreach (GameObject obj in _gameObjects)
+            {
+                obj.Init();
+            }
+        }
+        private void CheckCollisional()
+        {
+            foreach (var gameObject in _gameObjectsSnapshot)//עוברים על כל רשימת האובייקטים
+            {
+                if (gameObject.Collisional)             //אם האובייקט לא שקוף
+                {
+                    //מחפשים מופע ראשון של אובייקט, אשר הוא לא אותו האובייקט, הוא לא שקוף והוא נגע באובייקט הנוכחי
+                    var otherObject = _gameObjectsSnapshot.FirstOrDefault(g =>
+                                            !ReferenceEquals(g, gameObject) &&
+                                            g.Collisional &&
+                                            !RectHelper.Intersect(g.Rect(), gameObject.Rect()).IsEmpty);
+                    if (otherObject != null)  //אם קיים אוביקט כזה
+                    {
+                        //של אותו האובייקט, כלומר, אם הפעולה נקראת, זה אומר שבוודאות קרתה התנגשות. כל אובייקט רושם מחדש את הפעולה מפני שמגיב אחרת Collide אם האובייקט מתנגש עם אובייקט אחר, נקראת הפעולה  
+                        //כדי שיוכל להגיב באופן מיוחד Collide כל אובייקט ידרוס את הפעולה 
+                        gameObject.Collide(otherObject);
+                    }
+                }
+            }
+        }
+
+        private void Run()
+        {
+            foreach (var gameObject in _gameObjects)
+            {
+                if (gameObject is GameMovingObject moveObj)
+                {
+                    moveObj.Render();
+                }
+            }
+        }
+
+
+        public void RemoveObject(GameObject gameObject)           //הפעולה מוחקת אובייקט
+        {
+            if (_gameObjects.Contains(gameObject))           //האם האובייקט המבוקש נמצא ברשימה
+            {
+                _gameObjects.Remove(gameObject);           //מחיקתו מהמאגר
+                Children.Remove(gameObject.Image);         //מחיקת המראה של האובייקט מהמסך
+            }
+        }
+        public void RemoveAllObjects()                            //הפעולה מוחקת את כל האובייקטים
+        {
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                RemoveObject(gameObject);
+            }
+        }
+        public void AddObject(GameObject gameObject)  //הפעולה מוסיפה אובייקט אל המאגר ולמסך
+        {
+            _gameObjects.Add(gameObject);
+            Children.Add(gameObject.Image);
         }
     }
 }

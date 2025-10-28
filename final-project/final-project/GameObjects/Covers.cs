@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using GameEngine.Objects;
 
-namespace GameEngine.Objects
+namespace final_project.Objects
 {
     public class Covers : GameObject
     {
@@ -17,22 +18,22 @@ namespace GameEngine.Objects
             _coverType = type;
             if (type == CoverType.boxes)
             {
-                _image.Height = _image.Width * 0.6678;
+                Image.Height = Image.Width * 0.6678;
                 SetName("Covers/gameBoxes.png");
             }
             else if (type == CoverType.barrier)
             {
-                _image.Height = _image.Width * 0.66616;
+                Image.Height = Image.Width * 0.66616;
                 SetName("Models/Covers/gameBarrier.png");
             }
             else if (type == CoverType.canister)
             {
-                _image.Height = _image.Width * 1.678 / 2.5;
+                Image.Height = Image.Width * 1.678 / 2.5;
                 SetName("Models/Covers/gameCanister.png");
             }
             else
             {
-                _image.Height = _image.Width * 0.6675;
+                Image.Height = Image.Width * 0.6675;
                 SetName("Models/Covers/gameFoundation.png");
             }
             //RectangleHelper.DrawRectangle(_scene, _x, _y, _image.Width, _image.Height, Color.FromArgb(255, 0, 0, 255));
@@ -45,6 +46,15 @@ namespace GameEngine.Objects
                 _y = _y + _random.Next(-250, 250);
                 Render();
             }
+        }
+        public override void Render()
+        {
+            if (_x < 0 || _x > 1050 || _y < 0 || _y > 400)
+            {
+                this.Collisional = false;
+                SetName("Models/Covers/none");
+            }
+            base.Render();
         }
     }
 }

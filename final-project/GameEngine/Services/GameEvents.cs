@@ -7,14 +7,14 @@ using Windows.System;
 
 namespace GameEngine.Services
 {
-    public class Events
+    public class GameEvents
     {
         public Action<VirtualKey> OnKeyClick;
+        public Action OnRun;
         public Action<VirtualKey> OnKeyRelease;
-        public Action<double, double> OnMouseClick;
-        public Action OneSecPass;
         public Action<int, int> onUpdateScore;
-        public Events()
+        public Action<int> OnRemoveLifes;
+        public GameEvents()
         {
 
         }
