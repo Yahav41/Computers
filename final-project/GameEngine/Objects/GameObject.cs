@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameEngine.Services;
+using System;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,13 +16,11 @@ namespace GameEngine.Objects
         private double _placeY;
         public Image Image { get; set;}
         protected string _fileName;
-        protected Canvas _scene;
         public bool Collisional { get; set; } = true;
         public bool IsObjectCreated { get; set; } = false;
 
-        protected GameObject(Canvas scene,string fileName, double x, double y, double size)
+        protected GameObject(string fileName, double x, double y, double size)
         {
-            _scene = scene;
             _fileName = fileName;
             _x = x;
             _y = y;
@@ -31,7 +30,6 @@ namespace GameEngine.Objects
             Image.Width = size;
             Render();
             SetName(_fileName);
-            _scene.Children.Add(Image);
         }
 
         public void Init()
@@ -52,8 +50,8 @@ namespace GameEngine.Objects
 
         public virtual void Render() 
         {
-            Canvas.SetLeft(Image,_x);
-            Canvas.SetTop(Image,_y);
+            Scene.SetLeft(Image,_x);
+            Scene.SetTop(Image,_y);
             Rect();
         }
 

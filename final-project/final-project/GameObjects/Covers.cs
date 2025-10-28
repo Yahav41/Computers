@@ -13,7 +13,7 @@ namespace final_project.Objects
         public enum CoverType { boxes, barrier, canister, foundation }
         public CoverType _coverType { get; private set; }
         private Random _random = new Random();
-        public Covers(Canvas scene, CoverType type, double x, double y, double size) : base(scene, String.Empty, x, y, size)
+        public Covers(CoverType type, double x, double y, double size) : base(String.Empty, x, y, size)
         {
             _coverType = type;
             if (type == CoverType.boxes)
@@ -52,7 +52,7 @@ namespace final_project.Objects
             if (_x < 0 || _x > 1050 || _y < 0 || _y > 400)
             {
                 this.Collisional = false;
-                SetName("Models/Covers/none");
+                SetName(" ");
             }
             base.Render();
         }

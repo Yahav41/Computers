@@ -11,10 +11,10 @@ namespace GameEngine.Services
 {
     public abstract class Scene : Canvas
     {
-        private List<GameObject> _gameObjects = new List<GameObject>();  //מאגר כל האובייקטים של המשחק
+        protected List<GameObject> _gameObjects = new List<GameObject>();  //מאגר כל האובייקטים של המשחק
         public double Ground { get; set; } //ריצפה
         protected List<GameObject> _gameObjectsSnapshot => _gameObjects.ToList();   //העתק 
-        private static bool _was = false;
+        protected static bool _was = false;
         public Scene()
         {
             Manager.Events.OnRun = null;

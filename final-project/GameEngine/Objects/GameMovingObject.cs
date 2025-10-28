@@ -13,7 +13,7 @@ namespace GameEngine.Objects
         protected double _speedY;
         protected double _accelerationX;
         protected double _accelerationY;
-        protected GameMovingObject(Canvas scene, string fileName, double x, double y, double size) : base(scene, fileName, x, y, size)
+        protected GameMovingObject(string fileName, double x, double y, double size) : base(fileName, x, y, size)
         {
             Stop();
         }
