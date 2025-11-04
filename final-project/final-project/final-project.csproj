@@ -228,6 +228,10 @@
     <Content Include="Assets\Models\Players\rifle\rifle-reload.gif" />
     <Content Include="Assets\Models\Players\rifle\rifle-shoot.gif" />
     <Content Include="Assets\Models\Players\rifle\rifle-walk.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-idle.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-reload.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-shoot.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-walk.gif" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -273,9 +277,7 @@
       <Name>GameEngine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Models\Players\shotgun\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

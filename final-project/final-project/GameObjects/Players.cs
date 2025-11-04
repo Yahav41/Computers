@@ -12,7 +12,7 @@ namespace final_project.GameObjects
 {
     public class Players : GameMovingObject
     {
-        public enum PlayerType { rifle, pistol, archer }
+        public enum PlayerType { rifle, pistol, shotgun }
         public enum PlayerState { idle, moving, shooting, reloading}
 
         private PlayerType _playerType { get; set; }
@@ -30,11 +30,11 @@ namespace final_project.GameObjects
             }
             else if (playerType == PlayerType.pistol)
             {
-                SetName("Models/Players/rifle/rifle-idle.gif");
+                SetName("Models/Players/pistol/pistol-idle.gif");
             }
             else
             {
-                SetName("Models/Players/archer/.png");
+                SetName("Models/Players/shotgun/shotgun-idle.gif");
             }
             Image.Rotation= isLeft ? 0 : 180;
             Manager.Events.OnKeyClick += Move;
