@@ -1,4 +1,5 @@
-﻿using final_project.Objects;
+﻿using final_project.GameObjects;
+using final_project.Objects;
 using GameEngine;
 using GameEngine.Services;
 using System;
@@ -13,7 +14,6 @@ namespace final_project.GameServices
     public class GameManager : Manager
     {
         private GameScene _scene;
-        private Random _random = new Random();
         public GameManager(GameScene scene) : base(scene)
         {
             _scene = scene;
@@ -26,6 +26,8 @@ namespace final_project.GameServices
             {
                 _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100));
             }
+            _scene.AddObject(new Players(Players.PlayerType.rifle, true, 50, 200, 80));
+            _scene.AddObject(new Players(Players.PlayerType.archer, false, 400, 400, 80));
         }
     }
 }

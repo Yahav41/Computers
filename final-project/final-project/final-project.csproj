@@ -120,6 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\Covers.cs" />
+    <Compile Include="GameObjects\Players.cs" />
+    <Compile Include="GameServices\GameKeys.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="Pages\GamePage.xaml.cs">
@@ -218,6 +220,14 @@
     <Content Include="Assets\Models\Covers\gameBoxes.png" />
     <Content Include="Assets\Models\Covers\gameCanister.png" />
     <Content Include="Assets\Models\Covers\gameFoundation.png" />
+    <Content Include="Assets\Models\Players\pistol\pistol-idle.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-reload.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-shoot.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-walk.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-idle.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-reload.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-shoot.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-walk.gif" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -263,7 +273,9 @@
       <Name>GameEngine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Models\Players\shotgun\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

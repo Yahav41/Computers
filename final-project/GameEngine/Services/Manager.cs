@@ -12,8 +12,9 @@ namespace GameEngine.Services
     public class Manager
     {
         private Scene _scene;
-        private Random _random = new Random();
+        protected Random _random = new Random();
         private DispatcherTimer _runTimer;
+        protected GameEvents _gameEvents { get; set;}
 
 
         public static GameEvents Events { get; set; } = new GameEvents();
@@ -23,6 +24,16 @@ namespace GameEngine.Services
             _scene = scene;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+
+            _runTimer = new DispatcherTimer();
+            _runTimer.Interval += TimeSpan.FromMilliseconds(0.01);
+            _runTimer.Start();
+            _runTimer.Tick += _runTimer_Tick;
+        }
+
+        private void _runTimer_Tick(object sender, object e)
+        {
+            Events.OnRun();
         }
 
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
