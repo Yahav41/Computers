@@ -120,7 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\Covers.cs" />
+    <Compile Include="GameObjects\PistolPlayer.cs" />
     <Compile Include="GameObjects\Players.cs" />
+    <Compile Include="GameServices\GameConstants.cs" />
     <Compile Include="GameServices\GameKeys.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />

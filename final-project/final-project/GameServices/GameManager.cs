@@ -26,8 +26,8 @@ namespace final_project.GameServices
             {
                 _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100));
             }
-            _scene.AddObject(new Players(Players.PlayerType.rifle, true, 50, 200, 80));
-            _scene.AddObject(new Players(Players.PlayerType.pistol, false, 400, 400, 80));
+            _scene.AddObject(new PistolPlayer(50, 200, 80, false));
+            _scene.AddObject(new PistolPlayer(400, 400, 80,true));
         }
     }
 }

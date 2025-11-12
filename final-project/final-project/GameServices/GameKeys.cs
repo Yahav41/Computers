@@ -7,7 +7,7 @@ using Windows.System;
 
 namespace final_project.GameServices
 {
-    public static class ControlKeys
+    public static class GameKeys
     {
         public static VirtualKey LeftPlayerLeft
         { get; set; } = VirtualKey.A;

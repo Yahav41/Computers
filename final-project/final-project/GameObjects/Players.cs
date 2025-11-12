@@ -1,6 +1,7 @@
 ﻿using final_project.GameServices;
 using GameEngine.Objects;
 using GameEngine.Services;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,48 +11,30 @@ using Windows.System;
 
 namespace final_project.GameObjects
 {
-    public class Players : GameMovingObject
+    public abstract class Players : GameMovingObject
     {
-        public enum PlayerType { rifle, pistol, shotgun }
         public enum PlayerState { idle, moving, shooting, reloading}
+        protected PlayerState _playerState { get; set; }
 
-        private PlayerType _playerType { get; set; }
-        private PlayerState _playerState { get; set; }
-        private bool _isLeft;
-        public Players(PlayerType playerType, bool isLeft, double x, double y, double size) : base(string.Empty, x, y, size)
+        public double angle { get; set; } =0;
+        public bool _isLeft { get; set; }
+        public Players(double x, double y, double size, bool isLeft) : base(string.Empty, x, y, size)
         {
-            _playerType = playerType;
             _playerState = PlayerState.idle;
-            _isLeft = isLeft;
-
-            if (playerType == PlayerType.rifle)
-            {
-                SetName("Models/Players/rifle/rifle-idle.gif");
-            }
-            else if (playerType == PlayerType.pistol)
-            {
-                SetName("Models/Players/pistol/pistol-idle.gif");
-            }
-            else
-            {
-                SetName("Models/Players/shotgun/shotgun-idle.gif");
-            }
-            Image.Rotation= isLeft ? 0 : 180;
             Manager.Events.OnKeyClick += Move;
             Manager.Events.OnKeyRelease += Stop;
+            _isLeft = isLeft;
         }
 
-        private void Stop(VirtualKey key)
+        protected void Stop(VirtualKey key)
         {
-            if (_isLeft)
-            {
-                if (key == ControlKeys.LeftPlayerReload) return;
+                if (key == GameKeys.LeftPlayerReload) return;
                 var state = _playerState;
-                if (key == ControlKeys.LeftPlayerLeft || key == ControlKeys.LeftPlayerRight)
+                if (key == GameKeys.LeftPlayerLeft || key == GameKeys.LeftPlayerRight)
                 {
                     _speedX = 0;
                 }
-                if (key == ControlKeys.LeftPlayerUp || key == ControlKeys.LeftPlayerDown)
+                if (key == GameKeys.LeftPlayerUp || key == GameKeys.LeftPlayerDown)
                 {
                     _speedY = 0;
                 }
@@ -63,22 +46,69 @@ namespace final_project.GameObjects
                         MatchImageToState();
                     }
                 }
-            }
         }
 
-        private void MatchImageToState()
+        protected virtual void MatchImageToState()
         {
-            switch (_playerState)
-            {
-                case PlayerState.idle:  break;
-            }
+            
         }
 
 
 
-        private void Move(VirtualKey key)
+        protected virtual void Move(VirtualKey key)
         {
-            throw new NotImplementedException();
+            
         }
+        protected void Shoot()
+        {
+            var state = _playerState;
+            _speedX = _speedY = 0;
+            _playerState = PlayerState.shooting;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+
+        protected void Reload()
+        {
+            var state = _playerState;
+            _speedY = _speedX = 0;
+            _playerState = PlayerState.reloading;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+
+        protected void RunLeft()
+        {
+            var state = _playerState;
+            _speedX = -GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunRight()
+        {
+            var state = _playerState;
+            _speedX = GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunUp()
+        {
+            var state = _playerState;
+            _speedY = -GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunDown()
+        {
+            var state = _playerState;
+            _speedY = GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+
     }
 }
