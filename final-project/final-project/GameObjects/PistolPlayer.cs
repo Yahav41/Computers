@@ -34,5 +34,63 @@ namespace final_project.GameObjects
                     break;
             }
         }
+
+        protected override void Move(Windows.System.VirtualKey key)
+        {
+            if (_isLeft)
+            {
+                if (key == GameKeys.LeftPlayerLeft)
+                {
+                    RunLeft();
+                }
+                else if (key == GameKeys.LeftPlayerRight)
+                {
+                    RunRight();
+                }
+                else if (key == GameKeys.LeftPlayerUp)
+                {
+                    RunUp();
+                }
+                else if (key == GameKeys.LeftPlayerDown)
+                {
+                    RunDown();
+                }
+                else if (key == GameKeys.LeftPlayerShoot)
+                {
+                    Shoot();
+                }
+                else if (key == GameKeys.LeftPlayerReload)
+                {
+                    Reload();
+                }
+            }
+            else
+            {
+                if (key == GameKeys.RightPlayerLeft)
+                {
+                    RunLeft();
+                }
+                else if (key == GameKeys.RightPlayerRight)
+                {
+                    RunRight();
+                }
+                else if (key == GameKeys.RightPlayerUp)
+                {
+                    RunUp();
+                }
+                else if (key == GameKeys.RightPlayerDown)
+                {
+                    RunDown();
+                }
+                else if (key == GameKeys.RightPlayerShoot)
+                {
+                    Shoot();
+                }
+                else if (key == GameKeys.RightPlayerReload)
+                {
+                    Reload();
+                }
+            }
+        }
     }
 }

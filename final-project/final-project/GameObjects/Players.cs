@@ -28,10 +28,8 @@ namespace final_project.GameObjects
 
         protected void Stop(VirtualKey key)
         {
-            var state = _playerState;
-            if ((_isLeft))
-            {
                 if (key == GameKeys.LeftPlayerReload) return;
+                var state = _playerState;
                 if (key == GameKeys.LeftPlayerLeft || key == GameKeys.LeftPlayerRight)
                 {
                     _speedX = 0;
@@ -40,28 +38,14 @@ namespace final_project.GameObjects
                 {
                     _speedY = 0;
                 }
-            }
-            else
-            {
-                if (key == GameKeys.RightPlayerReload) return;
-                if (key == GameKeys.RightPlayerLeft || key == GameKeys.RightPlayerRight)
+                if (_speedX == 0 && _speedY == 0)
                 {
-                    _speedX = 0;
+                    _playerState = PlayerState.idle;
+                    if (state != _playerState)
+                    {
+                        MatchImageToState();
+                    }
                 }
-                if (key == GameKeys.RightPlayerUp || key == GameKeys.RightPlayerDown)
-                {
-                    _speedY = 0;
-                }
-            }
-            if (_speedX == 0 && _speedY == 0)
-            {
-                _playerState = PlayerState.idle;
-                if (state != _playerState)
-                {
-                    MatchImageToState();
-                }
-            }
-
         }
 
         protected virtual void MatchImageToState()
@@ -71,62 +55,9 @@ namespace final_project.GameObjects
 
 
 
-        protected void Move(VirtualKey key)
+        protected virtual void Move(VirtualKey key)
         {
-            if (_isLeft)
-            {
-                if (key == GameKeys.LeftPlayerLeft)
-                {
-                    RunLeft();
-                }
-                else if (key == GameKeys.LeftPlayerRight)
-                {
-                    RunRight();
-                }
-                else if (key == GameKeys.LeftPlayerUp)
-                {
-                    RunUp();
-                }
-                else if (key == GameKeys.LeftPlayerDown)
-                {
-                    RunDown();
-                }
-                else if (key == GameKeys.LeftPlayerShoot)
-                {
-                    Shoot();
-                }
-                else if (key == GameKeys.LeftPlayerReload)
-                {
-                    Reload();
-                }
-            }
-            else
-            {
-                if (key == GameKeys.RightPlayerLeft)
-                {
-                    RunLeft();
-                }
-                else if (key == GameKeys.RightPlayerRight)
-                {
-                    RunRight();
-                }
-                else if (key == GameKeys.RightPlayerUp)
-                {
-                    RunUp();
-                }
-                else if (key == GameKeys.RightPlayerDown)
-                {
-                    RunDown();
-                }
-                else if (key == GameKeys.RightPlayerShoot)
-                {
-                    Shoot();
-                }
-                else if (key == GameKeys.RightPlayerReload)
-                {
-                    Reload();
-                }
-            }
+            
         }
         protected void Shoot()
         {
