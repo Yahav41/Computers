@@ -1,17 +1,16 @@
 ﻿using final_project.GameServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Windows.Foundation;
 
 namespace final_project.GameObjects
 {
     public class PistolPlayer : Players
     {
-        public PistolPlayer(double x, double y, double size, bool isLeft) : base(x, y, size,isLeft)
+        public PistolPlayer(double x, double y,GameScene scene ,bool isLeft) : base(x, y, 80,scene,isLeft)
         {
             SetName("Models/Players/pistol/pistol-idle.gif");
+            shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(500);
+            localOffsetX = 40f;
+            localOffsetY = 15f;
         }
 
         protected override void MatchImageToState()

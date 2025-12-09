@@ -85,5 +85,58 @@
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>
+        <Grid x:Name="WinGrid" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="21" Grid.RowSpan="18" Visibility="Collapsed" Background="white">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/BackButton.png"></Image>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="7" Grid.RowSpan="3">
+                    <TextBlock x:Name="WinnerTextBlock" Text="Player X Wins!" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+                </Viewbox>
+        </Grid>
     </Grid>
 </Page>

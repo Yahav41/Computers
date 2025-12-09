@@ -13,7 +13,7 @@ namespace GameEngine.Services
         public Action OnRun;
         public Action<VirtualKey> OnKeyRelease;
         public Action<int, int> onUpdateScore;
-        public Action<int> OnRemoveLifes;
+        public Action<bool, int> OnRemoveLifes;
         public GameEvents()
         {
 

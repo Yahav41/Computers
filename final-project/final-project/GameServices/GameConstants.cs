@@ -9,6 +9,6 @@ namespace final_project.GameServices
     public static class GameConstants
     {
         public static double playerSpeed = 3;
-        public static double bulletSpeed = 4;
+        public static double bulletSpeed = 7;
     }
 }

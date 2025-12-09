@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
+using Windows.UI;
+using Windows.UI.Xaml;
 
 namespace final_project.GameObjects
 {
@@ -18,12 +20,39 @@ namespace final_project.GameObjects
 
         public double angle { get; set; } =0;
         public bool _isLeft { get; set; }
-        public Players(double x, double y, double size, bool isLeft) : base(string.Empty, x, y, size)
+        protected GameScene _scene;
+        protected DispatcherTimer shootTimerFirst;
+        protected float localOffsetX;
+        protected float localOffsetY;
+        public Players(double x, double y, double size,GameScene scene, bool isLeft) : base(string.Empty, x, y, size)
         {
             _playerState = PlayerState.idle;
             Manager.Events.OnKeyClick += Move;
             Manager.Events.OnKeyRelease += Stop;
             _isLeft = isLeft;
+            _scene = scene;
+
+            shootTimerFirst = new DispatcherTimer();
+            shootTimerFirst.Tick += ShootTimerFirst_Tick;
+            Image.CenterPoint = new System.Numerics.Vector3((float)(Image.Width* 1/ 2), (float)(Image.Height* 1 / 2), 0);
+        }
+        
+        protected virtual void ShootTimerFirst_Tick(object sender, object e)
+        {
+            var rect = Rect();
+            float centerX = (float)(rect.Left + rect.Width / 2f);
+            float centerY = (float)(rect.Top + rect.Height / 2f);
+
+            float cosA = (float)Math.Cos(angle);
+            float sinA = (float)Math.Sin(angle);
+
+            float rotatedOffsetX = localOffsetX * cosA - localOffsetY * sinA;
+            float rotatedOffsetY = localOffsetX * sinA + localOffsetY * cosA;
+
+            float muzzleX = centerX + rotatedOffsetX;
+            float muzzleY = centerY + rotatedOffsetY;
+            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene));
+
         }
 
         protected void Stop(VirtualKey key)
@@ -32,6 +61,11 @@ namespace final_project.GameObjects
             if ((_isLeft))
             {
                 if (key == GameKeys.LeftPlayerReload) return;
+                if (key == GameKeys.LeftPlayerShoot)
+                {
+                    
+                    shootTimerFirst.Stop();
+                }
                 if (key == GameKeys.LeftPlayerLeft || key == GameKeys.LeftPlayerRight)
                 {
                     _speedX = 0;
@@ -44,6 +78,11 @@ namespace final_project.GameObjects
             else
             {
                 if (key == GameKeys.RightPlayerReload) return;
+                if (key == GameKeys.RightPlayerShoot)
+                {
+                    
+                    shootTimerFirst.Stop();
+                }
                 if (key == GameKeys.RightPlayerLeft || key == GameKeys.RightPlayerRight)
                 {
                     _speedX = 0;
@@ -73,6 +112,7 @@ namespace final_project.GameObjects
 
         protected void Move(VirtualKey key)
         {
+            IsObjectCreated = true;
             if (_isLeft)
             {
                 if (key == GameKeys.LeftPlayerLeft)
@@ -94,6 +134,7 @@ namespace final_project.GameObjects
                 else if (key == GameKeys.LeftPlayerShoot)
                 {
                     Shoot();
+                    
                 }
                 else if (key == GameKeys.LeftPlayerReload)
                 {
@@ -135,6 +176,7 @@ namespace final_project.GameObjects
             _playerState = PlayerState.shooting;
             if (state != _playerState)
                 MatchImageToState();
+            shootTimerFirst.Start();
         }
 
         protected void Reload()
@@ -178,6 +220,22 @@ namespace final_project.GameObjects
             if (state != _playerState)
                 MatchImageToState();
         }
-
+        public override void Render()
+        {
+            base.Render();
+            angle = Image.Rotation * Math.PI /180;
+            if (IsObjectCreated)
+            {
+                RectangleHelper.DrawRectangle(_scene, _x, _y, Image.Width, Image.Height, Colors.BlueViolet);
+            }
+        }
+        public override void Collide(GameObject gameObject)
+        {
+            if (gameObject is Bullets)
+            {
+                Manager.Events.OnRemoveLifes(_isLeft, 10);
+               _scene.RemoveObject(gameObject);
+            }
+        }
     }
 }

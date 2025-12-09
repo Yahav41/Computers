@@ -1,4 +1,5 @@
 ﻿using final_project.GameServices;
+using GameEngine.Services;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -29,6 +30,29 @@ namespace final_project.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _manager = new GameManager(scene);
+            Manager.Events.OnRemoveLifes += removeLives;
+        }
+
+        private void removeLives(bool isLeft, int Lives)
+        {
+            if(isLeft)
+            {
+                LeftPlayerHealth.Value -= Lives;
+            }
+            else
+            {
+                RightPlayerHealth.Value -= Lives;
+            }
+            if(LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
+            {
+                WinGrid.Visibility = Visibility.Visible;
+                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value ? "LeftPlayerWins" : "RightPlayerWins";
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

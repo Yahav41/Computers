@@ -25,6 +25,7 @@ namespace final_project.Pages
     {
         private Login _login;
         private SignUp _signUp;
+        
         public MainMenuPage()
         {
             this.InitializeComponent();
@@ -54,12 +55,17 @@ namespace final_project.Pages
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {
-            HelpGrid.Visibility = HelpGrid.Visibility == Visibility.Visible? Visibility.Collapsed:Visibility.Visible;
+            HelpGrid.Visibility = HelpGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             HelpGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
