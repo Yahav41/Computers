@@ -10,5 +10,6 @@ namespace final_project.GameServices
     {
         public static double playerSpeed = 3;
         public static double bulletSpeed = 7;
+        public static int pistolBullets = 6;
     }
 }

@@ -14,6 +14,8 @@ namespace GameEngine.Services
         public Action<VirtualKey> OnKeyRelease;
         public Action<int, int> onUpdateScore;
         public Action<bool, int> OnRemoveLifes;
+        public Action<bool> onBulletShot;
+        public Action<bool> onReload;
         public GameEvents()
         {
 

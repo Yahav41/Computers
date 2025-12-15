@@ -31,7 +31,7 @@ namespace GameEngine.Services
             _runTimer.Tick += _runTimer_Tick;
         }
 
-        private void _runTimer_Tick(object sender, object e)
+        protected virtual void _runTimer_Tick(object sender, object e)
         {
             Events.OnRun();
         }

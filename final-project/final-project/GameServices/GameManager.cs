@@ -25,11 +25,15 @@ namespace final_project.GameServices
         {
             for (int i = 1; i <= 15; i++)
             {
-                _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100));
+               // _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100));
             }
             _scene.AddObject(new RiflePlayer(400, 200,_scene,true));
             _scene.AddObject(new PistolPlayer(400, 400, _scene,false));
         }
-        
+
+        public int getBullets(bool isLeft)
+        {
+            return _scene.getPlayer(isLeft)._bullets;
+        }
     }
 }

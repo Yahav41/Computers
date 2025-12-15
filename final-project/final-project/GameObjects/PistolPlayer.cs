@@ -5,7 +5,7 @@ namespace final_project.GameObjects
 {
     public class PistolPlayer : Players
     {
-        public PistolPlayer(double x, double y,GameScene scene ,bool isLeft) : base(x, y, 80,scene,isLeft)
+        public PistolPlayer(double x, double y,GameScene scene ,bool isLeft) : base(x, y, 80,scene,isLeft,6)
         {
             SetName("Models/Players/pistol/pistol-idle.gif");
             shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(500);

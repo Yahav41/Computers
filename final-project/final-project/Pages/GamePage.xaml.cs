@@ -30,10 +30,40 @@ namespace final_project.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _manager = new GameManager(scene);
-            Manager.Events.OnRemoveLifes += removeLives;
+            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            Manager.Events.OnRemoveLifes += RemoveLives;
+            Manager.Events.onBulletShot += BulletShot;
+            Manager.Events.onReload += Reload;
         }
 
-        private void removeLives(bool isLeft, int Lives)
+        private void Reload(bool obj)
+        {
+            if(obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void BulletShot(bool obj)
+        {
+            if (obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void RemoveLives(bool isLeft, int Lives)
         {
             if(isLeft)
             {
@@ -52,7 +82,7 @@ namespace final_project.Pages
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.GoBack();
         }
     }
 }

@@ -36,6 +36,11 @@ namespace final_project.GameServices
             _leftPlayer.Image.Rotation = (float)(angle - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
             _rightPlayer.Image.Rotation = (float)(angle + 180 - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
         }
+
+        public Players getPlayer(bool isLeft)
+        {
+            return isLeft ? (Players)_gameObjects.FirstOrDefault(p => p is Players) : (Players)_gameObjects.LastOrDefault(p => p is Players);
+        }
         private Vector2 GetBulletStartPosition(Players player, double angle)
         {
             // Center of the player sprite

@@ -9,7 +9,7 @@ namespace final_project.GameObjects
 {
     public class RiflePlayer : Players
     {
-        public RiflePlayer(double x, double y, GameScene scene, bool isLeft) : base(x, y, 120, scene, isLeft)
+        public RiflePlayer(double x, double y, GameScene scene, bool isLeft) : base(x, y, 100, scene, isLeft,30)
         {
             SetName("Models/Players/rifle/rifle-idle.gif");
             shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(300);
