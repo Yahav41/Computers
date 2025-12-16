@@ -73,6 +73,9 @@ namespace final_project.GameObjects
 
         protected void Stop(VirtualKey key)
         {
+            var state = _playerState;
+            if ((_isLeft))
+            {
                 if (key == GameKeys.LeftPlayerReload) return;
                 if (key == GameKeys.LeftPlayerShoot)
                 {
@@ -123,7 +126,7 @@ namespace final_project.GameObjects
 
 
 
-        protected virtual void Move(VirtualKey key)
+        protected void Move(VirtualKey key)
         {
             IsObjectCreated = true;
             if (_isLeft)
