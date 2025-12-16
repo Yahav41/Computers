@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,6 +23,7 @@ namespace final_project.Pages
     /// </summary>
     public sealed partial class ModePage : Page
     {
+        private Registration _registration;
         public ModePage()
         {
             this.InitializeComponent();
@@ -39,7 +41,13 @@ namespace final_project.Pages
 
         private void OnlineButton_Click(object sender, RoutedEventArgs e)
         {
-
+            StartReg();
+            Frame.Navigate(typeof(GamePage));
+        }
+        private async Task StartReg()
+        {
+            _registration = new Registration();
+            await _registration.ShowAsync();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

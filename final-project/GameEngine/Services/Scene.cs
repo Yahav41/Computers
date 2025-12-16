@@ -52,7 +52,7 @@ namespace GameEngine.Services
 
         private void Run()
         {
-            foreach (var gameObject in _gameObjects)
+            foreach (var gameObject in _gameObjectsSnapshot)
             {
                 if (gameObject is GameMovingObject moveObj)
                 {

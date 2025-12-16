@@ -10,8 +10,8 @@ namespace GameEngine.Objects
 {
     public abstract class GameObject
     {
-        protected double _x;
-        protected double _y;
+        public double _x;
+        public double _y;
         private double _placeX;
         private double _placeY;
         public Image Image { get; set;}
@@ -28,6 +28,7 @@ namespace GameEngine.Objects
             _placeY = y;
             Image = new Image();
             Image.Width = size;
+            Image.Height = size*0.738;
             Render();
             SetName(_fileName);
         }
