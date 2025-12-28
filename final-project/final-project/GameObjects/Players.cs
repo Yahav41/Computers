@@ -57,8 +57,13 @@ namespace final_project.GameObjects
 
             float muzzleX = centerX + rotatedOffsetX;
             float muzzleY = centerY + rotatedOffsetY;
-            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene));
+            ShootBullet(muzzleX,muzzleY);
             BulletShot();
+        }
+
+        protected virtual void ShootBullet(float muzzleX, float muzzleY)
+        {
+            
         }
 
         private void BulletShot()
@@ -245,15 +250,32 @@ namespace final_project.GameObjects
             angle = Image.Rotation * Math.PI /180;
             if (IsObjectCreated)
             {
-               // RectangleHelper.DrawRectangle(_scene, _x, _y, Image.Width, Image.Height, Colors.BlueViolet);
+                //RectangleHelper.DrawRectangle(_scene, _x, _y, Image.Width, Image.Height, Colors.BlueViolet);
+            }
+            if(_x < 0)
+            {
+                _x = 10;
+            }
+            if(_x > 1150 - Image.Width)
+            {
+                _x = 1150 - (float)Image.Width - 10;
+            }
+            if(_y < 0)
+            {
+                _y = 10;
+            }
+            if(_y > 475 - Image.Height)
+            {
+                _y = 475 - (float)Image.Height - 10;
             }
         }
         public override void Collide(GameObject gameObject)
         {
             if (gameObject is Bullets)
             {
-                Manager.Events.OnRemoveLifes(_isLeft, 1);
-               _scene.RemoveObject(gameObject);
+                var b = gameObject as Bullets;
+                Manager.Events.OnRemoveLifes(_isLeft,b._damage);
+               _scene.RemoveObject(b);
             }
         }
     }

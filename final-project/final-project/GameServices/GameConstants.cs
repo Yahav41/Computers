@@ -1,4 +1,5 @@
-﻿using System;
+﻿using final_project.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace final_project.GameServices
         public static double playerSpeed = 3;
         public static double bulletSpeed = 7;
         public static int pistolBullets = 6;
+        public static int leftPlayer;
+        public static int rightPlayer;
     }
 }

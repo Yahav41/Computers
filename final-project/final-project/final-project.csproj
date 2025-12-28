@@ -124,6 +124,7 @@
     <Compile Include="GameObjects\PistolPlayer.cs" />
     <Compile Include="GameObjects\Players.cs" />
     <Compile Include="GameObjects\RiflePlayer.cs" />
+    <Compile Include="GameObjects\ShotgunPlayer.cs" />
     <Compile Include="GameServices\GameConstants.cs" />
     <Compile Include="GameServices\GameKeys.cs" />
     <Compile Include="GameServices\GameManager.cs" />

@@ -16,7 +16,8 @@ namespace final_project.Objects
         public enum CoverType { boxes, barrier, canister, foundation }
         public CoverType _coverType { get; private set; }
         private Random _random = new Random();
-        public Covers(CoverType type, double x, double y, double size) : base(String.Empty, x, y, size)
+        private GameScene _scene;
+        public Covers(CoverType type, double x, double y, double size, GameScene scene) : base(String.Empty, x, y, size)
         {
             _coverType = type;
             if (type == CoverType.boxes)
@@ -39,6 +40,7 @@ namespace final_project.Objects
                 Image.Height = Image.Width * 0.6675;
                 SetName("Models/Covers/gameFoundation.png");
             }
+            _scene = scene;
             //RectangleHelper.DrawRectangle(_scene, _x, _y, _image.Width, _image.Height, Color.FromArgb(255, 0, 0, 255));
         }
         public override void Collide(GameObject gameObject)
@@ -54,8 +56,7 @@ namespace final_project.Objects
         {
             if (_x < 0 || _x > 1050 || _y < 0 || _y > 400)
             {
-                this.Collisional = false;
-                SetName(" ");
+                _scene.RemoveObject(this);
             }
             base.Render();
         }

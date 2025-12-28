@@ -94,6 +94,17 @@
                 <Image Source="/Assets/Buttons/BackButton.png"></Image>
             </Button>
         </Viewbox>
-
+        <Viewbox Grid.Row="18" Grid.Column="4" Grid.ColumnSpan="4">
+            <Button x:Name="NextButton1" Content="Next Character" Click="NextImageButton_Click"/>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="4" >
+            <Image x:Name="ChosenImage1" Width="150" Height="150" Stretch="Uniform" Source="/Assets/Models/Players/pistol/pistol-walk.gif" Margin="0"/>
+        </Viewbox>
+        <Viewbox Grid.Row="18" Grid.Column="18" Grid.ColumnSpan="4">
+            <Button x:Name="NextButton2" Content="Next Character" Click="NextImageButton_Click"/>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="18" Grid.RowSpan="8" Grid.ColumnSpan="4" >
+            <Image x:Name="ChosenImage2" Width="150" FlowDirection="RightToLeft" Height="150" Stretch="Uniform" Source="/Assets/Models/Players/pistol/pistol-walk.gif" Margin="0"/>
+        </Viewbox>
     </Grid>
 </Page>

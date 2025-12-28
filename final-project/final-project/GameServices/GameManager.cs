@@ -25,10 +25,36 @@ namespace final_project.GameServices
         {
             for (int i = 1; i <= 15; i++)
             {
-               // _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100));
+                _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100,_scene));
             }
-            _scene.AddObject(new RiflePlayer(400, 200,_scene,true));
-            _scene.AddObject(new PistolPlayer(400, 400, _scene,false));
+            switch (GameConstants.leftPlayer)
+            {
+                case 0:
+                    _scene.AddObject(new PistolPlayer(100, 200, _scene, true));
+                    break;
+                case 1:
+                    _scene.AddObject(new RiflePlayer(100, 200, _scene, true));
+                    break;
+                case 2:
+                    _scene.AddObject(new ShotgunPlayer(100, 200, _scene, true));
+                    break;
+                default:
+                    throw new Exception("Invalid left player selection");
+            }
+            switch (GameConstants.rightPlayer)
+            {
+                case 0:
+                    _scene.AddObject(new PistolPlayer(800, 200, _scene, false));
+                    break;
+                case 1:
+                    _scene.AddObject(new RiflePlayer(800, 200, _scene, false));
+                    break;
+                case 2:
+                    _scene.AddObject(new ShotgunPlayer(800, 200, _scene, false));
+                    break;
+                default:
+                    throw new Exception("Invalid left player selection");
+            }
         }
 
         public int getBullets(bool isLeft)

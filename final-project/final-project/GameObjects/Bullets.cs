@@ -13,15 +13,17 @@ namespace final_project.GameObjects
     public class Bullets : GameMovingObject
     {
         GameScene _scene;
-        public Bullets(float angle,double x, double y, double size, GameScene scene) : base(String.Empty, x, y, size)
+        public int _damage;
+        public Bullets(float angle,double x, double y, double size, GameScene scene, int damage) : base(String.Empty, x, y, size)
         {
             Collisional = false;
             _scene = scene;
             SetName("Models/Bullet/bullet.png");
             Image.CenterPoint = new System.Numerics.Vector3((float)(Image.Width * 1 / 2), (float)(Image.Height * 1 / 2), 0);
-            Image.Rotation = angle+90;
+            Image.Rotation = angle + 90;
             SetSpeed(angle);
             ActivateCollision();
+            _damage = damage;
         }
 
         private async Task ActivateCollision()

@@ -12,7 +12,10 @@ namespace final_project.GameObjects
             localOffsetX = 40f;
             localOffsetY = 15f;
         }
-
+        protected override void ShootBullet(float muzzleX, float muzzleY)
+        {
+            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene,10));
+        }
         protected override void MatchImageToState()
         {
             switch (_playerState)
