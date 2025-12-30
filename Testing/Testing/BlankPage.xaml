@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Testing.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Testing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Padding="20">
+            <TextBox x:Name="MyPortTextBox"
+             Header="My UDP Port"
+             Text="5000"/>
+
+            <TextBox x:Name="PeerIpTextBox"
+             Header="Peer IP"
+             Text="192.168.1.20"/>
+
+            <TextBox x:Name="PeerPortTextBox"
+             Header="Peer UDP Port"
+             Text="5001"/>
+
+            <Button Content="Init Socket"
+            Click="InitSocket_Click"/>
+
+            <TextBox x:Name="MessageToSendTextBox"
+             Header="Message"
+             Text="Hello from me"/>
+
+            <Button Content="Send"
+            Click="Send_Click"/>
+
+            <TextBlock x:Name="LogTextBlock"
+               TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Page>

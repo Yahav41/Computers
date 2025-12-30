@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="Testing.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Testing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Padding="20">
+            <TextBox x:Name="HostIpTextBox"
+             Header="Host IP (for client)"
+             Text="192.168.1.10"/>
+            <TextBox x:Name="PortTextBox"
+             Header="Port"
+             Text="5000"/>
+
+            <Button Content="Start Host"
+            Click="StartHost_Click"/>
+            <Button Content="Start Client"
+            Click="StartClient_Click"/>
+
+            <TextBox x:Name="MessageToSendTextBox"
+             Header="Message"
+             Text="Hello from client/host"/>
+            <Button Content="Send"
+            Click="Send_Click"/>
+
+            <TextBlock x:Name="LogTextBlock"
+               TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Page>
