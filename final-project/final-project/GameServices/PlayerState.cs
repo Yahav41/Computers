@@ -24,18 +24,15 @@ namespace final_project.GameServices
         [JsonProperty("vy")]
         public double VelocityY { get; set; }
 
-        [JsonProperty("shoot")]
-        public string Shoot { get; set; }
-
-        [JsonProperty("reload")]
-        public string Reload { get; set; }
+        [JsonProperty("action")]
+        public string Action { get; set; }
 
         [JsonProperty("timestamp")]
         public long Timestamp { get; set; }
 
         public override string ToString()
         {
-            return $"Player {PlayerId}: X={X:F2}, Y={Y:F2}, shoot={Shoot}, reload={Reload}";
+            return $"Player {PlayerId}: X={X:F2}, Y={Y:F2}, action={Action}";
         }
     }
 }
