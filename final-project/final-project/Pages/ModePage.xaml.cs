@@ -35,7 +35,7 @@ namespace final_project.Pages
 
         private void OfflineButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage));
+            Frame.Navigate(typeof(GamePage_Client));
         }
 
         private void LocalButton_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,7 @@ namespace final_project.Pages
 
         private void OnlineButton_Click(object sender, RoutedEventArgs e)
         {
-            StartReg();
+           // StartReg();
             Frame.Navigate(typeof(GamePage));
         }
         private async Task StartReg()

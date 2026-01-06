@@ -13,26 +13,67 @@ namespace final_project.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class GamePage : Page
+    public sealed partial class GamePage_Client : Page
     {
         private GameManager _manager;
-        private NetworkServer networkServer;
+        private NetworkClient networkClient;
         private DispatcherTimer gameLoop;
-        public GamePage()
+        public GamePage_Client()
         {
             this.InitializeComponent();
-            networkServer = new NetworkServer();
-
+            networkClient = new NetworkClient();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
+        private async void ConnectButton_Click(object sender, RoutedEventArgs e)
+        {
+            string serverIP = ServerIPTextBox.Text; // User enters "192.168.1.100"
+
+            // Connect to server
+            await networkClient.ConnectAsync(serverIP);
+
+            // Listen for opponent updates
+            networkClient.OpponentDataReceived += UpdateOpponentPosition;
+            networkClient.StatusChanged += (msg) =>
+                StatusTextBlock.Text = msg;
+
+            // Start game loop
+            gameLoop = new DispatcherTimer();
+            gameLoop.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
+            gameLoop.Tick += GameLoop_Tick;
+            gameLoop.Start();
+        }
+        private void GameLoop_Tick(object sender, object e)
+        {
+            // Update local player position based on input
+            double playerX = 300, playerY = 400; // Your game logic here
+
+            // Create state object
+            PlayerState state = new PlayerState
+            {
+                PlayerId = 2,
+                X = playerX,
+                Y = playerY,
+                VelocityX = 0,
+                VelocityY = 0,
+                Action = "idle",
+                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+            };
+
+            // Send to opponent
+            _ = networkClient.SendPlayerStateAsync(state);
+        }
+        private void UpdateOpponentPosition(PlayerState opponentState)
+        {
+            // Update opponent sprite position on UI
+            Debug.WriteLine($"Opponent at: {opponentState.X}, {opponentState.Y}");
+        }
 
 
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _manager = new GameManager(scene);
             LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
@@ -40,47 +81,6 @@ namespace final_project.Pages
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
-
-            // Start server
-            await networkServer.StartServerAsync();
-
-            // Listen for opponent updates
-            networkServer.OpponentDataReceived += UpdateOpponentPosition;
-            networkServer.StatusChanged += (msg) =>
-                StatusTextBlock.Text = msg;
-
-            // Start game loop (send updates 60 times per second)
-            gameLoop = new DispatcherTimer();
-            gameLoop.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
-            gameLoop.Tick += GameLoop_Tick;
-            gameLoop.Start();
-        }
-
-        private void GameLoop_Tick(object sender, object e)
-        {
-            // Update local player position based on input
-            double playerX = 100, playerY = 200; // Your game logic here
-
-            // Create state object
-            PlayerState state = new PlayerState
-            {
-                PlayerId = 1,
-                X = playerX,
-                Y = playerY,
-                VelocityX = 0,
-                VelocityY = 0,
-                Action = "moving",
-                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-            };
-
-            // Send to opponent
-            _ = networkServer.SendPlayerStateAsync(state);
-        }
-        private void UpdateOpponentPosition(PlayerState opponentState)
-        {
-            // Update opponent sprite position on UI
-            // Example: OpponentEllipse.Margin = new Thickness(opponentState.X, opponentState.Y, 0, 0);
-            Debug.WriteLine($"Opponent at: {opponentState.X}, {opponentState.Y}");
         }
 
         private void Reload(bool obj)
