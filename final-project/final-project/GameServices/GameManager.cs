@@ -14,7 +14,7 @@ namespace final_project.GameServices
 {
     public class GameManager : Manager
     {
-        private GameScene _scene;
+        public GameScene _scene;
         public GameManager(GameScene scene) : base(scene)
         {
             _scene = scene;

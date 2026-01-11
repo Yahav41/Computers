@@ -16,7 +16,7 @@ namespace final_project.GameObjects
     public abstract class Players : GameMovingObject
     {
         public enum PlayerState { idle, moving, shooting, reloading}
-        protected PlayerState _playerState { get; set; }
+        public PlayerState _playerState { get; set; }
 
         public double angle { get; set; } =0;
         public bool _isLeft;

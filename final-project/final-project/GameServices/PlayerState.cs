@@ -27,6 +27,9 @@ namespace final_project.GameServices
         [JsonProperty("action")]
         public string Action { get; set; }
 
+        [JsonProperty("rotation")]
+        public float Rotation { get; set; }
+
         [JsonProperty("timestamp")]
         public long Timestamp { get; set; }
 

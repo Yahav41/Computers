@@ -9,8 +9,8 @@ namespace GameEngine.Objects
 {
     public abstract class GameMovingObject : GameObject
     {
-        protected double _speedX;
-        protected double _speedY;
+        public double _speedX;
+        public double _speedY;
         protected double _accelerationX;
         protected double _accelerationY;
         protected GameMovingObject(string fileName, double x, double y, double size) : base(fileName, x, y, size)

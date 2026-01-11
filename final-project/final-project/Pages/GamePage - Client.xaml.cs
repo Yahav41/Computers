@@ -1,4 +1,5 @@
-﻿using final_project.GameServices;
+﻿using final_project.GameObjects;
+using final_project.GameServices;
 using GameEngine.Services;
 using System;
 using System.Diagnostics;
@@ -32,15 +33,15 @@ namespace final_project.Pages
         }
         private async void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            string serverIP = ServerIPTextBox.Text; // User enters "192.168.1.100"
+            string serverIP = "192.168.26.209"; // User enters "192.168.1.100"
 
             // Connect to server
             await networkClient.ConnectAsync(serverIP);
 
             // Listen for opponent updates
             networkClient.OpponentDataReceived += UpdateOpponentPosition;
-            networkClient.StatusChanged += async (msg) => //await SaveStringToUserLocationAsync(msg);
-             StatusTextBlock.Text = msg;
+            networkClient.StatusChanged += async (msg) => await SaveStringToUserLocationAsync(msg);
+             //StatusTextBlock.Text = msg;
 
             // Start game loop
             gameLoop = new DispatcherTimer();
@@ -65,28 +66,64 @@ namespace final_project.Pages
         }
         private void GameLoop_Tick(object sender, object e)
         {
-            // Update local player position based on input
-            double playerX = 300, playerY = 400; // Your game logic here
-
-            // Create state object
-            PlayerState state = new PlayerState
+            try
             {
-                PlayerId = 2,
-                X = playerX,
-                Y = playerY,
-                VelocityX = 0,
-                VelocityY = 0,
-                Action = "idle",
-                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-            };
+                // Get the actual client player (rightPlayer, isLeft = false)
+                Players clientPlayer = _manager._scene.getPlayer(false);
 
-            // Send to opponent
-            _ = networkClient.SendPlayerStateAsync(state);
+                if (clientPlayer != null)
+                {
+                    // Create state with REAL position and data
+                    PlayerState state = new PlayerState
+                    {
+                        PlayerId = 2,
+                        X = clientPlayer._x,
+                        Y = clientPlayer._y,
+                        VelocityX = clientPlayer._speedX,
+                        VelocityY = clientPlayer._speedY,
+                        Rotation = clientPlayer.Image.Rotation,
+                        Action = clientPlayer._playerState.ToString(),
+                        Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    };
+
+                    // Send to server
+                    _ = networkClient.SendPlayerStateAsync(state);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"GameLoopTick Error: {ex.Message}");
+            }
         }
         private void UpdateOpponentPosition(PlayerState opponentState)
         {
-            // Update opponent sprite position on UI
-            Debug.WriteLine($"Opponent at: {opponentState.X}, {opponentState.Y}");
+            if (opponentState == null) return;
+
+            try
+            {
+                // On client, opponent is leftPlayer (isLeft = true)
+                Players opponentPlayer = _manager._scene.getPlayer(true);
+
+                if (opponentPlayer != null)
+                {
+                    // Update position
+                    opponentPlayer._x = opponentState.X;
+                    opponentPlayer._y = opponentState.Y;
+
+                    // Update velocity for smooth movement
+                    opponentPlayer._speedX = opponentState.VelocityX;
+                    opponentPlayer._speedY = opponentState.VelocityY;
+
+                    // Update rotation (facing direction)
+                    opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                    Debug.WriteLine($"[Client] Updated opponent at ({opponentState.X:F2}, {opponentState.Y:F2})");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
+            }
         }
 
 
