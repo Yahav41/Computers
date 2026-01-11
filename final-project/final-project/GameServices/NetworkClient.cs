@@ -15,7 +15,7 @@ namespace final_project.GameServices
         private StreamSocket socket;
         private DataWriter dataWriter;
         private DataReader dataReader;
-        private const string PORT = "22222";
+        private const string PORT = "11111";
 
         // Event to notify UI when opponent's data is received
         public event Action<PlayerState> OpponentDataReceived;
@@ -42,7 +42,7 @@ namespace final_project.GameServices
                 OnStatusChanged("Connected to server: " + serverIpAddress);
 
                 // Start listening for incoming data
-                await ListenForDataAsync();
+               await ListenForDataAsync();
             }
             catch (Exception ex)
             {

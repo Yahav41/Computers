@@ -3,6 +3,8 @@ using GameEngine.Services;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -37,14 +39,29 @@ namespace final_project.Pages
 
             // Listen for opponent updates
             networkClient.OpponentDataReceived += UpdateOpponentPosition;
-            networkClient.StatusChanged += (msg) =>
-                StatusTextBlock.Text = msg;
+            networkClient.StatusChanged += async (msg) => //await SaveStringToUserLocationAsync(msg);
+             StatusTextBlock.Text = msg;
 
             // Start game loop
             gameLoop = new DispatcherTimer();
             gameLoop.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
             gameLoop.Tick += GameLoop_Tick;
             gameLoop.Start();
+        }
+        public async Task SaveStringToUserLocationAsync(string text)
+        {
+            var savePicker = new FileSavePicker
+            {
+                SuggestedStartLocation = PickerLocationId.Desktop, // user can pick Desktop
+                SuggestedFileName = "myfile"
+            };
+            savePicker.FileTypeChoices.Add("Text file", new[] { ".txt" });
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                await FileIO.WriteTextAsync(file, text);
+            }
         }
         private void GameLoop_Tick(object sender, object e)
         {

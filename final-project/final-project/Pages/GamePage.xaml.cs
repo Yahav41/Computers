@@ -31,7 +31,6 @@ namespace final_project.Pages
         }
 
 
-
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _manager = new GameManager(scene);
