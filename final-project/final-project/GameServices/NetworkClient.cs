@@ -6,7 +6,7 @@ using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
-using static final_project.GameObjects.Players;
+using final_project.GameObjects;
 
 namespace final_project.GameServices
 {
@@ -17,7 +17,6 @@ namespace final_project.GameServices
         private DataReader dataReader;
         private const string PORT = "11111";
 
-        // Event to notify UI when opponent's data is received
         public event Action<PlayerState> OpponentDataReceived;
         public event Action<string> StatusChanged;
 
@@ -25,28 +24,25 @@ namespace final_project.GameServices
         {
             try
             {
+                Disconnect();
+
                 socket = new StreamSocket();
-
-                // Create a HostName object for the server address
                 HostName hostName = new HostName(serverIpAddress);
-
-                // Connect to the server
                 await socket.ConnectAsync(hostName, PORT);
 
                 dataWriter = new DataWriter(socket.OutputStream);
                 dataReader = new DataReader(socket.InputStream);
+                dataReader.UnicodeEncoding = UnicodeEncoding.Utf8;
+                dataWriter.UnicodeEncoding = UnicodeEncoding.Utf8;
 
-                dataReader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
-                dataWriter.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                OnStatusChanged($"Connected to server {serverIpAddress}:{PORT}");
 
-                OnStatusChanged("Connected to server: " + serverIpAddress);
-
-                // Start listening for incoming data
-               await ListenForDataAsync();
+                _ = ListenForDataAsync();
             }
             catch (Exception ex)
             {
                 OnStatusChanged("Connection error: " + ex.Message);
+                Disconnect();
             }
         }
 
@@ -54,47 +50,37 @@ namespace final_project.GameServices
         {
             try
             {
-                while (true)
+                while (socket != null && socket.InputStream != null)
                 {
-                    // Read the message length (first 4 bytes = uint)
                     uint bytesRead = await dataReader.LoadAsync(sizeof(uint));
-
                     if (bytesRead < sizeof(uint))
-                    {
-                        break; // Server disconnected
-                    }
+                        break;
 
                     uint messageLength = dataReader.ReadUInt32();
-
-                    // Read the actual message
                     bytesRead = await dataReader.LoadAsync(messageLength);
-                    if (bytesRead == 0) break;
+                    if (bytesRead == 0)
+                        break;
 
                     string json = dataReader.ReadString(messageLength);
+                    PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
 
-                    // Parse the received player state
-                    PlayerState opponentState =
-                        JsonConvert.DeserializeObject<PlayerState>(json);
-
-                    // Notify the UI/Game that opponent data was received
-                    var task = CoreApplication.MainView.CoreWindow.Dispatcher
-                        .RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            OpponentDataReceived?.Invoke(opponentState);
-                        });
+                    var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        () => OpponentDataReceived?.Invoke(opponentState)
+                    );
                 }
             }
             catch (Exception ex)
             {
-                OnStatusChanged("Error listening for data: " + ex.Message);
+                // FIX: Dispatch to UI thread for error message
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    () => OnStatusChanged("Error listening for data: " + ex.Message)
+                );
             }
             finally
             {
-                if (socket != null)
-                {
-                    socket.Dispose();
-                    socket = null;
-                }
+                Disconnect();
             }
         }
 
@@ -102,19 +88,17 @@ namespace final_project.GameServices
         {
             try
             {
-                if (dataWriter == null) return;
+                if (dataWriter == null)
+                    return;
 
                 string json = JsonConvert.SerializeObject(state);
-
-                // Write message length first
                 uint messageLength = (uint)json.Length;
-                dataWriter.WriteUInt32(messageLength);
 
-                // Write the message
+                dataWriter.WriteUInt32(messageLength);
                 dataWriter.WriteString(json);
 
-                // Send it all
                 await dataWriter.StoreAsync();
+                await dataWriter.FlushAsync();
             }
             catch (Exception ex)
             {
@@ -124,9 +108,19 @@ namespace final_project.GameServices
 
         public void Disconnect()
         {
-            socket?.Dispose();
-            dataWriter?.Dispose();
-            dataReader?.Dispose();
+            try
+            {
+                socket?.Dispose();
+                dataWriter?.Dispose();
+                dataReader?.Dispose();
+            }
+            catch { }
+            finally
+            {
+                socket = null;
+                dataWriter = null;
+                dataReader = null;
+            }
         }
 
         private void OnStatusChanged(string status)
