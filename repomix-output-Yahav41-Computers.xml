@@ -1,0 +1,5500 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+The content has been processed where comments have been removed, security check has been disabled.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Code comments have been removed from supported file types
+- Security check has been disabled - content may contain sensitive information
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+final-project/
+  final-project/
+    Assets/
+      BackGrounds/
+        gameBackground.png
+        MenuBackground.png
+      Buttons/
+        AudioButton.png
+        BackButton.png
+        BlankButton.png
+        CloseButton.png
+        HelpButton.png
+        KeysButton.png
+        LocalButton.png
+        LoginButton.png
+        OfflineButton.png
+        OnlineButton.png
+        PlayButton.png
+        SettingsButton.png
+        SignupButton.png
+      Icon/
+        gameIcon.png
+        LargeTile.scale-100.png
+        LargeTile.scale-125.png
+        LargeTile.scale-150.png
+        LargeTile.scale-200.png
+        LargeTile.scale-400.png
+        SmallTile.scale-100.png
+        SmallTile.scale-125.png
+        SmallTile.scale-150.png
+        SmallTile.scale-200.png
+        SmallTile.scale-400.png
+        SplashScreen.scale-100.png
+        SplashScreen.scale-125.png
+        SplashScreen.scale-150.png
+        SplashScreen.scale-200.png
+        SplashScreen.scale-400.png
+        Square150x150Logo.scale-100.png
+        Square150x150Logo.scale-125.png
+        Square150x150Logo.scale-150.png
+        Square150x150Logo.scale-200.png
+        Square150x150Logo.scale-400.png
+        Square44x44Logo.altform-lightunplated_targetsize-16.png
+        Square44x44Logo.altform-lightunplated_targetsize-24.png
+        Square44x44Logo.altform-lightunplated_targetsize-256.png
+        Square44x44Logo.altform-lightunplated_targetsize-32.png
+        Square44x44Logo.altform-lightunplated_targetsize-48.png
+        Square44x44Logo.altform-unplated_targetsize-16.png
+        Square44x44Logo.altform-unplated_targetsize-24.png
+        Square44x44Logo.altform-unplated_targetsize-256.png
+        Square44x44Logo.altform-unplated_targetsize-32.png
+        Square44x44Logo.altform-unplated_targetsize-48.png
+        Square44x44Logo.scale-100.png
+        Square44x44Logo.scale-125.png
+        Square44x44Logo.scale-150.png
+        Square44x44Logo.scale-200.png
+        Square44x44Logo.scale-400.png
+        Square44x44Logo.targetsize-16.png
+        Square44x44Logo.targetsize-24.png
+        Square44x44Logo.targetsize-256.png
+        Square44x44Logo.targetsize-32.png
+        Square44x44Logo.targetsize-48.png
+        StoreLogo.scale-100.png
+        StoreLogo.scale-125.png
+        StoreLogo.scale-150.png
+        StoreLogo.scale-200.png
+        StoreLogo.scale-400.png
+        Wide310x150Logo.scale-100.png
+        Wide310x150Logo.scale-125.png
+        Wide310x150Logo.scale-150.png
+        Wide310x150Logo.scale-200.png
+        Wide310x150Logo.scale-400.png
+      Models/
+        Bullet/
+          bullet.png
+        Covers/
+          gameBarrier.png
+          gameBoxes.png
+          gameCanister.png
+          gameFoundation.png
+        Players/
+          pistol/
+            pistol-idle.gif
+            pistol-reload.gif
+            pistol-shoot.gif
+            pistol-walk.gif
+          rifle/
+            rifle-idle.gif
+            rifle-reload.gif
+            rifle-shoot.gif
+            rifle-walk.gif
+          shotgun/
+            shotgun-idle.gif
+            shotgun-reload.gif
+            shotgun-shoot.gif
+            shotgun-walk.gif
+    GameObjects/
+      Bullets.cs
+      Covers.cs
+      PistolPlayer.cs
+      Players.cs
+      RiflePlayer.cs
+      ShotgunPlayer.cs
+    GameServices/
+      GameConstants.cs
+      GameKeys.cs
+      GameManager.cs
+      GameScene.cs
+      NetworkClient.cs
+      NetworkServer.cs
+      PlayerState.cs
+      RectangleHelper.cs
+    Pages/
+      GamePage - Client.xaml
+      GamePage - Client.xaml.cs
+      GamePage.xaml
+      GamePage.xaml.cs
+      Login.xaml
+      Login.xaml.cs
+      LoginPage.xaml
+      LoginPage.xaml.cs
+      MainMenuPage.xaml
+      MainMenuPage.xaml.cs
+      ModePage.xaml
+      ModePage.xaml.cs
+      Registration.xaml
+      Registration.xaml.cs
+      SettingsPage.xaml
+      SettingsPage.xaml.cs
+      SignUp.xaml
+      SignUp.xaml.cs
+    Properties/
+      AssemblyInfo.cs
+      Default.rd.xml
+    App.xaml
+    App.xaml.cs
+    final-project.csproj
+    Package.appxmanifest
+  GameEngine/
+    Objects/
+      GameMovingObject.cs
+      GameObject.cs
+    Properties/
+      AssemblyInfo.cs
+      GameEngine.rd.xml
+    Services/
+      GameEvents.cs
+      Manager.cs
+      Scene.cs
+    GameEngine.csproj
+  final-project.sln
+test/
+  test/
+    Properties/
+      AssemblyInfo.cs
+    App.config
+    Program.cs
+    test.csproj
+  test.sln
+Testing/
+  Testing/
+    Assets/
+      LockScreenLogo.scale-200.png
+      SplashScreen.scale-200.png
+      Square150x150Logo.scale-200.png
+      Square44x44Logo.scale-200.png
+      Square44x44Logo.targetsize-24_altform-unplated.png
+      StoreLogo.png
+      Wide310x150Logo.scale-200.png
+    Properties/
+      AssemblyInfo.cs
+      Default.rd.xml
+    App.xaml
+    App.xaml.cs
+    BlankPage.xaml
+    BlankPage.xaml.cs
+    MainPage.xaml
+    MainPage.xaml.cs
+    Package.appxmanifest
+    Testing.csproj
+  Testing.sln
+.gitignore
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="final-project/final-project/GameObjects/Bullets.cs">
+using final_project.GameServices;
+using final_project.Objects;
+using GameEngine.Objects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI;
+
+namespace final_project.GameObjects
+{
+    public class Bullets : GameMovingObject
+    {
+        GameScene _scene;
+        public int _damage;
+        public Bullets(float angle,double x, double y, double size, GameScene scene, int damage) : base(String.Empty, x, y, size)
+        {
+            Collisional = false;
+            _scene = scene;
+            SetName("Models/Bullet/bullet.png");
+            Image.CenterPoint = new System.Numerics.Vector3((float)(Image.Width * 1 / 2), (float)(Image.Height * 1 / 2), 0);
+            Image.Rotation = angle + 90;
+            SetSpeed(angle);
+            ActivateCollision();
+            _damage = damage;
+        }
+
+        private async Task ActivateCollision()
+        {
+            await Task.Delay(100);
+            Collisional = true;
+        }
+
+        private void SetSpeed(double angle)
+        {
+            _speedX = Math.Cos(angle * (Math.PI / 180)) * GameConstants.bulletSpeed;
+            _speedY = Math.Sin(angle * (Math.PI / 180)) * GameConstants.bulletSpeed;
+            IsObjectCreated = true;
+        }
+
+        public override void Render()
+        {
+            base.Render();
+            if(_x < 0 || _x > 1150 || _y < 0 || _y > 475)
+            {
+                _scene.RemoveObject(this);
+            }
+            if (IsObjectCreated)
+            {
+
+            }
+        }
+
+        public override void Collide(GameObject g)
+        {
+            if(g is Covers)
+            {
+                _scene.RemoveObject(this);
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameObjects/Covers.cs">
+using final_project.GameServices;
+using GameEngine.Objects;
+using GameEngine.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Xaml.Controls;
+
+namespace final_project.Objects
+{
+    public class Covers : GameObject
+    {
+        public enum CoverType { boxes, barrier, canister, foundation }
+        public CoverType _coverType { get; private set; }
+        private Random _random = new Random();
+        private GameScene _scene;
+        public Covers(CoverType type, double x, double y, double size, GameScene scene) : base(String.Empty, x, y, size)
+        {
+            _coverType = type;
+            if (type == CoverType.boxes)
+            {
+                Image.Height = Image.Width * 0.6678;
+                SetName("Covers/gameBoxes.png");
+            }
+            else if (type == CoverType.barrier)
+            {
+                Image.Height = Image.Width * 0.66616;
+                SetName("Models/Covers/gameBarrier.png");
+            }
+            else if (type == CoverType.canister)
+            {
+                Image.Height = Image.Width * 1.678 / 2.5;
+                SetName("Models/Covers/gameCanister.png");
+            }
+            else
+            {
+                Image.Height = Image.Width * 0.6675;
+                SetName("Models/Covers/gameFoundation.png");
+            }
+            _scene = scene;
+
+        }
+        public override void Collide(GameObject gameObject)
+        {
+            if (gameObject is Covers cover)
+            {
+                _x = _x + _random.Next(-250, 250);
+                _y = _y + _random.Next(-250, 250);
+                Render();
+            }
+        }
+        public override void Render()
+        {
+            if (_x < 0 || _x > 1050 || _y < 0 || _y > 400)
+            {
+                _scene.RemoveObject(this);
+            }
+            base.Render();
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameObjects/PistolPlayer.cs">
+using final_project.GameServices;
+using Windows.Foundation;
+
+namespace final_project.GameObjects
+{
+    public class PistolPlayer : Players
+    {
+        public PistolPlayer(double x, double y,GameScene scene ,bool isLeft) : base(x, y, 80,scene,isLeft,6)
+        {
+            SetName("Models/Players/pistol/pistol-idle.gif");
+            shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(500);
+            localOffsetX = 40f;
+            localOffsetY = 15f;
+        }
+        protected override void ShootBullet(float muzzleX, float muzzleY)
+        {
+            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene,10));
+        }
+        protected override void MatchImageToState()
+        {
+            switch (_playerState)
+            {
+                case PlayerState.idle:
+                    SetName("Models/Players/pistol/pistol-idle.gif");
+                    break;
+                case PlayerState.moving:
+                    SetName("Models/Players/pistol/pistol-walk.gif");
+                    break;
+                case PlayerState.shooting:
+                    SetName("Models/Players/pistol/pistol-shoot.gif");
+                    break;
+                case PlayerState.reloading:
+                    SetName("Models/Players/pistol/pistol-reload.gif");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameObjects/Players.cs">
+using final_project.GameServices;
+using GameEngine.Objects;
+using GameEngine.Services;
+using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.System;
+using Windows.UI;
+using Windows.UI.Xaml;
+
+namespace final_project.GameObjects
+{
+    public abstract class Players : GameMovingObject
+    {
+        public enum PlayerState { idle, moving, shooting, reloading}
+        public PlayerState _playerState { get; set; }
+
+        public double angle { get; set; } =0;
+        public bool _isLeft;
+        protected GameScene _scene;
+        protected DispatcherTimer shootTimerFirst;
+        protected float localOffsetX;
+        protected float localOffsetY;
+        public int _bullets;
+        protected int _maxBullets;
+        protected bool _canShoot;
+        public Players(double x, double y, double size,GameScene scene, bool isLeft, int bullets) : base(string.Empty, x, y, size)
+        {
+            _playerState = PlayerState.idle;
+            Manager.Events.OnKeyClick += Move;
+            Manager.Events.OnKeyRelease += Stop;
+            _isLeft = isLeft;
+            _bullets = _maxBullets = bullets;
+            _scene = scene;
+            _canShoot = true;
+
+            shootTimerFirst = new DispatcherTimer();
+            shootTimerFirst.Tick += ShootTimerFirst_Tick;
+            Image.CenterPoint = new System.Numerics.Vector3((float)(Image.Width* 1/ 2), (float)(Image.Height* 1 / 2), 0);
+        }
+
+        protected virtual void ShootTimerFirst_Tick(object sender, object e)
+        {
+            if (!_canShoot) return;
+            var rect = Rect();
+            float centerX = (float)(rect.Left + rect.Width / 2f);
+            float centerY = (float)(rect.Top + rect.Height / 2f);
+
+            float cosA = (float)Math.Cos(angle);
+            float sinA = (float)Math.Sin(angle);
+
+            float rotatedOffsetX = localOffsetX * cosA - localOffsetY * sinA;
+            float rotatedOffsetY = localOffsetX * sinA + localOffsetY * cosA;
+
+            float muzzleX = centerX + rotatedOffsetX;
+            float muzzleY = centerY + rotatedOffsetY;
+            ShootBullet(muzzleX,muzzleY);
+            BulletShot();
+        }
+
+        protected virtual void ShootBullet(float muzzleX, float muzzleY)
+        {
+
+        }
+
+        private void BulletShot()
+        {
+            _bullets--;
+            if (_bullets <= 0)
+            {
+                _canShoot = false;
+            }
+            Manager.Events.onBulletShot(_isLeft);
+        }
+
+        protected void Stop(VirtualKey key)
+        {
+            var state = _playerState;
+            if ((_isLeft))
+            {
+                if (key == GameKeys.LeftPlayerReload) return;
+                if (key == GameKeys.LeftPlayerShoot)
+                {
+
+                    shootTimerFirst.Stop();
+                }
+                if (key == GameKeys.LeftPlayerLeft || key == GameKeys.LeftPlayerRight)
+                {
+                    _speedX = 0;
+                }
+                if (key == GameKeys.LeftPlayerUp || key == GameKeys.LeftPlayerDown)
+                {
+                    _speedY = 0;
+                }
+            }
+            else
+            {
+                if (key == GameKeys.RightPlayerReload) return;
+                if (key == GameKeys.RightPlayerShoot)
+                {
+
+                    shootTimerFirst.Stop();
+                }
+                if (key == GameKeys.RightPlayerLeft || key == GameKeys.RightPlayerRight)
+                {
+                    _speedX = 0;
+                }
+                if (key == GameKeys.RightPlayerUp || key == GameKeys.RightPlayerDown)
+                {
+                    _speedY = 0;
+                }
+            }
+            if (_speedX == 0 && _speedY == 0)
+            {
+                _playerState = PlayerState.idle;
+                if (state != _playerState)
+                {
+                    MatchImageToState();
+                }
+            }
+
+        }
+
+        protected virtual void MatchImageToState()
+        {
+
+        }
+
+
+
+        protected void Move(VirtualKey key)
+        {
+            IsObjectCreated = true;
+            if (_isLeft)
+            {
+                if (key == GameKeys.LeftPlayerLeft)
+                {
+                    RunLeft();
+                }
+                else if (key == GameKeys.LeftPlayerRight)
+                {
+                    RunRight();
+                }
+                else if (key == GameKeys.LeftPlayerUp)
+                {
+                    RunUp();
+                }
+                else if (key == GameKeys.LeftPlayerDown)
+                {
+                    RunDown();
+                }
+                else if (key == GameKeys.LeftPlayerShoot)
+                {
+                    Shoot();
+
+                }
+                else if (key == GameKeys.LeftPlayerReload)
+                {
+                    Reload();
+                }
+            }
+            else
+            {
+                if (key == GameKeys.RightPlayerLeft)
+                {
+                    RunLeft();
+                }
+                else if (key == GameKeys.RightPlayerRight)
+                {
+                    RunRight();
+                }
+                else if (key == GameKeys.RightPlayerUp)
+                {
+                    RunUp();
+                }
+                else if (key == GameKeys.RightPlayerDown)
+                {
+                    RunDown();
+                }
+                else if (key == GameKeys.RightPlayerShoot)
+                {
+                    Shoot();
+                }
+                else if (key == GameKeys.RightPlayerReload)
+                {
+                    Reload();
+                }
+            }
+        }
+        protected void Shoot()
+        {
+            var state = _playerState;
+            _speedX = _speedY = 0;
+            _playerState = PlayerState.shooting;
+            if (state != _playerState)
+                MatchImageToState();
+            shootTimerFirst.Start();
+        }
+
+        protected void Reload()
+        {
+            _canShoot = true;
+            _bullets = _maxBullets;
+            var state = _playerState;
+            _speedY = _speedX = 0;
+            _playerState = PlayerState.reloading;
+            if (state != _playerState)
+                MatchImageToState();
+            Manager.Events.onReload(_isLeft);
+        }
+
+        protected void RunLeft()
+        {
+            var state = _playerState;
+            _speedX = -GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunRight()
+        {
+            var state = _playerState;
+            _speedX = GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunUp()
+        {
+            var state = _playerState;
+            _speedY = -GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        protected void RunDown()
+        {
+            var state = _playerState;
+            _speedY = GameConstants.playerSpeed;
+            _playerState = PlayerState.moving;
+            if (state != _playerState)
+                MatchImageToState();
+        }
+        public override void Render()
+        {
+            base.Render();
+            angle = Image.Rotation * Math.PI /180;
+            if (IsObjectCreated)
+            {
+
+            }
+            if(_x < 0)
+            {
+                _x = 10;
+            }
+            if(_x > 1150 - Image.Width)
+            {
+                _x = 1150 - (float)Image.Width - 10;
+            }
+            if(_y < 0)
+            {
+                _y = 10;
+            }
+            if(_y > 475 - Image.Height)
+            {
+                _y = 475 - (float)Image.Height - 10;
+            }
+        }
+        public override void Collide(GameObject gameObject)
+        {
+            if (gameObject is Bullets)
+            {
+                var b = gameObject as Bullets;
+                Manager.Events.OnRemoveLifes(_isLeft,b._damage);
+               _scene.RemoveObject(b);
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameObjects/RiflePlayer.cs">
+using final_project.GameServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace final_project.GameObjects
+{
+    public class RiflePlayer : Players
+    {
+        public RiflePlayer(double x, double y, GameScene scene, bool isLeft) : base(x, y, 100, scene, isLeft,30)
+        {
+            SetName("Models/Players/rifle/rifle-idle.gif");
+            shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(200);
+            localOffsetX = 40f;
+            localOffsetY = 15f;
+        }
+        protected override void ShootBullet(float muzzleX, float muzzleY)
+        {
+            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene, 5));
+        }
+        protected override void MatchImageToState()
+        {
+            switch (_playerState)
+            {
+                case PlayerState.idle:
+                    SetName("Models/Players/rifle/rifle-idle.gif");
+                    break;
+                case PlayerState.moving:
+                    SetName("Models/Players/rifle/rifle-walk.gif");
+                    break;
+                case PlayerState.shooting:
+                    SetName("Models/Players/rifle/rifle-shoot.gif");
+                    break;
+                case PlayerState.reloading:
+                    SetName("Models/Players/rifle/rifle-reload.gif");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameObjects/ShotgunPlayer.cs">
+using final_project.GameServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace final_project.GameObjects
+{
+    public class ShotgunPlayer : Players
+    {
+        public ShotgunPlayer(double x, double y, GameScene scene, bool isLeft) : base(x, y, 100, scene, isLeft, 1)
+        {
+            SetName("Models/Players/shotgun/shotgun-idle.gif");
+            shootTimerFirst.Interval = System.TimeSpan.FromMilliseconds(100);
+            localOffsetX = 40f;
+            localOffsetY = 15f;
+        }
+        protected override void ShootBullet(float muzzleX, float muzzleY)
+        {
+            _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene, 50));
+        }
+        protected override void MatchImageToState()
+        {
+            switch (_playerState)
+            {
+                case PlayerState.idle:
+                    SetName("Models/Players/shotgun/shotgun-idle.gif");
+                    break;
+                case PlayerState.moving:
+                    SetName("Models/Players/shotgun/shotgun-walk.gif");
+                    break;
+                case PlayerState.shooting:
+                    SetName("Models/Players/shotgun/shotgun-shoot.gif");
+                    break;
+                case PlayerState.reloading:
+                    SetName("Models/Players/shotgun/shotgun-reload.gif");
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/GameConstants.cs">
+using final_project.GameObjects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace final_project.GameServices
+{
+    public static class GameConstants
+    {
+        public static double playerSpeed = 3;
+        public static double bulletSpeed = 7;
+        public static int pistolBullets = 6;
+        public static int leftPlayer;
+        public static int rightPlayer;
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/GameKeys.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.System;
+
+namespace final_project.GameServices
+{
+    public static class GameKeys
+    {
+        public static VirtualKey LeftPlayerLeft
+        { get; set; } = VirtualKey.A;
+        public static VirtualKey LeftPlayerRight
+        { get; set; } = VirtualKey.D;
+        public static VirtualKey LeftPlayerDown
+        { get; set; } = VirtualKey.S;
+        public static VirtualKey LeftPlayerUp
+        { get; set; } = VirtualKey.W;
+        public static VirtualKey LeftPlayerShoot
+        { get; set; } = VirtualKey.F;
+        public static VirtualKey LeftPlayerReload
+        { get; set; } = VirtualKey.R;
+
+
+        public static VirtualKey RightPlayerLeft
+        { get; set; } = VirtualKey.Left;
+        public static VirtualKey RightPlayerRight
+        { get; set; } = VirtualKey.Right;
+        public static VirtualKey RightPlayerDown
+        { get; set; } = VirtualKey.Down;
+        public static VirtualKey RightPlayerUp
+        { get; set; } = VirtualKey.Up;
+        public static VirtualKey RightPlayerShoot
+        { get; set; } = VirtualKey.Shift;
+        public static VirtualKey RightPlayerReload
+        { get; set; } = VirtualKey.L;
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/GameManager.cs">
+using final_project.GameObjects;
+using final_project.Objects;
+using GameEngine;
+using GameEngine.Objects;
+using GameEngine.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace final_project.GameServices
+{
+    public class GameManager : Manager
+    {
+        public GameScene _scene;
+        public GameManager(GameScene scene) : base(scene)
+        {
+            _scene = scene;
+            CreateObjects();
+        }
+
+        private void CreateObjects()
+        {
+            for (int i = 1; i <= 15; i++)
+            {
+                _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100,_scene));
+            }
+            switch (GameConstants.leftPlayer)
+            {
+                case 0:
+                    _scene.AddObject(new PistolPlayer(100, 200, _scene, true));
+                    break;
+                case 1:
+                    _scene.AddObject(new RiflePlayer(100, 200, _scene, true));
+                    break;
+                case 2:
+                    _scene.AddObject(new ShotgunPlayer(100, 200, _scene, true));
+                    break;
+                default:
+                    throw new Exception("Invalid left player selection");
+            }
+            switch (GameConstants.rightPlayer)
+            {
+                case 0:
+                    _scene.AddObject(new PistolPlayer(800, 200, _scene, false));
+                    break;
+                case 1:
+                    _scene.AddObject(new RiflePlayer(800, 200, _scene, false));
+                    break;
+                case 2:
+                    _scene.AddObject(new ShotgunPlayer(800, 200, _scene, false));
+                    break;
+                default:
+                    throw new Exception("Invalid left player selection");
+            }
+        }
+
+        public int getBullets(bool isLeft)
+        {
+            return _scene.getPlayer(isLeft)._bullets;
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/GameScene.cs">
+using final_project.GameObjects;
+using GameEngine.Objects;
+using GameEngine.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.UI;
+
+namespace final_project.GameServices
+{
+    public class GameScene : Scene
+    {
+        private Players _leftPlayer;
+        private Players _rightPlayer;
+        public GameScene() : base()
+        {
+            Manager.Events.OnRun += RotatePlayers;
+        }
+
+        private void RotatePlayers()
+        {
+            if(_rightPlayer == _leftPlayer)
+            {
+                _leftPlayer = (Players)_gameObjects.FirstOrDefault(p => p is Players);
+                _rightPlayer = (Players)_gameObjects.FirstOrDefault(p => p is Players && p != _leftPlayer);
+            }
+            Point center1 = new Point(_rightPlayer.Rect().Left + _rightPlayer.Rect().Width / 2, _rightPlayer.Rect().Y + _rightPlayer.Rect().Height / 2);
+            Point center2 = new Point(_leftPlayer.Rect().Left + _leftPlayer.Rect().Width / 2, _leftPlayer.Rect().Y + _leftPlayer.Rect().Height / 2);
+            double dx = center1.X - center2.X;
+            double dy = center1.Y - center2.Y;
+            double angle = Math.Atan2(dy, dx) * (180 / Math.PI);
+            _leftPlayer.Image.Rotation = (float)(angle - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
+            _rightPlayer.Image.Rotation = (float)(angle + 180 - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
+        }
+
+        public Players getPlayer(bool isLeft)
+        {
+            return isLeft ? (Players)_gameObjects.FirstOrDefault(p => p is Players) : (Players)_gameObjects.LastOrDefault(p => p is Players);
+        }
+        private Vector2 GetBulletStartPosition(Players player, double angle)
+        {
+
+            var rect = player.Rect();
+            float centerX = (float)(rect.Left + rect.Width / 2f);
+            float centerY = (float)(rect.Top + rect.Height / 2f);
+
+
+
+            float localOffsetX = 40f;
+            float localOffsetY = 0f;
+
+
+            float cosA = (float)Math.Cos(angle);
+            float sinA = (float)Math.Sin(angle);
+
+            float rotatedOffsetX = localOffsetX * cosA - localOffsetY * sinA;
+            float rotatedOffsetY = localOffsetX * sinA + localOffsetY * cosA;
+
+
+            float muzzleX = centerX + rotatedOffsetX;
+            float muzzleY = centerY + rotatedOffsetY;
+
+            return new Vector2(muzzleX, muzzleY);
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/NetworkClient.cs">
+using Newtonsoft.Json;
+using System;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.Networking;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.UI.Core;
+using final_project.GameObjects;
+
+namespace final_project.GameServices
+{
+    public class NetworkClient
+    {
+        private StreamSocket socket;
+        private DataWriter dataWriter;
+        private DataReader dataReader;
+        private const string PORT = "11111";
+
+        public event Action<PlayerState> OpponentDataReceived;
+        public event Action<string> StatusChanged;
+
+        public async Task ConnectAsync(string serverIpAddress)
+        {
+            try
+            {
+                Disconnect();
+
+                socket = new StreamSocket();
+                HostName hostName = new HostName(serverIpAddress);
+                await socket.ConnectAsync(hostName, PORT);
+
+                dataWriter = new DataWriter(socket.OutputStream);
+                dataReader = new DataReader(socket.InputStream);
+                dataReader.UnicodeEncoding = UnicodeEncoding.Utf8;
+                dataWriter.UnicodeEncoding = UnicodeEncoding.Utf8;
+
+                OnStatusChanged($"Connected to server {serverIpAddress}:{PORT}");
+
+                _ = ListenForDataAsync();
+            }
+            catch (Exception ex)
+            {
+                OnStatusChanged("Connection error: " + ex.Message);
+                Disconnect();
+            }
+        }
+
+        private async Task ListenForDataAsync()
+        {
+            try
+            {
+                while (socket != null && socket.InputStream != null)
+                {
+                    uint bytesRead = await dataReader.LoadAsync(sizeof(uint));
+                    if (bytesRead < sizeof(uint))
+                        break;
+
+                    uint messageLength = dataReader.ReadUInt32();
+                    bytesRead = await dataReader.LoadAsync(messageLength);
+                    if (bytesRead == 0)
+                        break;
+
+                    string json = dataReader.ReadString(messageLength);
+                    PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
+
+                    var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        () => OpponentDataReceived?.Invoke(opponentState)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    () => OnStatusChanged("Error listening for data: " + ex.Message)
+                );
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
+
+        public async Task SendPlayerStateAsync(PlayerState state)
+        {
+            try
+            {
+                if (dataWriter == null)
+                    return;
+
+                string json = JsonConvert.SerializeObject(state);
+                uint messageLength = (uint)json.Length;
+
+                dataWriter.WriteUInt32(messageLength);
+                dataWriter.WriteString(json);
+
+                await dataWriter.StoreAsync();
+                await dataWriter.FlushAsync();
+            }
+            catch (Exception ex)
+            {
+                OnStatusChanged("Error sending data: " + ex.Message);
+            }
+        }
+
+        public void Disconnect()
+        {
+            try
+            {
+                socket?.Dispose();
+                dataWriter?.Dispose();
+                dataReader?.Dispose();
+            }
+            catch { }
+            finally
+            {
+                socket = null;
+                dataWriter = null;
+                dataReader = null;
+            }
+        }
+
+        private void OnStatusChanged(string status)
+        {
+            StatusChanged?.Invoke(status);
+        }
+
+        public bool IsConnected => socket != null;
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/NetworkServer.cs">
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.UI.Core;
+using final_project.GameObjects;
+
+namespace final_project.GameServices
+{
+    public class NetworkServer
+    {
+        private StreamSocketListener socketListener;
+        private StreamSocket clientSocket;
+        private DataWriter dataWriter;
+        private DataReader dataReader;
+        private bool isListening = false;
+        private const string PORT = "11111";
+
+        public event Action<PlayerState> OpponentDataReceived;
+        public event Action<string> StatusChanged;
+
+        public async Task StartServerAsync()
+        {
+            try
+            {
+                socketListener = new StreamSocketListener();
+                socketListener.ConnectionReceived += OnConnectionReceived;
+                await socketListener.BindServiceNameAsync(PORT);
+                isListening = true;
+                OnStatusChanged($"Server started. Waiting for connections on port {PORT}");
+            }
+            catch (Exception ex)
+            {
+                OnStatusChanged("Error starting server: " + ex.Message);
+            }
+        }
+
+        private async void OnConnectionReceived(
+            StreamSocketListener sender,
+            StreamSocketListenerConnectionReceivedEventArgs args)
+        {
+            try
+            {
+                clientSocket = args.Socket;
+                dataWriter = new DataWriter(clientSocket.OutputStream);
+                dataReader = new DataReader(clientSocket.InputStream);
+                dataReader.UnicodeEncoding = UnicodeEncoding.Utf8;
+                dataWriter.UnicodeEncoding = UnicodeEncoding.Utf8;
+
+
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    () => OnStatusChanged($"Client connected from {clientSocket.Information.RemoteAddress}")
+                );
+
+                await ListenForDataAsync();
+            }
+            catch (Exception ex)
+            {
+
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    () => OnStatusChanged("Connection error: " + ex.Message)
+                );
+            }
+        }
+
+        private async Task ListenForDataAsync()
+        {
+            try
+            {
+                while (clientSocket != null && clientSocket.InputStream != null)
+                {
+                    uint bytesRead = await dataReader.LoadAsync(sizeof(uint));
+                    if (bytesRead < sizeof(uint))
+                        break;
+
+                    uint messageLength = dataReader.ReadUInt32();
+                    bytesRead = await dataReader.LoadAsync(messageLength);
+                    if (bytesRead == 0)
+                        break;
+
+                    string json = dataReader.ReadString(messageLength);
+                    PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
+
+                    var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal,
+                        () => OpponentDataReceived?.Invoke(opponentState)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    CoreDispatcherPriority.Normal,
+                    () => OnStatusChanged("Error listening for data: " + ex.Message)
+                );
+            }
+            finally
+            {
+                clientSocket?.Dispose();
+                clientSocket = null;
+            }
+        }
+
+        public async Task SendPlayerStateAsync(PlayerState state)
+        {
+            try
+            {
+                if (dataWriter == null)
+                    return;
+
+                string json = JsonConvert.SerializeObject(state);
+                uint messageLength = (uint)json.Length;
+
+                dataWriter.WriteUInt32(messageLength);
+                dataWriter.WriteString(json);
+
+                await dataWriter.StoreAsync();
+                await dataWriter.FlushAsync();
+            }
+            catch (Exception ex)
+            {
+                OnStatusChanged("Error sending data: " + ex.Message);
+            }
+        }
+
+        public void StopServer()
+        {
+            isListening = false;
+
+            try
+            {
+                socketListener?.Dispose();
+                clientSocket?.Dispose();
+                dataWriter?.Dispose();
+                dataReader?.Dispose();
+            }
+            catch { }
+            finally
+            {
+                socketListener = null;
+                clientSocket = null;
+                dataWriter = null;
+                dataReader = null;
+            }
+        }
+
+        private void OnStatusChanged(string status)
+        {
+            StatusChanged?.Invoke(status);
+        }
+
+        public bool IsConnected => clientSocket != null;
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/PlayerState.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+namespace final_project.GameServices
+{
+    public class PlayerState
+    {
+        [JsonProperty("playerId")]
+        public int PlayerId { get; set; }
+
+        [JsonProperty("x")]
+        public double X { get; set; }
+
+        [JsonProperty("y")]
+        public double Y { get; set; }
+
+        [JsonProperty("vx")]
+        public double VelocityX { get; set; }
+
+        [JsonProperty("vy")]
+        public double VelocityY { get; set; }
+
+        [JsonProperty("action")]
+        public string Action { get; set; }
+
+        [JsonProperty("rotation")]
+        public float Rotation { get; set; }
+
+        [JsonProperty("timestamp")]
+        public long Timestamp { get; set; }
+
+        public override string ToString()
+        {
+            return $"Player {PlayerId}: X={X:F2}, Y={Y:F2}, action={Action}";
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/GameServices/RectangleHelper.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
+
+namespace final_project.GameServices
+{
+    public static class RectangleHelper
+    {
+
+
+
+
+
+
+
+
+
+        public static void DrawRectangle(GameScene scene, double x, double y, double width, double height, Color color)
+        {
+            Rectangle rectangle = new Rectangle
+            {
+                Width = (int)width,
+                Height = (int)height,
+                Fill = new SolidColorBrush(color),
+            };
+            Canvas.SetLeft(rectangle, x);
+            Canvas.SetTop(rectangle, y);
+
+            var rect = scene.Children.FirstOrDefault(r => r is Rectangle &&
+                                        Math.Abs(Canvas.GetLeft(r) - x) < 50 && Math.Abs(Canvas.GetTop(r) - y) < 50);
+            if (rect != null)
+            {
+                scene.Children.Remove(rect);
+            }
+
+
+            scene.Children.Add(rectangle);
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/GamePage - Client.xaml">
+<Page
+    x:Class="final_project.Pages.GamePage_Client"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Shlomi="using:final_project.GameServices"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/GameBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Shlomi:GameScene x:Name="scene" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="21" Grid.RowSpan="18" Background="black">
+            
+        </Shlomi:GameScene>
+        <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="15" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <Viewbox Grid.Column="10" Grid.Row="4">
+            <TextBlock x:Name="LeftPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="14" Grid.Row="4">
+            <TextBlock x:Name="RightPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4">
+            <TextBox x:Name="ServerIPTextBox" Width="203" Text="IP"></TextBox>
+        </Viewbox>
+        <Viewbox Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="14">
+            <TextBlock x:Name="StatusTextBlock" Width="409" Text="IP"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2">
+            <Button x:Name="ConnectButton" Click="ConnectButton_Click" Content="connect"/>
+        </Viewbox>
+        <Grid x:Name="WinGrid" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="21" Grid.RowSpan="18" Visibility="Collapsed" Background="white">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/BackButton.png"></Image>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="7" Grid.RowSpan="3">
+                    <TextBlock x:Name="WinnerTextBlock" Text="Player X Wins!" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+                </Viewbox>
+        </Grid>
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/GamePage - Client.xaml.cs">
+using final_project.GameObjects;
+using final_project.GameServices;
+using GameEngine.Services;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class GamePage_Client : Page
+    {
+        private GameManager _manager;
+        private NetworkClient networkClient;
+        private DispatcherTimer gameLoop;
+        public GamePage_Client()
+        {
+            this.InitializeComponent();
+            networkClient = new NetworkClient();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+        private async void ConnectButton_Click(object sender, RoutedEventArgs e)
+        {
+            string serverIP = "192.168.26.209";
+
+
+            await networkClient.ConnectAsync(serverIP);
+
+
+            networkClient.OpponentDataReceived += UpdateOpponentPosition;
+            networkClient.StatusChanged += async (msg) => await SaveStringToUserLocationAsync(msg);
+
+
+
+            gameLoop = new DispatcherTimer();
+            gameLoop.Interval = TimeSpan.FromMilliseconds(16);
+            gameLoop.Tick += GameLoop_Tick;
+            gameLoop.Start();
+        }
+        public async Task SaveStringToUserLocationAsync(string text)
+        {
+            var savePicker = new FileSavePicker
+            {
+                SuggestedStartLocation = PickerLocationId.Desktop,
+                SuggestedFileName = "myfile"
+            };
+            savePicker.FileTypeChoices.Add("Text file", new[] { ".txt" });
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                await FileIO.WriteTextAsync(file, text);
+            }
+        }
+        private void GameLoop_Tick(object sender, object e)
+        {
+            try
+            {
+
+                Players clientPlayer = _manager._scene.getPlayer(false);
+
+                if (clientPlayer != null)
+                {
+
+                    PlayerState state = new PlayerState
+                    {
+                        PlayerId = 2,
+                        X = clientPlayer._x,
+                        Y = clientPlayer._y,
+                        VelocityX = clientPlayer._speedX,
+                        VelocityY = clientPlayer._speedY,
+                        Rotation = clientPlayer.Image.Rotation,
+                        Action = clientPlayer._playerState.ToString(),
+                        Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    };
+
+
+                    _ = networkClient.SendPlayerStateAsync(state);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"GameLoopTick Error: {ex.Message}");
+            }
+        }
+        private void UpdateOpponentPosition(PlayerState opponentState)
+        {
+            if (opponentState == null) return;
+
+            try
+            {
+
+                Players opponentPlayer = _manager._scene.getPlayer(true);
+
+                if (opponentPlayer != null)
+                {
+
+                    opponentPlayer._x = opponentState.X;
+                    opponentPlayer._y = opponentState.Y;
+
+
+                    opponentPlayer._speedX = opponentState.VelocityX;
+                    opponentPlayer._speedY = opponentState.VelocityY;
+
+
+                    opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                    Debug.WriteLine($"[Client] Updated opponent at ({opponentState.X:F2}, {opponentState.Y:F2})");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
+            }
+        }
+
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _manager = new GameManager(scene);
+            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            Manager.Events.OnRemoveLifes += RemoveLives;
+            Manager.Events.onBulletShot += BulletShot;
+            Manager.Events.onReload += Reload;
+        }
+
+        private void Reload(bool obj)
+        {
+            if(obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void BulletShot(bool obj)
+        {
+            if (obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void RemoveLives(bool isLeft, int Lives)
+        {
+            if(isLeft)
+            {
+                LeftPlayerHealth.Value -= Lives;
+            }
+            else
+            {
+                RightPlayerHealth.Value -= Lives;
+            }
+            if(LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
+            {
+                WinGrid.Visibility = Visibility.Visible;
+                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value ? "LeftPlayerWins" : "RightPlayerWins";
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/GamePage.xaml">
+<Page
+    x:Class="final_project.Pages.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Shlomi="using:final_project.GameServices"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/GameBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Shlomi:GameScene x:Name="scene" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="21" Grid.RowSpan="18" Background="black">
+            
+        </Shlomi:GameScene>
+        <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="15" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
+        <Viewbox Grid.Column="10" Grid.Row="4">
+            <TextBlock x:Name="LeftPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Column="14" Grid.Row="4">
+            <TextBlock x:Name="RightPlayerBullets" Text="6" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="14">
+            <TextBlock x:Name="StatusTextBlock" Width="409" Text="IP"></TextBlock>
+        </Viewbox>
+        <Grid x:Name="WinGrid" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="21" Grid.RowSpan="18" Visibility="Collapsed" Background="white">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/BackButton.png"></Image>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="7" Grid.RowSpan="3">
+                    <TextBlock x:Name="WinnerTextBlock" Text="Player X Wins!" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+                </Viewbox>
+        </Grid>
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/GamePage.xaml.cs">
+using final_project.GameObjects;
+using final_project.GameServices;
+using GameEngine.Services;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class GamePage : Page
+    {
+        private GameManager _manager;
+        private NetworkServer networkServer;
+        private DispatcherTimer gameLoop;
+        public GamePage()
+        {
+            this.InitializeComponent();
+            networkServer = new NetworkServer();
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _manager = new GameManager(scene);
+            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            Manager.Events.OnRemoveLifes += RemoveLives;
+            Manager.Events.onBulletShot += BulletShot;
+            Manager.Events.onReload += Reload;
+
+
+            await networkServer.StartServerAsync();
+
+
+            await networkServer.StartServerAsync();
+            networkServer.OpponentDataReceived += UpdateOpponentPosition;
+            networkServer.StatusChanged += msg => StatusTextBlock.Text = msg;
+
+            gameLoop = new DispatcherTimer();
+            gameLoop.Interval = TimeSpan.FromMilliseconds(16);
+            gameLoop.Tick += GameLoop_Tick;
+            gameLoop.Start();
+        }
+
+        private void GameLoop_Tick(object sender, object e)
+        {
+            try
+            {
+
+                Players serverPlayer = _manager._scene.getPlayer(true);
+
+                if (serverPlayer != null)
+                {
+
+                    PlayerState state = new PlayerState
+                    {
+                        PlayerId = 1,
+                        X = serverPlayer._x,
+                        Y = serverPlayer._y,
+                        VelocityX = serverPlayer._speedX,
+                        VelocityY = serverPlayer._speedY,
+                        Rotation = serverPlayer.Image.Rotation,
+                        Action = serverPlayer._playerState.ToString(),
+                        Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    };
+
+
+                    _ = networkServer.SendPlayerStateAsync(state);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"GameLoopTick Error: {ex.Message}");
+            }
+        }
+        private void UpdateOpponentPosition(PlayerState opponentState)
+        {
+            if (opponentState == null) return;
+
+            try
+            {
+
+                Players opponentPlayer = _manager._scene.getPlayer(false);
+
+                if (opponentPlayer != null)
+                {
+
+                    opponentPlayer._x = opponentState.X;
+                    opponentPlayer._y = opponentState.Y;
+
+
+                    opponentPlayer._speedX = opponentState.VelocityX;
+                    opponentPlayer._speedY = opponentState.VelocityY;
+
+
+                    opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                    Debug.WriteLine($"[Server] Updated opponent at ({opponentState.X:F2}, {opponentState.Y:F2})");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
+            }
+        }
+
+        private void Reload(bool obj)
+        {
+            if(obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void BulletShot(bool obj)
+        {
+            if (obj)
+            {
+
+                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            }
+            else
+            {
+                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            }
+        }
+
+        private void RemoveLives(bool isLeft, int Lives)
+        {
+            if(isLeft)
+            {
+                LeftPlayerHealth.Value -= Lives;
+            }
+            else
+            {
+                RightPlayerHealth.Value -= Lives;
+            }
+            if(LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
+            {
+                WinGrid.Visibility = Visibility.Visible;
+                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value ? "LeftPlayerWins" : "RightPlayerWins";
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/Login.xaml">
+<ContentDialog
+    x:Class="final_project.Pages.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="LOGIN"
+    PrimaryButtonText="Login"
+    SecondaryButtonText="Clear"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Background="#f3e3c1"
+    Foreground="black">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Username:" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <TextBox x:Name="UsernameTextBox" Grid.Row="1" PlaceholderText="Enter username" Margin="0,0,0,10"/>
+        <TextBlock Text="Password:" Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="3" PlaceholderText="Enter password"/>
+    </Grid>
+</ContentDialog>
+</file>
+
+<file path="final-project/final-project/Pages/Login.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+    public sealed partial class Login : ContentDialog
+    {
+        public Login()
+        {
+            this.InitializeComponent();
+        }
+
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+
+        }
+
+        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            UsernameTextBox.Text = String.Empty;
+            PasswordBox.Password = String.Empty;
+            args.Cancel = true;
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/LoginPage.xaml">
+<Page
+    x:Class="final_project.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+        </Grid.Background>
+        <Viewbox Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="5">
+            <TextBlock x:Name="LoginMessageTextBlock" Text="Login" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold"></TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="2">
+            <TextBox x:Name="Username" Text="Enter your username" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></TextBox>
+        </Viewbox>
+        <Viewbox Grid.Row="12" Grid.Column="8" Grid.ColumnSpan="10" Grid.RowSpan="2">
+            <PasswordBox x:Name="Password" PasswordChar="*" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></PasswordBox>
+        </Viewbox>
+        <Viewbox Grid.Row="15" Grid.Column="11" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/LoginButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" >
+                <Image Source="/Assets/Buttons/SignupButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/LoginPage.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class LoginPage : Page
+    {
+        public LoginPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainMenuPage));
+        }
+
+        private void SignupButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SignupPage));
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/MainMenuPage.xaml">
+<Page
+    x:Class="final_project.Pages.MainMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="StartButton" Click="StartButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/PlayButton.png"></Image>    
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="17" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SettingsButton" Click="SettingsButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/SettingsButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/LoginButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/SignupButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="HelpButton" Click="HelpButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/HelpButton.png"></Image>
+            </Button>
+        </Viewbox>
+
+        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/CloseButton.png"></Image>
+                </Button>
+            </Viewbox>
+
+        </Grid>
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/MainMenuPage.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class MainMenuPage : Page
+    {
+        private Login _login;
+        private SignUp _signUp;
+
+        public MainMenuPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ModePage));
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsPage));
+        }
+
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            _login = new Login();
+            await _login.ShowAsync();
+        }
+
+        private async void SignupButton_Click(object sender, RoutedEventArgs e)
+        {
+            _signUp = new SignUp();
+            await _signUp.ShowAsync();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpGrid.Visibility = HelpGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/ModePage.xaml">
+<Page
+    x:Class="final_project.Pages.ModePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Viewbox Grid.Row="14" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="OfflineButton" Click="OfflineButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/OfflineButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="17   " Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="LocalButton" Click="LocalButton_Click" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/Buttons/LocalButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="20" Grid.Column="9" Grid.ColumnSpan="8" Grid.RowSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button x:Name="OnlineButton" Click="OnlineButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/OnlineButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox>
+            <Image Source="/Assets/Logos/player.png"/>
+        </Viewbox>
+        <Viewbox>
+            <Image Source="/Assets/Logos/player.png"/>
+        </Viewbox>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Row="18" Grid.Column="4" Grid.ColumnSpan="4">
+            <Button x:Name="NextButton1" Content="Next Character" Click="NextImageButton_Click"/>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="4" >
+            <Image x:Name="ChosenImage1" Width="150" Height="150" Stretch="Uniform" Source="/Assets/Models/Players/pistol/pistol-walk.gif" Margin="0"/>
+        </Viewbox>
+        <Viewbox Grid.Row="18" Grid.Column="18" Grid.ColumnSpan="4">
+            <Button x:Name="NextButton2" Content="Next Character" Click="NextImageButton_Click"/>
+        </Viewbox>
+        <Viewbox Grid.Row="10" Grid.Column="18" Grid.RowSpan="8" Grid.ColumnSpan="4" >
+            <Image x:Name="ChosenImage2" Width="150" FlowDirection="RightToLeft" Height="150" Stretch="Uniform" Source="/Assets/Models/Players/pistol/pistol-walk.gif" Margin="0"/>
+        </Viewbox>
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/ModePage.xaml.cs">
+using final_project.GameServices;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class ModePage : Page
+    {
+        private Registration _registration;
+        public ModePage()
+        {
+            this.InitializeComponent();
+        }
+
+        private void OfflineButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage_Client));
+        }
+
+        private void LocalButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage));
+        }
+
+        private void OnlineButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Frame.Navigate(typeof(GamePage));
+        }
+        private async Task StartReg()
+        {
+            _registration = new Registration();
+            await _registration.ShowAsync();
+        }
+        private void NextImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            NextImageButton(sender.Equals(NextButton1) ? ChosenImage1 : ChosenImage2);
+            GameConstants.leftPlayer = (int)ChosenImage1.Margin.Right;
+            GameConstants.rightPlayer = (int)ChosenImage2.Margin.Right;
+        }
+        private void NextImageButton(Image image)
+        {
+            switch (image.Margin.Right)
+            {
+                case 0:
+                    {
+                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/rifle/rifle-walk.gif"));
+                        image.Margin = new Thickness(1, 1, 1, 1);
+                        break;
+                    }
+                case 1:
+                    {
+                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/shotgun/shotgun-walk.gif"));
+                        image.Margin = new Thickness(2, 2, 2, 2);
+                        break;
+                    }
+                default:
+                    {
+                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/pistol/pistol-walk.gif"));
+                        image.Margin = new Thickness(0, 0, 0, 0);
+                        break;
+                    }
+            }
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/Registration.xaml">
+<ContentDialog
+    x:Class="final_project.Pages.Registration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+ Title="Registration"
+ PrimaryButtonText="Registration"
+ SecondaryButtonText="Clear"
+ PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+ SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+ Background="#f3e3c1"
+ Foreground="black">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="IP:" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <TextBox x:Name="IPTextBox" Grid.Row="1" PlaceholderText="Enter IP" Margin="0,0,0,10"/>
+        <TextBlock Text="Name:" Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <TextBox x:Name="NameTextBox" Grid.Row="3" PlaceholderText="Enter Name"/>
+    </Grid>
+</ContentDialog>
+</file>
+
+<file path="final-project/final-project/Pages/Registration.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+    public sealed partial class Registration : ContentDialog
+    {
+        public Registration()
+        {
+            this.InitializeComponent();
+        }
+
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+        }
+
+        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            IPTextBox.Text = String.Empty;
+            NameTextBox.Text = String.Empty;
+            args.Cancel = true;
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/SettingsPage.xaml">
+<Page
+    x:Class="final_project.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BackGrounds/MenuBackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="BackButton" Click="BackButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/BackButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="KeysButton" Click="KeysButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/KeysButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <Button x:Name="AudioButton" Click="AudioButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                <Image Source="/Assets/Buttons/AudioButton.png"></Image>
+            </Button>
+        </Viewbox>
+        <Grid x:Name="KeysGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Button x:Name="CloseButtonKeys" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/CloseButton.png"></Image>
+                </Button>
+            </Viewbox>
+            
+        </Grid>
+        <Grid x:Name="AudioGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Button x:Name="CloseButtonAudio" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
+                    <Image Source="/Assets/Buttons/CloseButton.png"></Image>
+                </Button>
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="9" Grid.RowSpan="2">
+                <Slider x:Name="VolumeSlider" Minimum="0" Maximum="100" Value="100" ValueChanged="VolumeSlider_ValueChanged" Width="220"></Slider>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Page>
+</file>
+
+<file path="final-project/final-project/Pages/SettingsPage.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+
+
+
+    public sealed partial class SettingsPage : Page
+    {
+        public SettingsPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private void KeysButton_Click(object sender, RoutedEventArgs e)
+        {
+            KeysGrid.Visibility = KeysGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            AudioGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            KeysGrid.Visibility = Visibility.Collapsed;
+            AudioGrid.Visibility = Visibility.Collapsed;
+        }
+
+        private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
+        }
+
+        private void AudioButton_Click(object sender, RoutedEventArgs e)
+        {
+            AudioGrid.Visibility = AudioGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            KeysGrid.Visibility = Visibility.Collapsed;
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Pages/SignUp.xaml">
+<ContentDialog
+    x:Class="final_project.Pages.SignUp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+     Title="SIGNUP"
+ PrimaryButtonText="Signup"
+ SecondaryButtonText="Clear"
+ PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+ SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+ Background="#f3e3c1"
+ Foreground="black">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Username:" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <TextBox x:Name="UsernameTextBox" Grid.Row="1" PlaceholderText="Enter username" Margin="0,0,0,10"/>
+        <TextBlock Text="Password:" Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5"/>
+        <PasswordBox x:Name="PasswordBox" Grid.Row="3" PlaceholderText="Enter password"/>
+    </Grid>
+</ContentDialog>
+</file>
+
+<file path="final-project/final-project/Pages/SignUp.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace final_project.Pages
+{
+    public sealed partial class SignUp : ContentDialog
+    {
+        public SignUp()
+        {
+            this.InitializeComponent();
+        }
+
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+        }
+
+        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            UsernameTextBox.Text = String.Empty;
+            PasswordBox.Password = String.Empty;
+            args.Cancel = true;
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/Properties/AssemblyInfo.cs">
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+
+
+[assembly: AssemblyTitle("final-project")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("final-project")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
+//
+
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: ComVisible(false)]
+</file>
+
+<file path="final-project/final-project/Properties/Default.rd.xml">
+<Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
+  <Application>
+
+
+
+
+    <Assembly Name="*Application*" Dynamic="Required All" />
+
+
+
+
+
+  </Application>
+</Directives>
+</file>
+
+<file path="final-project/final-project/App.xaml">
+<Application
+    x:Class="final_project.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:final_project">
+
+</Application>
+</file>
+
+<file path="final-project/final-project/App.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+using final_project.Pages;
+
+namespace final_project
+{
+
+
+
+    sealed partial class App : Application
+    {
+
+
+
+
+        public App()
+        {
+            this.InitializeComponent();
+            this.Suspending += OnSuspending;
+        }
+
+
+
+
+
+
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+
+
+            if (rootFrame == null)
+            {
+
+                rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
+                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+
+                }
+
+
+                Window.Current.Content = rootFrame;
+            }
+
+            if (e.PrelaunchActivated == false)
+            {
+                if (rootFrame.Content == null)
+                {
+
+
+
+                    rootFrame.Navigate(typeof(MainMenuPage), e.Arguments);
+                }
+
+                Window.Current.Activate();
+            }
+        }
+
+
+
+
+
+
+        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+
+
+
+
+
+
+
+
+        private void OnSuspending(object sender, SuspendingEventArgs e)
+        {
+            var deferral = e.SuspendingOperation.GetDeferral();
+
+            deferral.Complete();
+        }
+    }
+}
+</file>
+
+<file path="final-project/final-project/final-project.csproj">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{C2D90187-CFC1-4911-A109-474AD3E084BB}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>final_project</RootNamespace>
+    <AssemblyName>final-project</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameObjects\Bullets.cs" />
+    <Compile Include="GameObjects\Covers.cs" />
+    <Compile Include="GameObjects\PistolPlayer.cs" />
+    <Compile Include="GameObjects\Players.cs" />
+    <Compile Include="GameObjects\RiflePlayer.cs" />
+    <Compile Include="GameObjects\ShotgunPlayer.cs" />
+    <Compile Include="GameServices\GameConstants.cs" />
+    <Compile Include="GameServices\GameKeys.cs" />
+    <Compile Include="GameServices\GameManager.cs" />
+    <Compile Include="GameServices\GameScene.cs" />
+    <Compile Include="GameServices\NetworkClient.cs" />
+    <Compile Include="GameServices\NetworkServer.cs" />
+    <Compile Include="GameServices\PlayerState.cs" />
+    <Compile Include="GameServices\RectangleHelper.cs" />
+    <Compile Include="Pages\GamePage - Client.xaml.cs">
+      <DependentUpon>GamePage - Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ModePage.xaml.cs">
+      <DependentUpon>ModePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\BackGrounds\gameBackground.png" />
+    <Content Include="Assets\Buttons\AudioButton.png" />
+    <Content Include="Assets\Buttons\CloseButton.png" />
+    <Content Include="Assets\Buttons\HelpButton.png" />
+    <Content Include="Assets\Buttons\KeysButton.png" />
+    <Content Include="Assets\BackGrounds\MenuBackground.png" />
+    <Content Include="Assets\Buttons\BackButton.png" />
+    <Content Include="Assets\Buttons\BlankButton.png" />
+    <Content Include="Assets\Buttons\LocalButton.png" />
+    <Content Include="Assets\Buttons\LoginButton.png" />
+    <Content Include="Assets\Buttons\OfflineButton.png" />
+    <Content Include="Assets\Buttons\OnlineButton.png" />
+    <Content Include="Assets\Buttons\PlayButton.png" />
+    <Content Include="Assets\Buttons\SettingsButton.png" />
+    <Content Include="Assets\Buttons\SignupButton.png" />
+    <Content Include="Assets\Icon\gameIcon.png" />
+    <Content Include="Assets\Icon\LargeTile.scale-100.png" />
+    <Content Include="Assets\Icon\LargeTile.scale-125.png" />
+    <Content Include="Assets\Icon\LargeTile.scale-150.png" />
+    <Content Include="Assets\Icon\LargeTile.scale-200.png" />
+    <Content Include="Assets\Icon\LargeTile.scale-400.png" />
+    <Content Include="Assets\Icon\SmallTile.scale-100.png" />
+    <Content Include="Assets\Icon\SmallTile.scale-125.png" />
+    <Content Include="Assets\Icon\SmallTile.scale-150.png" />
+    <Content Include="Assets\Icon\SmallTile.scale-200.png" />
+    <Content Include="Assets\Icon\SmallTile.scale-400.png" />
+    <Content Include="Assets\Icon\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Icon\SplashScreen.scale-125.png" />
+    <Content Include="Assets\Icon\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Icon\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Icon\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Icon\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Icon\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Icon\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Icon\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Icon\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Icon\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\Icon\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Icon\StoreLogo.scale-125.png" />
+    <Content Include="Assets\Icon\StoreLogo.scale-150.png" />
+    <Content Include="Assets\Icon\StoreLogo.scale-200.png" />
+    <Content Include="Assets\Icon\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Icon\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Icon\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Icon\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Icon\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Icon\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Models\Bullet\bullet.png" />
+    <Content Include="Assets\Models\Covers\gameBarrier.png" />
+    <Content Include="Assets\Models\Covers\gameBoxes.png" />
+    <Content Include="Assets\Models\Covers\gameCanister.png" />
+    <Content Include="Assets\Models\Covers\gameFoundation.png" />
+    <Content Include="Assets\Models\Players\pistol\pistol-idle.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-reload.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-shoot.gif" />
+    <Content Include="Assets\Models\Players\pistol\pistol-walk.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-idle.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-reload.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-shoot.gif" />
+    <Content Include="Assets\Models\Players\rifle\rifle-walk.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-idle.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-reload.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-shoot.gif" />
+    <Content Include="Assets\Models\Players\shotgun\shotgun-walk.gif" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pages\GamePage - Client.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ModePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameEngine\GameEngine.csproj">
+      <Project>{fd8bb649-af09-49b5-9f5f-32369e2cfe1f}</Project>
+      <Name>GameEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+</file>
+
+<file path="final-project/final-project/Package.appxmanifest">
+<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="4b3c53df-e2a7-42c2-8d6a-2d702d2117bf"
+    Publisher="CN=yahav"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="4b3c53df-e2a7-42c2-8d6a-2d702d2117bf" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>final_project</DisplayName>
+    <PublisherDisplayName>yahav</PublisherDisplayName>
+    <Logo>Assets\Icon\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="final_project.App"
+	  desktop4:SupportsMultipleInstances="true">
+      <uap:VisualElements
+        DisplayName="final_project"
+        Square150x150Logo="Assets\Icon\Square150x150Logo.png"
+        Square44x44Logo="Assets\Icon\Square44x44Logo.png"
+        Description="final_project"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Icon\Wide310x150Logo.png" Square71x71Logo="Assets\Icon\SmallTile.png" Square310x310Logo="Assets\Icon\LargeTile.png"/>
+        <uap:SplashScreen Image="Assets\Icon\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+	<Capability Name="internetClientServer" />
+	<Capability Name="privateNetworkClientServer" />
+  </Capabilities>
+</Package>
+</file>
+
+<file path="final-project/GameEngine/Objects/GameMovingObject.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+
+namespace GameEngine.Objects
+{
+    public abstract class GameMovingObject : GameObject
+    {
+        public double _speedX;
+        public double _speedY;
+        protected double _accelerationX;
+        protected double _accelerationY;
+        protected GameMovingObject(string fileName, double x, double y, double size) : base(fileName, x, y, size)
+        {
+            Stop();
+        }
+        public override void Render()
+        {
+            _x += _speedX;
+            _y += _speedY;
+            _speedX += _accelerationX;
+            _speedY += _accelerationY;
+            base.Render();
+        }
+
+        public void Stop()
+        {
+            _speedX = _speedY = _accelerationX = _accelerationY = 0;
+        }
+    }
+}
+</file>
+
+<file path="final-project/GameEngine/Objects/GameObject.cs">
+using GameEngine.Services;
+using System;
+using Windows.Foundation;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+
+namespace GameEngine.Objects
+{
+    public abstract class GameObject
+    {
+        public double _x;
+        public double _y;
+        private double _placeX;
+        private double _placeY;
+        public Image Image { get; set;}
+        protected string _fileName;
+        public bool Collisional { get; set; } = true;
+        public bool IsObjectCreated { get; set; } = false;
+
+        protected GameObject(string fileName, double x, double y, double size)
+        {
+            _fileName = fileName;
+            _x = x;
+            _y = y;
+            _placeX = x;
+            _placeY = y;
+            Image = new Image();
+            Image.Width = size;
+            Image.Height = size*0.738;
+            Render();
+            SetName(_fileName);
+        }
+
+        public void Init()
+        {
+            _x = _placeX;
+            _y = _placeY;
+        }
+
+        protected void SetName(string fileName)
+        {
+            Image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{fileName}"));
+        }
+
+        public virtual void Collide(GameObject gameObject)
+        {
+
+        }
+
+        public virtual void Render()
+        {
+            Scene.SetLeft(Image,_x);
+            Scene.SetTop(Image,_y);
+            Rect();
+        }
+
+        public virtual Rect Rect()
+        {
+            return new Rect(_x,_y, Image.ActualWidth, Image.ActualHeight);
+        }
+
+    }
+}
+</file>
+
+<file path="final-project/GameEngine/Properties/AssemblyInfo.cs">
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+
+
+[assembly: AssemblyTitle("GameEngine")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("GameEngine")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
+
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: ComVisible(false)]
+</file>
+
+<file path="final-project/GameEngine/Properties/GameEngine.rd.xml">
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
+  <Library Name="GameEngine">
+
+
+
+  </Library>
+</Directives>
+</file>
+
+<file path="final-project/GameEngine/Services/GameEvents.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.System;
+
+namespace GameEngine.Services
+{
+    public class GameEvents
+    {
+        public Action<VirtualKey> OnKeyClick;
+        public Action OnRun;
+        public Action<VirtualKey> OnKeyRelease;
+        public Action<int, int> onUpdateScore;
+        public Action<bool, int> OnRemoveLifes;
+        public Action<bool> onBulletShot;
+        public Action<bool> onReload;
+        public GameEvents()
+        {
+
+        }
+    }
+}
+</file>
+
+<file path="final-project/GameEngine/Services/Manager.cs">
+using GameEngine.Objects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace GameEngine.Services
+{
+    public class Manager
+    {
+        private Scene _scene;
+        protected Random _random = new Random();
+        private DispatcherTimer _runTimer;
+        protected GameEvents _gameEvents { get; set;}
+
+
+        public static GameEvents Events { get; set; } = new GameEvents();
+
+        public Manager(Scene scene)
+        {
+            _scene = scene;
+            Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+
+            _runTimer = new DispatcherTimer();
+            _runTimer.Interval += TimeSpan.FromMilliseconds(0.01);
+            _runTimer.Start();
+            _runTimer.Tick += _runTimer_Tick;
+        }
+
+        protected virtual void _runTimer_Tick(object sender, object e)
+        {
+            Events.OnRun();
+        }
+
+        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            try
+            {
+                Events.OnKeyClick(args.VirtualKey);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            try
+            {
+                Events.OnKeyRelease(args.VirtualKey);
+            }
+            catch
+            {
+
+            }
+        }
+    }
+}
+</file>
+
+<file path="final-project/GameEngine/Services/Scene.cs">
+using GameEngine.Objects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace GameEngine.Services
+{
+    public abstract class Scene : Canvas
+    {
+        protected List<GameObject> _gameObjects = new List<GameObject>();
+        public double Ground { get; set; }
+        protected List<GameObject> _gameObjectsSnapshot => _gameObjects.ToList();
+        protected static bool _was = false;
+        public Scene()
+        {
+            Manager.Events.OnRun = null;
+            Manager.Events.OnRun += Run;
+            Manager.Events.OnRun += CheckCollisional;
+
+        }
+        public void Init()
+        {
+            foreach (GameObject obj in _gameObjects)
+            {
+                obj.Init();
+            }
+        }
+        private void CheckCollisional()
+        {
+            foreach (var gameObject in _gameObjectsSnapshot)
+            {
+                if (gameObject.Collisional)
+                {
+
+                    var otherObject = _gameObjectsSnapshot.FirstOrDefault(g =>
+                                            !ReferenceEquals(g, gameObject) &&
+                                            g.Collisional &&
+                                            !RectHelper.Intersect(g.Rect(), gameObject.Rect()).IsEmpty);
+                    if (otherObject != null)
+                    {
+
+
+                        gameObject.Collide(otherObject);
+                    }
+                }
+            }
+        }
+
+        private void Run()
+        {
+            foreach (var gameObject in _gameObjectsSnapshot)
+            {
+                if (gameObject is GameMovingObject moveObj)
+                {
+                    moveObj.Render();
+                }
+            }
+        }
+
+
+        public void RemoveObject(GameObject gameObject)
+        {
+            if (_gameObjects.Contains(gameObject))
+            {
+                _gameObjects.Remove(gameObject);
+                Children.Remove(gameObject.Image);
+            }
+        }
+        public void RemoveAllObjects()
+        {
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                RemoveObject(gameObject);
+            }
+        }
+        public void AddObject(GameObject gameObject)
+        {
+            _gameObjects.Add(gameObject);
+            Children.Add(gameObject.Image);
+        }
+    }
+}
+</file>
+
+<file path="final-project/GameEngine/GameEngine.csproj">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameEngine</RootNamespace>
+    <AssemblyName>GameEngine</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Objects\GameMovingObject.cs" />
+    <Compile Include="Objects\GameObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GameEvents.cs" />
+    <Compile Include="Services\Manager.cs" />
+    <Compile Include="Services\Scene.cs" />
+    <EmbeddedResource Include="Properties\GameEngine.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+</file>
+
+<file path="final-project/final-project.sln">
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "final-project", "final-project\final-project.csproj", "{C2D90187-CFC1-4911-A109-474AD3E084BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEngine", "GameEngine\GameEngine.csproj", "{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM.Build.0 = Debug|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM.Deploy.0 = Debug|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM64.Build.0 = Debug|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x64.ActiveCfg = Debug|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x64.Build.0 = Debug|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x64.Deploy.0 = Debug|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x86.ActiveCfg = Debug|x86
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x86.Build.0 = Debug|x86
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Debug|x86.Deploy.0 = Debug|x86
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM.ActiveCfg = Release|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM.Build.0 = Release|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM.Deploy.0 = Release|ARM
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM64.ActiveCfg = Release|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM64.Build.0 = Release|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|ARM64.Deploy.0 = Release|ARM64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x64.ActiveCfg = Release|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x64.Build.0 = Release|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x64.Deploy.0 = Release|x64
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x86.ActiveCfg = Release|x86
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x86.Build.0 = Release|x86
+		{C2D90187-CFC1-4911-A109-474AD3E084BB}.Release|x86.Deploy.0 = Release|x86
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|ARM.Build.0 = Debug|ARM
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|x64.ActiveCfg = Debug|x64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|x64.Build.0 = Debug|x64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|x86.ActiveCfg = Debug|x86
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Debug|x86.Build.0 = Debug|x86
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|ARM.ActiveCfg = Release|ARM
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|ARM.Build.0 = Release|ARM
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|ARM64.Build.0 = Release|ARM64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|x64.ActiveCfg = Release|x64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|x64.Build.0 = Release|x64
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|x86.ActiveCfg = Release|x86
+		{FD8BB649-AF09-49B5-9F5F-32369E2CFE1F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D29B974C-01B1-4734-8BD2-56E10EA19E33}
+	EndGlobalSection
+EndGlobal
+</file>
+
+<file path="test/test/Properties/AssemblyInfo.cs">
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+
+
+[assembly: AssemblyTitle("test")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("test")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("1382f2c8-97da-4986-816b-7e3c19e5f6df")]
+
+
+
+
+
+
+
+
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+</file>
+
+<file path="test/test/App.config">
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
+    </startup>
+</configuration>
+</file>
+
+<file path="test/test/Program.cs">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+</file>
+
+<file path="test/test/test.csproj">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>test</RootNamespace>
+    <AssemblyName>test</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
+</file>
+
+<file path="test/test.sln">
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1382F2C8-97DA-4986-816B-7E3C19E5F6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A4BCFB1-8ADB-4CE3-AFDD-936E24B88042}
+	EndGlobalSection
+EndGlobal
+</file>
+
+<file path="Testing/Testing/Properties/AssemblyInfo.cs">
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+
+
+[assembly: AssemblyTitle("Testing")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Testing")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
+//
+
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: ComVisible(false)]
+</file>
+
+<file path="Testing/Testing/Properties/Default.rd.xml">
+<Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
+  <Application>
+
+
+
+
+    <Assembly Name="*Application*" Dynamic="Required All" />
+
+
+
+
+
+  </Application>
+</Directives>
+</file>
+
+<file path="Testing/Testing/App.xaml">
+<Application
+    x:Class="Testing.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Testing">
+
+</Application>
+</file>
+
+<file path="Testing/Testing/App.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+namespace Testing
+{
+
+
+
+    sealed partial class App : Application
+    {
+
+
+
+
+        public App()
+        {
+            this.InitializeComponent();
+            this.Suspending += OnSuspending;
+        }
+
+
+
+
+
+
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+
+
+            if (rootFrame == null)
+            {
+
+                rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
+                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+
+                }
+
+
+                Window.Current.Content = rootFrame;
+            }
+
+            if (e.PrelaunchActivated == false)
+            {
+                if (rootFrame.Content == null)
+                {
+
+
+
+                    rootFrame.Navigate(typeof(BlankPage), e.Arguments);
+                }
+
+                Window.Current.Activate();
+            }
+        }
+
+
+
+
+
+
+        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+
+
+
+
+
+
+
+
+        private void OnSuspending(object sender, SuspendingEventArgs e)
+        {
+            var deferral = e.SuspendingOperation.GetDeferral();
+
+            deferral.Complete();
+        }
+    }
+}
+</file>
+
+<file path="Testing/Testing/BlankPage.xaml">
+<Page
+    x:Class="Testing.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Testing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Padding="20">
+            <TextBox x:Name="MyPortTextBox"
+             Header="My UDP Port"
+             Text="5000"/>
+
+            <TextBox x:Name="PeerIpTextBox"
+             Header="Peer IP"
+             Text="192.168.1.20"/>
+
+            <TextBox x:Name="PeerPortTextBox"
+             Header="Peer UDP Port"
+             Text="5001"/>
+
+            <Button Content="Init Socket"
+            Click="InitSocket_Click"/>
+
+            <TextBox x:Name="MessageToSendTextBox"
+             Header="Message"
+             Text="Hello from me"/>
+
+            <Button Content="Send"
+            Click="Send_Click"/>
+
+            <TextBlock x:Name="LogTextBlock"
+               TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Page>
+</file>
+
+<file path="Testing/Testing/BlankPage.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Networking;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace Testing
+{
+
+
+
+    public sealed partial class BlankPage : Page
+    {
+        private DatagramSocket _socket;
+        private IOutputStream _peerStream;
+        public BlankPage()
+        {
+            this.InitializeComponent();
+        }
+        private async void InitSocket_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string myPort = MyPortTextBox.Text;
+                string peerIp = PeerIpTextBox.Text;
+                string peerPort = PeerPortTextBox.Text;
+
+                _socket = new DatagramSocket();
+                _socket.MessageReceived += Socket_MessageReceived;
+
+
+                await _socket.BindServiceNameAsync(myPort);
+
+
+                HostName peerHost = new HostName(peerIp);
+                _peerStream = await _socket.GetOutputStreamAsync(peerHost, peerPort);
+
+                AppendLog($"Bound on {myPort}, ready to send to {peerIp}:{peerPort}");
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Init error: " + ex.Message);
+            }
+        }
+        private async void Send_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (_socket == null || _peerStream == null)
+                {
+                    AppendLog("Socket or peer stream not ready.");
+                    return;
+                }
+
+                using (var writer = new DataWriter(_peerStream))
+                {
+                    string msg = MessageToSendTextBox.Text;
+                    writer.WriteString(msg);
+                    await writer.StoreAsync();
+                    await writer.FlushAsync();
+                }
+
+                AppendLog("Sent: " + MessageToSendTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Send error: " + ex.Message);
+            }
+        }
+        private async void Socket_MessageReceived(DatagramSocket sender,DatagramSocketMessageReceivedEventArgs args)
+        {
+            using (var reader = args.GetDataReader())
+            {
+                uint len = reader.UnconsumedBufferLength;
+                string msg = reader.ReadString(len);
+                string fromHost = args.RemoteAddress.CanonicalName;
+                string fromPort = args.RemotePort;
+
+                await Dispatcher.RunAsync(
+                    Windows.UI.Core.CoreDispatcherPriority.Normal,
+                    () => AppendLog($"Received from {fromHost}:{fromPort} -> {msg}")
+                );
+            }
+        }
+        private void AppendLog(string text)
+        {
+            LogTextBlock.Text += text + Environment.NewLine;
+        }
+    }
+}
+</file>
+
+<file path="Testing/Testing/MainPage.xaml">
+<Page
+    x:Class="Testing.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Testing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Padding="20">
+            <TextBox x:Name="HostIpTextBox"
+             Header="Host IP (for client)"
+             Text="192.168.1.10"/>
+            <TextBox x:Name="PortTextBox"
+             Header="Port"
+             Text="5000"/>
+
+            <Button Content="Start Host"
+            Click="StartHost_Click"/>
+            <Button Content="Start Client"
+            Click="StartClient_Click"/>
+
+            <TextBox x:Name="MessageToSendTextBox"
+             Header="Message"
+             Text="Hello from client/host"/>
+            <Button Content="Send"
+            Click="Send_Click"/>
+
+            <TextBlock x:Name="LogTextBlock"
+               TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Page>
+</file>
+
+<file path="Testing/Testing/MainPage.xaml.cs">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Networking;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+
+
+namespace Testing
+{
+
+
+
+    public sealed partial class MainPage : Page
+    {
+        private DatagramSocket _socket;
+        private IOutputStream _outputStream;
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+        private async void StartHost_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string port = PortTextBox.Text;
+
+                _socket = new DatagramSocket();
+                _socket.MessageReceived += Socket_MessageReceived;
+
+
+                await _socket.BindServiceNameAsync(port);
+
+                AppendLog($"Host listening on UDP port {port}");
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Host error: " + ex.Message);
+            }
+        }
+
+        private async void Socket_MessageReceived(DatagramSocket sender,DatagramSocketMessageReceivedEventArgs args)
+        {
+            using (var reader = args.GetDataReader())
+            {
+                uint len = reader.UnconsumedBufferLength;
+                string msg = reader.ReadString(len);
+
+
+                string remoteHost = args.RemoteAddress.CanonicalName;
+                string remotePort = args.RemotePort;
+
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    AppendLog($"Received from {remoteHost}:{remotePort} -> {msg}");
+                });
+            }
+        }
+        private async void StartClient_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string hostIp = HostIpTextBox.Text;
+                string port = PortTextBox.Text;
+
+                _socket = new DatagramSocket();
+                _socket.MessageReceived += Socket_MessageReceived;
+
+
+                await _socket.BindServiceNameAsync(""); // ephemeral port. [web:1]
+
+                HostName remoteHost = new HostName(hostIp);
+                _outputStream = await _socket.GetOutputStreamAsync(remoteHost, port); // [web:17]
+
+                AppendLog($"Client ready. Target {hostIp}:{port}");
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Client error: " + ex.Message);
+            }
+        }
+        private async void Send_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (_socket == null || _outputStream == null)
+                {
+                    AppendLog("Socket not initialized or remote not set.");
+                    return;
+                }
+
+                using (var writer = new DataWriter(_outputStream))
+                {
+                    string msg = MessageToSendTextBox.Text;
+                    writer.WriteString(msg);
+                    await writer.StoreAsync();
+                    await writer.FlushAsync();
+                }
+
+                AppendLog("Sent: " + MessageToSendTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Send error: " + ex.Message);
+            }
+        }
+        private void AppendLog(string text)
+        {
+            LogTextBlock.Text += text + Environment.NewLine;
+        }
+    }
+}
+</file>
+
+<file path="Testing/Testing/Package.appxmanifest">
+<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="3a7811d5-b2fd-4cc3-8abf-7f1086ef3d81"
+    Publisher="CN=yahav"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="3a7811d5-b2fd-4cc3-8abf-7f1086ef3d81" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>Testing</DisplayName>
+    <PublisherDisplayName>yahav</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Testing.App"
+		desktop4:SupportsMultipleInstances="true">
+		<uap:VisualElements
+        DisplayName="Testing"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Testing"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer"/>
+    <Capability Name="privateNetworkClientServer"/>
+  </Capabilities>
+</Package>
+</file>
+
+<file path="Testing/Testing/Testing.csproj">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{FEC31056-B637-4AC5-80BC-26F86D52FEA5}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Testing</RootNamespace>
+    <AssemblyName>Testing</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlankPage.xaml.cs">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="BlankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+</file>
+
+<file path="Testing/Testing.sln">
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{FEC31056-B637-4AC5-80BC-26F86D52FEA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM.Build.0 = Debug|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM64.Build.0 = Debug|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x64.ActiveCfg = Debug|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x64.Build.0 = Debug|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x64.Deploy.0 = Debug|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x86.ActiveCfg = Debug|x86
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x86.Build.0 = Debug|x86
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Debug|x86.Deploy.0 = Debug|x86
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM.ActiveCfg = Release|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM.Build.0 = Release|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM.Deploy.0 = Release|ARM
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM64.ActiveCfg = Release|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM64.Build.0 = Release|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|ARM64.Deploy.0 = Release|ARM64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x64.ActiveCfg = Release|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x64.Build.0 = Release|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x64.Deploy.0 = Release|x64
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x86.ActiveCfg = Release|x86
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x86.Build.0 = Release|x86
+		{FEC31056-B637-4AC5-80BC-26F86D52FEA5}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C709D908-723E-4C60-A7B7-039B5D5F0AF4}
+	EndGlobalSection
+EndGlobal
+</file>
+
+<file path=".gitignore">
+## Ignore Visual Studio temporary files, build results, and
+## files generated by popular Visual Studio add-ons.
+##
+## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Chutzpah Test files
+_Chutzpah*
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity is a build add-in
+_TeamCity*
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# AxoCover is a Code Coverage Tool
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject is a documentation generator add-in
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+# Note: Comment the next line if you want to checkin your web deploy settings,
+# but database connection strings (with potential passwords) will be unencrypted
+*.pubxml
+*.publishproj
+
+# Microsoft Azure Web App publish settings. Comment the next line if you want to
+# checkin your Azure Web App publish settings, but sensitive information contained
+# in these scripts will be unencrypted
+PublishScripts/
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!?*.[Cc]ache/
+
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
+
+# RIA/Silverlight projects
+Generated_Code/
+
+# Backup & report files from converting an old project file
+# to a newer Visual Studio version. Backup files are not needed,
+# because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# Microsoft Fakes
+FakesAssemblies/
+
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# Visual Studio 6 build log
+*.plg
+
+# Visual Studio 6 workspace options file
+*.opt
+
+# Visual Studio 6 auto-generated workspace file (contains which files were open etc.)
+*.vbw
+
+# Visual Studio 6 auto-generated project file (contains which files were open etc.)
+*.vbp
+
+# Visual Studio 6 workspace and project file (working project files containing files to include in project)
+*.dsw
+*.dsp
+
+# Visual Studio 6 technical files
+*.ncb
+*.aps
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/
+
+# FAKE - F# Make
+.fake/
+
+# CodeRush personal settings
+.cr/personal
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Cake - Uncomment if you are using it
+# tools/**
+# !tools/packages.config
+
+# Tabs Studio
+*.tss
+
+# Telerik's JustMock configuration file
+*.jmconfig
+
+# BizTalk build output
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# OpenCover UI analysis results
+OpenCover/
+
+# Azure Stream Analytics local run output
+ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+# MFractors (Xamarin productivity tool) working folder
+.mfractor/
+
+# Local History for Visual Studio
+.localhistory/
+
+# Visual Studio History (VSHistory) files
+.vshistory/
+
+# BeatPulse healthcheck temp database
+healthchecksdb
+
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/
+
+# Fody - auto-generated XML schema
+FodyWeavers.xsd
+
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# Windows Installer files from build outputs
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# JetBrains Rider
+*.sln.iml
+</file>
+
+</files>
