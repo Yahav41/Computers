@@ -20,6 +20,11 @@ namespace final_project.GameObjects
         {
             _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene, 5));
         }
+
+        public override int Type()
+        {
+            return 1;
+        }
         protected override void MatchImageToState()
         {
             switch (_playerState)

@@ -124,6 +124,11 @@ namespace final_project.GameObjects
 
         }
 
+        public virtual int Type()
+        {
+            return -1;
+        }
+
         protected virtual void MatchImageToState()
         {
             
