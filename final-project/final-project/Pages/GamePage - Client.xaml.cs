@@ -141,7 +141,11 @@ namespace final_project.Pages
             }
         }
 
-
+        public void UpdateBullets()
+        {
+            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
+            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+        }
 
         private bool NeedToRecreatePlayer(Players currentPlayer, int newCharacterType)
         {
@@ -167,13 +171,13 @@ namespace final_project.Pages
                 }
             }
             catch (Exception ex) { Debug.WriteLine($"Error: {ex.Message}"); }
+            UpdateBullets();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _manager = new GameManager(scene);
-            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
-            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            UpdateBullets();
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
@@ -190,6 +194,8 @@ namespace final_project.Pages
             {
                 RightPlayerBullets.Text = _manager.getBullets(false).ToString();
             }
+
+            UpdateBullets();
         }
 
         private void BulletShot(bool obj)
@@ -203,6 +209,7 @@ namespace final_project.Pages
             {
                 RightPlayerBullets.Text = _manager.getBullets(false).ToString();
             }
+            UpdateBullets();
         }
 
         private void RemoveLives(bool isLeft, int Lives)
