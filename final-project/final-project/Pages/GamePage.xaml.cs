@@ -100,6 +100,7 @@ namespace final_project.Pages
                         VelocityX = serverPlayer._speedX,
                         VelocityY = serverPlayer._speedY,
                         Rotation = serverPlayer.Image.Rotation,
+                        Type = serverPlayer.Type(),
                         Action = serverPlayer._playerState.ToString(),
                         Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
                     };
