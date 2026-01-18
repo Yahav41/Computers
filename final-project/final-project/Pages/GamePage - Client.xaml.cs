@@ -105,27 +105,34 @@ namespace final_project.Pages
                 // On client, opponent is leftPlayer (isLeft = true)
                 Players opponentPlayer = _manager._scene.getPlayer(true);
 
-                // Check if character type changed and recreate if needed
-                if (opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type))
+                // FIRST: Check if character type changed and recreate if needed
+                bool needsRecreate = opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type);
+
+                if (needsRecreate)
                 {
+                    Debug.WriteLine($"[Client] Recreating opponent - Type: {opponentState.Type}");
                     RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, true);
+
+                    // CRITICAL: Get the newly created player!
                     opponentPlayer = _manager._scene.getPlayer(true);
+
+                    if (opponentPlayer == null)
+                    {
+                        Debug.WriteLine("[Client] ERROR: Failed to create opponent player!");
+                        return;
+                    }
                 }
 
+                // NOW update the (newly created or existing) player
                 if (opponentPlayer != null)
                 {
-                    // Update position
                     opponentPlayer._x = opponentState.X;
                     opponentPlayer._y = opponentState.Y;
-
-                    // Update velocity
                     opponentPlayer._speedX = opponentState.VelocityX;
                     opponentPlayer._speedY = opponentState.VelocityY;
-
-                    // Update rotation
                     opponentPlayer.Image.Rotation = opponentState.Rotation;
 
-                    Debug.WriteLine($"[Client] Updated opponent at {opponentState.X:F2}, {opponentState.Y:F2}, Type: {opponentState.Type}");
+                    Debug.WriteLine($"[Client] Updated opponent - Type: {opponentState.Type}, Pos: ({opponentState.X:F2}, {opponentState.Y:F2})");
                 }
             }
             catch (Exception ex)
@@ -133,6 +140,7 @@ namespace final_project.Pages
                 Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
             }
         }
+
 
 
         private bool NeedToRecreatePlayer(Players currentPlayer, int newCharacterType)

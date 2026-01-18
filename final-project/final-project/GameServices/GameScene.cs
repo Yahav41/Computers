@@ -23,19 +23,24 @@ namespace final_project.GameServices
 
         private void RotatePlayers()
         {
-            if(_rightPlayer == _leftPlayer) 
+            // Always get fresh references - don't cache
+            Players leftPlayer = getPlayer(true);
+            Players rightPlayer = getPlayer(false);
+
+            if (leftPlayer != null && rightPlayer != null)
             {
-                _leftPlayer = (Players)_gameObjects.FirstOrDefault(p => p is Players);
-                _rightPlayer = (Players)_gameObjects.FirstOrDefault(p => p is Players && p != _leftPlayer);
+                Point center1 = new Point(rightPlayer.Rect().Left + rightPlayer.Rect().Width / 2, rightPlayer.Rect().Y + rightPlayer.Rect().Height / 2);
+                Point center2 = new Point(leftPlayer.Rect().Left + leftPlayer.Rect().Width / 2, leftPlayer.Rect().Y + leftPlayer.Rect().Height / 2);
+
+                double dx = center1.X - center2.X;
+                double dy = center1.Y - center2.Y;
+                double angle = Math.Atan2(dy, dx) * 180 / Math.PI;
+
+                leftPlayer.Image.Rotation = (float)angle - (float)Math.Atan2(45.9, Math.Sqrt(dx * dx + dy * dy)) * 180 / (float)Math.PI;
+                rightPlayer.Image.Rotation = (float)angle + 180 - (float)Math.Atan2(45.9, Math.Sqrt(dx * dx + dy * dy)) * 180 / (float)Math.PI;
             }
-            Point center1 = new Point(_rightPlayer.Rect().Left + _rightPlayer.Rect().Width / 2, _rightPlayer.Rect().Y + _rightPlayer.Rect().Height / 2);
-            Point center2 = new Point(_leftPlayer.Rect().Left + _leftPlayer.Rect().Width / 2, _leftPlayer.Rect().Y + _leftPlayer.Rect().Height / 2);
-            double dx = center1.X - center2.X;
-            double dy = center1.Y - center2.Y;
-            double angle = Math.Atan2(dy, dx) * (180 / Math.PI);
-            _leftPlayer.Image.Rotation = (float)(angle - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
-            _rightPlayer.Image.Rotation = (float)(angle + 180 - Math.Atan2(45.9, Math.Sqrt((dx * dx) + (dy * dy))));
         }
+
 
         public Players getPlayer(bool isLeft)
         {

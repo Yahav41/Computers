@@ -34,11 +34,14 @@ namespace final_project.Pages
         private bool NeedToRecreatePlayer(Players currentPlayer, int newCharacterType)
         {
             if (currentPlayer == null) return true;
-            if (currentPlayer is PistolPlayer && newCharacterType == 0) return false;
-            if (currentPlayer is RiflePlayer && newCharacterType == 1) return false;
-            if (currentPlayer is ShotgunPlayer && newCharacterType == 2) return false;
-            return true;
+
+            bool isSameType = (currentPlayer is PistolPlayer && newCharacterType == 0) ||
+                              (currentPlayer is RiflePlayer && newCharacterType == 1) ||
+                              (currentPlayer is ShotgunPlayer && newCharacterType == 2);
+
+            return !isSameType;
         }
+
 
         private void RecreateOpponentPlayer(int characterType, double x, double y, bool isLeft)
         {
@@ -119,27 +122,34 @@ namespace final_project.Pages
                 // On server, opponent is rightPlayer (isLeft = false)
                 Players opponentPlayer = _manager._scene.getPlayer(false);
 
-                // Check if character type changed and recreate if needed
-                if (opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type))
+                // FIRST: Check if character type changed and recreate if needed
+                bool needsRecreate = opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type);
+
+                if (needsRecreate)
                 {
+                    Debug.WriteLine($"[Server] Recreating opponent - Type: {opponentState.Type}");
                     RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, false);
+
+                    // CRITICAL: Get the newly created player!
                     opponentPlayer = _manager._scene.getPlayer(false);
+
+                    if (opponentPlayer == null)
+                    {
+                        Debug.WriteLine("[Server] ERROR: Failed to create opponent player!");
+                        return;
+                    }
                 }
 
+                // NOW update the (newly created or existing) player
                 if (opponentPlayer != null)
                 {
-                    // Update position
                     opponentPlayer._x = opponentState.X;
                     opponentPlayer._y = opponentState.Y;
-
-                    // Update velocity
                     opponentPlayer._speedX = opponentState.VelocityX;
                     opponentPlayer._speedY = opponentState.VelocityY;
-
-                    // Update rotation
                     opponentPlayer.Image.Rotation = opponentState.Rotation;
 
-                    Debug.WriteLine($"[Server] Updated opponent at {opponentState.X:F2}, {opponentState.Y:F2}, Type: {opponentState.Type}");
+                    Debug.WriteLine($"[Server] Updated opponent - Type: {opponentState.Type}, Pos: ({opponentState.X:F2}, {opponentState.Y:F2})");
                 }
             }
             catch (Exception ex)
@@ -147,6 +157,7 @@ namespace final_project.Pages
                 Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
             }
         }
+
 
 
         private void Reload(bool obj)
