@@ -163,6 +163,9 @@ namespace final_project.Pages
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+            networkServer = null;
+            gameLoop = null;
+            _manager = null;
         }
     }
 }
