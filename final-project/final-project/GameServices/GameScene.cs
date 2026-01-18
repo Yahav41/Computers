@@ -39,8 +39,14 @@ namespace final_project.GameServices
 
         public Players getPlayer(bool isLeft)
         {
-            return isLeft ? (Players)_gameObjects.FirstOrDefault(p => p is Players) : (Players)_gameObjects.LastOrDefault(p => p is Players);
+            foreach (var obj in _gameObjects)
+            {
+                if (obj is Players player && player._isLeft == isLeft)
+                    return player;
+            }
+            return null;
         }
+
         private Vector2 GetBulletStartPosition(Players player, double angle)
         {
             // Center of the player sprite

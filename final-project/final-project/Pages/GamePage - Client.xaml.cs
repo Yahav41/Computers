@@ -105,20 +105,27 @@ namespace final_project.Pages
                 // On client, opponent is leftPlayer (isLeft = true)
                 Players opponentPlayer = _manager._scene.getPlayer(true);
 
+                // Check if character type changed and recreate if needed
+                if (opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type))
+                {
+                    RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, true);
+                    opponentPlayer = _manager._scene.getPlayer(true);
+                }
+
                 if (opponentPlayer != null)
                 {
                     // Update position
                     opponentPlayer._x = opponentState.X;
                     opponentPlayer._y = opponentState.Y;
 
-                    // Update velocity for smooth movement
+                    // Update velocity
                     opponentPlayer._speedX = opponentState.VelocityX;
                     opponentPlayer._speedY = opponentState.VelocityY;
 
-                    // Update rotation (facing direction)
+                    // Update rotation
                     opponentPlayer.Image.Rotation = opponentState.Rotation;
 
-                    Debug.WriteLine($"[Client] Updated opponent at ({opponentState.X:F2}, {opponentState.Y:F2})");
+                    Debug.WriteLine($"[Client] Updated opponent at {opponentState.X:F2}, {opponentState.Y:F2}, Type: {opponentState.Type}");
                 }
             }
             catch (Exception ex)
@@ -127,6 +134,32 @@ namespace final_project.Pages
             }
         }
 
+
+        private bool NeedToRecreatePlayer(Players currentPlayer, int newCharacterType)
+        {
+            if (currentPlayer == null) return true;
+            if (currentPlayer is PistolPlayer && newCharacterType == 0) return false;
+            if (currentPlayer is RiflePlayer && newCharacterType == 1) return false;
+            if (currentPlayer is ShotgunPlayer && newCharacterType == 2) return false;
+            return true;
+        }
+
+        private void RecreateOpponentPlayer(int characterType, double x, double y, bool isLeft)
+        {
+            try
+            {
+                Players oldPlayer = _manager._scene.getPlayer(isLeft);
+                if (oldPlayer != null) _manager._scene.RemoveObject(oldPlayer);
+
+                switch (characterType)
+                {
+                    case 0: _manager._scene.AddObject(new PistolPlayer(x, y, _manager._scene, isLeft)); break;
+                    case 1: _manager._scene.AddObject(new RiflePlayer(x, y, _manager._scene, isLeft)); break;
+                    case 2: _manager._scene.AddObject(new ShotgunPlayer(x, y, _manager._scene, isLeft)); break;
+                }
+            }
+            catch (Exception ex) { Debug.WriteLine($"Error: {ex.Message}"); }
+        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
