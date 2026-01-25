@@ -176,7 +176,7 @@ namespace final_project.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _manager = new GameManager(scene);
+            _manager = new GameManager(scene,false);
             UpdateBullets();
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;

@@ -15,17 +15,23 @@ namespace final_project.GameServices
     public class GameManager : Manager
     {
         public GameScene _scene;
-        public GameManager(GameScene scene) : base(scene)
+        private bool _isServer;
+        public GameManager(GameScene scene, bool isServer) : base(scene)
         {
             _scene = scene;
+            _isServer = isServer;
             CreateObjects();
         }
 
+
         private void CreateObjects()
         {
-            for (int i = 1; i <= 15; i++)
+            if (_isServer || true)
             {
-                _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100,_scene));
+                for (int i = 1; i <= 15; i++)
+                {
+                    _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100, _scene));
+                }
             }
             switch (GameConstants.leftPlayer)
             {
