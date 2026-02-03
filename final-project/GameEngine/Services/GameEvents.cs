@@ -16,6 +16,7 @@ namespace GameEngine.Services
         public Action<bool, int> OnRemoveLifes;
         public Action<bool> onBulletShot;
         public Action<bool> onReload;
+        public Action<double, double, float, int, int> OnBulletFired;
         public GameEvents()
         {
 

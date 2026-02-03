@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using final_project.GameObjects;
+using finalproject.GameServices;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -6,7 +8,6 @@ using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
-using final_project.GameObjects;
 
 namespace final_project.GameServices
 {
@@ -19,6 +20,25 @@ namespace final_project.GameServices
 
         public event Action<PlayerState> OpponentDataReceived;
         public event Action<string> StatusChanged;
+        public event Action<BulletState> BulletFired; 
+        public async Task SendBulletAsync(BulletState bullet) 
+        { 
+            try 
+            { 
+                if (dataWriter == null) return; 
+                string json = JsonConvert.SerializeObject(bullet); 
+                uint messageLength = (uint)json.Length; 
+                dataWriter.WriteString("BULLET|"); 
+                dataWriter.WriteUInt32(messageLength); 
+                dataWriter.WriteString(json); 
+                await dataWriter.StoreAsync(); 
+                await dataWriter.FlushAsync(); 
+            } 
+            catch (Exception ex) 
+            { 
+                OnStatusChanged($"Error sending bullet: {ex.Message}"); 
+            } 
+        }
 
         public async Task ConnectAsync(string serverIpAddress)
         {
@@ -68,6 +88,20 @@ namespace final_project.GameServices
                         CoreDispatcherPriority.Normal,
                         () => OpponentDataReceived?.Invoke(opponentState)
                     );
+
+                    string messageType = dataReader.ReadString(7);
+                    if (messageType == "BULLET|")
+                    {
+                        uint bulletLength = dataReader.ReadUInt32();
+                        string bulletJson = dataReader.ReadString(bulletLength);
+                        BulletState bullet = JsonConvert.DeserializeObject<BulletState>(bulletJson);
+                        task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => BulletFired?.Invoke(bullet));
+                    }
+                    else
+                    {
+                        json = messageType + dataReader.ReadString(messageLength - 7);
+                        opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
+                    }
                 }
             }
             catch (Exception ex)

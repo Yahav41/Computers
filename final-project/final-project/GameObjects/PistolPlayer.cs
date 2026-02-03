@@ -1,4 +1,6 @@
 ﻿using final_project.GameServices;
+using GameEngine.Services;
+using System.Collections.Generic;
 using Windows.Foundation;
 
 namespace final_project.GameObjects
@@ -15,6 +17,9 @@ namespace final_project.GameObjects
         protected override void ShootBullet(float muzzleX, float muzzleY)
         {
             _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene,10));
+
+            int playerId = _isLeft ? GameConstants.leftPlayer : GameConstants.rightPlayer; 
+            Manager.Events.OnBulletFired(muzzleX, muzzleY, (float)angle, 10, playerId);
         }
 
         public override int Type()

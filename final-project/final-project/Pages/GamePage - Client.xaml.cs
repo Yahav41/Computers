@@ -1,5 +1,6 @@
 ﻿using final_project.GameObjects;
 using final_project.GameServices;
+using finalproject.GameServices;
 using GameEngine.Services;
 using System;
 using System.Diagnostics;
@@ -33,15 +34,14 @@ namespace final_project.Pages
         }
         private async void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            string serverIP = "192.168.26.209"; // User enters "192.168.1.100"
+            string serverIP = "192.168.26.209"; // User enters ip
 
             // Connect to server
             await networkClient.ConnectAsync(serverIP);
 
             // Listen for opponent updates
             networkClient.OpponentDataReceived += UpdateOpponentPosition;
-            networkClient.StatusChanged += (msg) => StatusTextBlock.Text = msg;
-             //StatusTextBlock.Text = msg;
+            networkClient.StatusChanged += (msg) =>StatusTextBlock.Text = msg;
 
             // Start game loop
             gameLoop = new DispatcherTimer();
@@ -177,6 +177,22 @@ namespace final_project.Pages
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
+            networkClient.BulletFired += HandleRemoteBullet;
+        }
+
+        private void HandleRemoteBullet(BulletState bullet) 
+        { 
+            try 
+            { 
+                Players opponentPlayer = _manager._scene.getPlayer(true); 
+                if (opponentPlayer == null) return; 
+                Bullets remoteBullet = new Bullets(bullet.Angle, (float)bullet.X, (float)bullet.Y, 10, _manager._scene, bullet.Damage); 
+                _manager._scene.AddObject(remoteBullet); 
+            } 
+            catch (Exception ex) 
+            { 
+                Debug.WriteLine($"Error handling remote bullet: {ex.Message}"); 
+            } 
         }
 
         private void Reload(bool obj)

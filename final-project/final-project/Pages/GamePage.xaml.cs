@@ -1,5 +1,6 @@
 ﻿using final_project.GameObjects;
 using final_project.GameServices;
+using finalproject.GameServices;
 using GameEngine.Services;
 using System;
 using System.Diagnostics;
@@ -70,6 +71,7 @@ namespace final_project.Pages
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
+            Manager.Events.OnBulletFired += HandleBulletFired;
 
             // Listen for opponent updates
             await networkServer.StartServerAsync();
@@ -174,6 +176,11 @@ namespace final_project.Pages
             }
         }
 
+        private async void HandleBulletFired(double x, double y, float angle, int damage, int playerId) 
+        { 
+            BulletState bullet = new BulletState { X = x, Y = y, Angle = angle, Damage = damage, PlayerId = playerId, Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() }; 
+            await networkServer.SendBulletAsync(bullet); 
+        }
         private void BulletShot(bool obj)
         {
             if (obj)
