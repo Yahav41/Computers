@@ -5,6 +5,8 @@ using GameEngine.Services;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -82,6 +84,22 @@ namespace final_project.Pages
             gameLoop.Interval = TimeSpan.FromMilliseconds(16);
             gameLoop.Tick += GameLoop_Tick;
             gameLoop.Start();
+        }
+
+        public async Task SaveStringToUserLocationAsync(string text)
+        {
+            var savePicker = new FileSavePicker
+            {
+                SuggestedStartLocation = PickerLocationId.Desktop, 
+                SuggestedFileName = "myfile"
+            };
+            savePicker.FileTypeChoices.Add("Text file", new[] { ".txt" });
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                await FileIO.WriteTextAsync(file, text);
+            }
         }
 
         private void GameLoop_Tick(object sender, object e)

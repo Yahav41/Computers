@@ -41,7 +41,7 @@ namespace final_project.Pages
 
             // Listen for opponent updates
             networkClient.OpponentDataReceived += UpdateOpponentPosition;
-            networkClient.StatusChanged += (msg) =>StatusTextBlock.Text = msg;
+            networkClient.StatusChanged += async (msg) => await SaveStringToUserLocationAsync(msg);
 
             // Start game loop
             gameLoop = new DispatcherTimer();

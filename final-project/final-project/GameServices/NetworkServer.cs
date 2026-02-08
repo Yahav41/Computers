@@ -3,11 +3,14 @@ using finalproject.GameServices;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
+using UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding;
 
 namespace final_project.GameServices
 {
@@ -90,56 +93,52 @@ namespace final_project.GameServices
 
         private async Task ListenForDataAsync()
         {
-            try
-            {
+    try
+    {
                 while (clientSocket != null && clientSocket.InputStream != null)
                 {
+                    // Read the message length (4 bytes for uint)
                     uint bytesRead = await dataReader.LoadAsync(sizeof(uint));
                     if (bytesRead < sizeof(uint))
                         break;
 
                     uint messageLength = dataReader.ReadUInt32();
+
+                    // Load the exact number of bytes for the string
                     bytesRead = await dataReader.LoadAsync(messageLength);
                     if (bytesRead == 0)
                         break;
 
+                    // Read the string with the byte length
                     string json = dataReader.ReadString(messageLength);
-                    PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
 
-                    var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        () => OpponentDataReceived?.Invoke(opponentState)
-                    );
-                    string messageType = dataReader.ReadString(7);
-                    if (messageType == "BULLET|")
+                    try
                     {
-                        uint bulletLength = dataReader.ReadUInt32();
-                        string bulletJson = dataReader.ReadString(bulletLength);
-                        BulletState bullet = JsonConvert.DeserializeObject<BulletState>(bulletJson);
-                        task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => BulletFired?.Invoke(bullet));
-                    }
-                    else 
-                    { 
-                        json = messageType + dataReader.ReadString(messageLength - 7); 
-                        opponentState = JsonConvert.DeserializeObject<PlayerState>(json); 
-                    }
+                        PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
 
+                        var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                            CoreDispatcherPriority.Normal,
+                            () => OpponentDataReceived?.Invoke(opponentState));
+                    }
+                    catch (Exception parseEx)
+                    {
+                        Debug.WriteLine($"Error parsing JSON: {parseEx.Message}");
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                // FIX: Dispatch to UI thread for error message
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                    CoreDispatcherPriority.Normal,
-                    () => OnStatusChanged("Error listening for data: " + ex.Message)
-                );
-            }
-            finally
-            {
-                clientSocket?.Dispose();
-                clientSocket = null;
-            }
-        }
+    catch (Exception ex)
+    {
+        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+            CoreDispatcherPriority.Normal,
+            () => OnStatusChanged($"Error listening for data: {ex.Message}"));
+    }
+    finally
+    {
+        clientSocket?.Dispose();
+    clientSocket = null;
+    }
+}
+
 
         public async Task SendPlayerStateAsync(PlayerState state)
         {
@@ -149,7 +148,10 @@ namespace final_project.GameServices
                     return;
 
                 string json = JsonConvert.SerializeObject(state);
-                uint messageLength = (uint)json.Length;
+
+                // Get the byte length of the UTF-8 encoded string
+                byte[] buffer = Encoding.UTF8.GetBytes(json);
+                uint messageLength = (uint)buffer.Length;
 
                 dataWriter.WriteUInt32(messageLength);
                 dataWriter.WriteString(json);
@@ -159,9 +161,10 @@ namespace final_project.GameServices
             }
             catch (Exception ex)
             {
-                OnStatusChanged("Error sending data: " + ex.Message);
+                OnStatusChanged($"Error sending data: {ex.Message}");
             }
         }
+
 
         public void StopServer()
         {
