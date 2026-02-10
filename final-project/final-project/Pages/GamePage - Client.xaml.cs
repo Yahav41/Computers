@@ -174,11 +174,34 @@ namespace final_project.Pages
             _manager = new GameManager(scene);
             LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
             RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
+
+            // NEW: Send bullets fired by client to server
+            Manager.Events.OnBulletFired += HandleLocalBulletFired;
+
             networkClient.BulletFired += HandleRemoteBullet;
         }
+
+        private async void HandleLocalBulletFired(double x, double y, float angle, int damage, int playerId)
+        {
+            BulletState bullet = new BulletState
+            {
+                X = x,
+                Y = y,
+                Angle = angle,
+                Damage = damage,
+                PlayerId = playerId,
+                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+            };
+
+            await networkClient.SendBulletAsync(bullet);
+
+            Debug.WriteLine($"Client: Sent bullet - Pos: ({x:F2}, {y:F2}), Angle: {angle:F2}");
+        }
+
 
         private void HandleRemoteBullet(BulletState bullet) 
         { 

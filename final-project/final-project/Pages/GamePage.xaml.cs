@@ -70,21 +70,49 @@ namespace final_project.Pages
             _manager = new GameManager(scene);
             LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
             RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
             Manager.Events.OnBulletFired += HandleBulletFired;
 
-            // Listen for opponent updates
+            // NEW: Subscribe to incoming remote bullets from client
+            networkServer.BulletFired += HandleRemoteBullet;
+
             await networkServer.StartServerAsync();
             networkServer.OpponentDataReceived += UpdateOpponentPosition;
-            networkServer.StatusChanged += msg => StatusTextBlock.Text = msg;
+            networkServer.StatusChanged += (msg) => StatusTextBlock.Text = msg;
 
             gameLoop = new DispatcherTimer();
             gameLoop.Interval = TimeSpan.FromMilliseconds(16);
             gameLoop.Tick += GameLoop_Tick;
             gameLoop.Start();
         }
+
+        private void HandleRemoteBullet(BulletState bullet)
+        {
+            try
+            {
+                // Client shot a bullet - spawn it on server
+                Bullets remoteBullet = new Bullets(
+                    bullet.Angle,
+                    (float)bullet.X,
+                    (float)bullet.Y,
+                    10,
+                    _manager._scene,
+                    bullet.Damage
+                );
+
+                _manager._scene.AddObject(remoteBullet);
+
+                Debug.WriteLine($"Server: Remote bullet spawned at ({bullet.X:F2}, {bullet.Y:F2}), Angle: {bullet.Angle:F2}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error handling remote bullet: {ex.Message}");
+            }
+        }
+
 
         public async Task SaveStringToUserLocationAsync(string text)
         {
