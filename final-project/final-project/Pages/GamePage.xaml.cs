@@ -75,8 +75,6 @@ namespace final_project.Pages
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
             Manager.Events.OnBulletFired += HandleBulletFired;
-
-            // NEW: Subscribe to incoming remote bullets from client
             networkServer.BulletFired += HandleRemoteBullet;
 
             await networkServer.StartServerAsync();
@@ -84,10 +82,11 @@ namespace final_project.Pages
             networkServer.StatusChanged += (msg) => StatusTextBlock.Text = msg;
 
             gameLoop = new DispatcherTimer();
-            gameLoop.Interval = TimeSpan.FromMilliseconds(16);
+            gameLoop.Interval = TimeSpan.FromMilliseconds(50); // Changed from 16 to 50ms
             gameLoop.Tick += GameLoop_Tick;
             gameLoop.Start();
         }
+
 
         private void HandleRemoteBullet(BulletState bullet)
         {
@@ -168,44 +167,39 @@ namespace final_project.Pages
 
             try
             {
-                // On server, opponent is rightPlayer (isLeft = false)
                 Players opponentPlayer = _manager._scene.getPlayer(false);
-
-                // FIRST: Check if character type changed and recreate if needed
                 bool needsRecreate = opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type);
 
                 if (needsRecreate)
                 {
-                    Debug.WriteLine($"[Server] Recreating opponent - Type: {opponentState.Type}");
+                    Debug.WriteLine($"Server: Recreating opponent - Type {opponentState.Type}");
                     RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, false);
-
-                    // CRITICAL: Get the newly created player!
                     opponentPlayer = _manager._scene.getPlayer(false);
-
-                    if (opponentPlayer == null)
-                    {
-                        Debug.WriteLine("[Server] ERROR: Failed to create opponent player!");
-                        return;
-                    }
                 }
 
-                // NOW update the (newly created or existing) player
-                if (opponentPlayer != null)
+                if (opponentPlayer == null)
                 {
-                    opponentPlayer._x = opponentState.X;
-                    opponentPlayer._y = opponentState.Y;
-                    opponentPlayer._speedX = opponentState.VelocityX;
-                    opponentPlayer._speedY = opponentState.VelocityY;
-                    opponentPlayer.Image.Rotation = opponentState.Rotation;
-
-                    Debug.WriteLine($"[Server] Updated opponent - Type: {opponentState.Type}, Pos: ({opponentState.X:F2}, {opponentState.Y:F2})");
+                    Debug.WriteLine("Server: ERROR - Failed to create opponent player!");
+                    return;
                 }
+
+                // Smooth interpolation instead of direct assignment
+                double lerpFactor = 0.3; // Adjust between 0.1 (smooth) and 1.0 (instant)
+
+                opponentPlayer._x += (opponentState.X - opponentPlayer._x) * lerpFactor;
+                opponentPlayer._y += (opponentState.Y - opponentPlayer._y) * lerpFactor;
+                opponentPlayer._speedX = opponentState.VelocityX;
+                opponentPlayer._speedY = opponentState.VelocityY;
+                opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                Debug.WriteLine($"Server: Updated opponent - Type {opponentState.Type}, Pos ({opponentState.X:F2}, {opponentState.Y:F2})");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
             }
         }
+
 
 
 

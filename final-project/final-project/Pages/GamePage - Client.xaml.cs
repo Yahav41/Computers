@@ -34,21 +34,17 @@ namespace final_project.Pages
         }
         private async void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            string serverIP = "192.168.26.209"; // User enters ip
-
-            // Connect to server
+            string serverIP = "192.168.26.209";
             await networkClient.ConnectAsync(serverIP);
-
-            // Listen for opponent updates
             networkClient.OpponentDataReceived += UpdateOpponentPosition;
             networkClient.StatusChanged += async (msg) => await SaveStringToUserLocationAsync(msg);
 
-            // Start game loop
             gameLoop = new DispatcherTimer();
-            gameLoop.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
+            gameLoop.Interval = TimeSpan.FromMilliseconds(50); // Changed from 16 to 50ms
             gameLoop.Tick += GameLoop_Tick;
             gameLoop.Start();
         }
+
         public async Task SaveStringToUserLocationAsync(string text)
         {
             var savePicker = new FileSavePicker
@@ -102,44 +98,39 @@ namespace final_project.Pages
 
             try
             {
-                // On client, opponent is leftPlayer (isLeft = true)
                 Players opponentPlayer = _manager._scene.getPlayer(true);
-
-                // FIRST: Check if character type changed and recreate if needed
                 bool needsRecreate = opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type);
 
                 if (needsRecreate)
                 {
-                    Debug.WriteLine($"[Client] Recreating opponent - Type: {opponentState.Type}");
+                    Debug.WriteLine($"Client: Recreating opponent - Type {opponentState.Type}");
                     RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, true);
-
-                    // CRITICAL: Get the newly created player!
                     opponentPlayer = _manager._scene.getPlayer(true);
-
-                    if (opponentPlayer == null)
-                    {
-                        Debug.WriteLine("[Client] ERROR: Failed to create opponent player!");
-                        return;
-                    }
                 }
 
-                // NOW update the (newly created or existing) player
-                if (opponentPlayer != null)
+                if (opponentPlayer == null)
                 {
-                    opponentPlayer._x = opponentState.X;
-                    opponentPlayer._y = opponentState.Y;
-                    opponentPlayer._speedX = opponentState.VelocityX;
-                    opponentPlayer._speedY = opponentState.VelocityY;
-                    opponentPlayer.Image.Rotation = opponentState.Rotation;
-
-                    Debug.WriteLine($"[Client] Updated opponent - Type: {opponentState.Type}, Pos: ({opponentState.X:F2}, {opponentState.Y:F2})");
+                    Debug.WriteLine("Client: ERROR - Failed to create opponent player!");
+                    return;
                 }
+
+                // Smooth interpolation instead of direct assignment
+                double lerpFactor = 0.3; // Adjust between 0.1 (smooth) and 1.0 (instant)
+
+                opponentPlayer._x += (opponentState.X - opponentPlayer._x) * lerpFactor;
+                opponentPlayer._y += (opponentState.Y - opponentPlayer._y) * lerpFactor;
+                opponentPlayer._speedX = opponentState.VelocityX;
+                opponentPlayer._speedY = opponentState.VelocityY;
+                opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                Debug.WriteLine($"Client: Updated opponent - Type {opponentState.Type}, Pos ({opponentState.X:F2}, {opponentState.Y:F2})");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"UpdateOpponentPosition Error: {ex.Message}");
             }
         }
+
 
 
 

@@ -19,7 +19,7 @@ namespace final_project.GameObjects
             _scene.AddObject(new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene,10));
 
             int playerId = _isLeft ? GameConstants.leftPlayer : GameConstants.rightPlayer; 
-            Manager.Events.OnBulletFired?.Invoke(muzzleX, muzzleY, (float)angle, 10, playerId);
+            Manager.Events.OnBulletFired?.Invoke(muzzleX, muzzleY, (float)Image.Rotation, 10, playerId);
         }
 
         public override int Type()
