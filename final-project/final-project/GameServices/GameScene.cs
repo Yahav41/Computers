@@ -1,4 +1,5 @@
 ﻿using final_project.GameObjects;
+using final_project.Objects;
 using GameEngine.Objects;
 using GameEngine.Services;
 using System;
@@ -76,6 +77,16 @@ namespace final_project.GameServices
             float muzzleY = centerY + rotatedOffsetY;
 
             return new Vector2(muzzleX, muzzleY);
+        }
+
+        public void AddCovers(List<Covers> covers)  //הפעולה מוסיפה אובייקט אל המאגר ולמסך
+        {
+            foreach (GameObject o in covers)
+            {
+                _gameObjects.Add(o);
+                Children.Add(o.Image);
+            }
+            
         }
     }
 }

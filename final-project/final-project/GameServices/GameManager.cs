@@ -15,14 +15,18 @@ namespace final_project.GameServices
     public class GameManager : Manager
     {
         public GameScene _scene;
-        public GameManager(GameScene scene) : base(scene)
+        public GameManager(GameScene scene, bool createCovers) : base(scene)
         {
             _scene = scene;
-            CreateObjects();
+            CreateObjects(createCovers);
         }
 
-        private void CreateObjects()
+        private void CreateObjects(bool createCovers)
         {
+            if (createCovers)
+            {
+                CreateCovers();
+            }
             for (int i = 1; i <= 15; i++)
             {
                 _scene.AddObject(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100,_scene));
@@ -55,6 +59,17 @@ namespace final_project.GameServices
                 default:
                     throw new Exception("Invalid left player selection");
             }
+        }
+
+        private void CreateCovers()
+        {
+            List<Covers> covers = new List<Covers>();
+            for (int i = 1; i <= 15; i++)
+            {
+                covers.Add(new Covers((Covers.CoverType)_random.Next(0, 4), _random.Next(100, 801), _random.Next(401), 100, _scene));
+            }
+            _scene.AddCovers(covers);
+
         }
 
         public int getBullets(bool isLeft)
