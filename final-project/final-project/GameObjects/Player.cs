@@ -138,6 +138,17 @@ namespace final_project.GameObjects
             _scene.AddObject(bullet);
         }
 
+        public void ApplyRemoteShot()
+        {
+            BulletsInMagazine--;
+            if (BulletsInMagazine <= 0)
+            {
+                CanShoot = false;
+            }
+
+            Manager.Events.onBulletShot?.Invoke(_isLeft);
+        }
+
         private void OnKeyDown(VirtualKey key)
         {
             IsCreated = true;
@@ -241,9 +252,8 @@ namespace final_project.GameObjects
             _fireTimer.Start();
         }
 
-        private async void Reload()
+        public async void Reload()
         {
-            // already full or already reloading -> ignore
             if (_isReloading || BulletsInMagazine == Weapon.MagazineSize)
                 return;
 
@@ -251,27 +261,18 @@ namespace final_project.GameObjects
             CanShoot = false;
             SpeedX = SpeedY = 0;
 
-            // stop any auto‑fire that might be running
             _fireTimer.Stop();
 
-            // play reload animation
             SetState(PlayerAnimationState.Reloading);
 
-            // optional: update UI immediately if you want (shows old bullet count anyway)
-            // Manager.Events.onReload?.Invoke(_isLeft);
-
-            // wait for animation duration
             await Task.Delay(Weapon.ReloadDurationMs);
 
-            // actually refill magazine
             BulletsInMagazine = Weapon.MagazineSize;
             CanShoot = true;
             _isReloading = false;
 
-            // back to idle animation
             SetState(PlayerAnimationState.Idle);
 
-            // notify UI that bullets changed
             Manager.Events.onReload?.Invoke(_isLeft);
         }
 
@@ -297,13 +298,14 @@ namespace final_project.GameObjects
             }
         }
 
+
+
         public override void Render()
         {
             base.Render();
 
             AngleRad = Image.Rotation * Math.PI / 180.0;
 
-            // Clamp to arena bounds
             if (X < 0) X = 10;
             if (X > 1150 - Image.Width) X = 1150 - Image.Width - 10;
             if (Y < 0) Y = 10;

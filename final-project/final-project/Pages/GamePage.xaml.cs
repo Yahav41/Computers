@@ -92,6 +92,15 @@ namespace final_project.Pages
                     ShotFired = localPlayer.ConsumeShotFlag()
                 };
 
+                // NEW: server is authoritative for UI
+                if (_role == GameRole.Server)
+                {
+                    state.LeftHealth = LeftPlayerHealth.Value;
+                    state.RightHealth = RightPlayerHealth.Value;
+                    state.LeftBullets = _manager.GetBullets(true);
+                    state.RightBullets = _manager.GetBullets(false);
+                }
+
                 _ = _network.SendAsync(state);
             }
             catch (Exception ex)
@@ -132,13 +141,39 @@ namespace final_project.Pages
                 if (opponentState.ShotFired)
                 {
                     opponentPlayer.SpawnReplicatedBullet();
+
+                    if (_role == GameRole.Server)
+                    {
+                        opponentPlayer.ApplyRemoteShot();
+                    }
                 }
 
-                // NEW: sync animation state from network
                 PlayerAnimationState remoteState;
                 if (Enum.TryParse(opponentState.Action, out remoteState))
                 {
                     opponentPlayer.SetState(remoteState);
+
+                    if (_role == GameRole.Server && remoteState == PlayerAnimationState.Reloading)
+                    {
+                        opponentPlayer.Reload();
+                    }
+                }
+
+                if (_role == GameRole.Client)
+                {
+                    LeftPlayerHealth.Value = opponentState.LeftHealth;
+                    RightPlayerHealth.Value = opponentState.RightHealth;
+
+                    LeftPlayerBullets.Text = opponentState.LeftBullets.ToString();
+                    RightPlayerBullets.Text = opponentState.RightBullets.ToString();
+
+                    if (LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
+                    {
+                        WinGrid.Visibility = Visibility.Visible;
+                        WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value
+                            ? "LeftPlayerWins"
+                            : "RightPlayerWins";
+                    }
                 }
             }
             catch (Exception ex)
@@ -196,6 +231,11 @@ namespace final_project.Pages
 
         private void RemoveLives(bool isLeft, int damage)
         {
+            if (_role == GameRole.Client)
+            {
+                return;
+            }
+
             if (isLeft)
             {
                 LeftPlayerHealth.Value -= damage;

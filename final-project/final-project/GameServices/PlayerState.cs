@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace final_project.GameServices
 {
@@ -38,6 +33,18 @@ namespace final_project.GameServices
 
         [JsonProperty("shot")]
         public bool ShotFired { get; set; }
+
+        [JsonProperty("leftHealth")]
+        public double LeftHealth { get; set; }
+
+        [JsonProperty("rightHealth")]
+        public double RightHealth { get; set; }
+
+        [JsonProperty("leftBullets")]
+        public int LeftBullets { get; set; }
+
+        [JsonProperty("rightBullets")]
+        public int RightBullets { get; set; }
 
         public override string ToString()
         {
