@@ -88,7 +88,8 @@ namespace final_project.Pages
                     Rotation = localPlayer.Image.Rotation,
                     Type = localPlayer.WeaponTypeIndex,
                     Action = localPlayer.State.ToString(),
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                    ShotFired = localPlayer.ConsumeShotFlag()
                 };
 
                 _ = _network.SendAsync(state);
@@ -127,6 +128,11 @@ namespace final_project.Pages
                 opponentPlayer.SpeedX = opponentState.VelocityX;
                 opponentPlayer.SpeedY = opponentState.VelocityY;
                 opponentPlayer.Image.Rotation = opponentState.Rotation;
+
+                if (opponentState.ShotFired)
+                {
+                    opponentPlayer.SpawnReplicatedBullet();
+                }
             }
             catch (Exception ex)
             {

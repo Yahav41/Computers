@@ -36,6 +36,9 @@ namespace final_project.GameServices
         [JsonProperty("type")]
         public int Type { get; set; }
 
+        [JsonProperty("shot")]
+        public bool ShotFired { get; set; }
+
         public override string ToString()
         {
             return $"Player {PlayerId}: X={X:F2}, Y={Y:F2}, action={Action}";

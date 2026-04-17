@@ -93,6 +93,8 @@ namespace final_project.GameObjects
             _scene.AddObject(bullet);
         }
 
+        private bool _shotPendingNetwork;
+
         private void OnBulletShot()
         {
             BulletsInMagazine--;
@@ -102,13 +104,42 @@ namespace final_project.GameObjects
             }
 
             Manager.Events.onBulletShot?.Invoke(_isLeft);
+
+            
+            _shotPendingNetwork = true;
+        }
+
+        public bool ConsumeShotFlag()
+        {
+            if (!_shotPendingNetwork) return false;
+            _shotPendingNetwork = false;
+            return true;
+        }
+
+        public void SpawnReplicatedBullet()
+        {
+            var rect = Bounds();
+            float centerX = (float)(rect.Left + rect.Width / 2.0);
+            float centerY = (float)(rect.Top + rect.Height / 2.0);
+
+            double angleRad = Image.Rotation * Math.PI / 180.0;
+            float cosA = (float)Math.Cos(angleRad);
+            float sinA = (float)Math.Sin(angleRad);
+
+            float rotatedOffsetX = _localOffsetX * cosA - _localOffsetY * sinA;
+            float rotatedOffsetY = _localOffsetX * sinA + _localOffsetY * cosA;
+
+            float muzzleX = centerX + rotatedOffsetX;
+            float muzzleY = centerY + rotatedOffsetY;
+
+            var bullet = new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene, Weapon.Damage);
+            _scene.AddObject(bullet);
         }
 
         private void OnKeyDown(VirtualKey key)
         {
             IsCreated = true;
 
-            // For now use existing GameKeys static mapping
             bool isLeft = _isLeft;
             if (isLeft)
             {
