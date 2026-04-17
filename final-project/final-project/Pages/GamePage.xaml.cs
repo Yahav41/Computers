@@ -1,4 +1,4 @@
-﻿using final_project.GameObjects;
+using final_project.GameObjects;
 using final_project.GameServices;
 using GameEngine.Services;
 using System;
@@ -6,156 +6,128 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace final_project.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    public enum GameRole
+    {
+        Server,
+        Client
+    }
+
     public sealed partial class GamePage : Page
     {
         private GameManager _manager;
-        private NetworkServer networkServer;
-        private DispatcherTimer gameLoop;
+        private IGameNetwork _network;
+        private DispatcherTimer _gameLoop;
+        private GameRole _role;
+        private string _serverIp;
+
         public GamePage()
         {
-            this.InitializeComponent();
-            networkServer = new NetworkServer();
-
+            InitializeComponent();
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.GoBack();
-        }
-
-        private bool NeedToRecreatePlayer(Players currentPlayer, int newCharacterType)
-        {
-            if (currentPlayer == null) return true;
-
-            bool isSameType = (currentPlayer is PistolPlayer && newCharacterType == 0) ||
-                              (currentPlayer is RiflePlayer && newCharacterType == 1) ||
-                              (currentPlayer is ShotgunPlayer && newCharacterType == 2);
-
-            return !isSameType;
-        }
-
-
-        private void RecreateOpponentPlayer(int characterType, double x, double y, bool isLeft)
-        {
-            try
+            // Expect parameter like (GameRole role, string serverIp)
+            if (e.Parameter is Tuple<GameRole, string> p)
             {
-                Players oldPlayer = _manager._scene.getPlayer(isLeft);
-                if (oldPlayer != null) _manager._scene.RemoveObject(oldPlayer);
-
-                switch (characterType)
-                {
-                    case 0: _manager._scene.AddObject(new PistolPlayer(x, y, _manager._scene, isLeft)); break;
-                    case 1: _manager._scene.AddObject(new RiflePlayer(x, y, _manager._scene, isLeft)); break;
-                    case 2: _manager._scene.AddObject(new ShotgunPlayer(x, y, _manager._scene, isLeft)); break;
-                }
+                _role = p.Item1;
+                _serverIp = p.Item2;
             }
-            catch (Exception ex) { Debug.WriteLine($"Error: {ex.Message}"); }
-            UpdateBullets();
-        }
+            else
+            {
+                _role = GameRole.Server;
+                _serverIp = null;
+            }
 
-        public void UpdateBullets()
-        {
-            LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
-            RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+            base.OnNavigatedTo(e);
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _manager = new GameManager(scene,true);
+            _manager = new GameManager(scene, isServer: _role == GameRole.Server);
             UpdateBullets();
+
             Manager.Events.OnRemoveLifes += RemoveLives;
             Manager.Events.onBulletShot += BulletShot;
             Manager.Events.onReload += Reload;
 
-            // Listen for opponent updates
-            await networkServer.StartServerAsync();
-            networkServer.OpponentDataReceived += UpdateOpponentPosition;
-            networkServer.StatusChanged += msg => StatusTextBlock.Text = msg;
+            _network = _role == GameRole.Server
+                ? (IGameNetwork)new ServerNetwork()
+                : new ClientNetwork();
 
-            gameLoop = new DispatcherTimer();
-            gameLoop.Interval = TimeSpan.FromMilliseconds(16);
-            gameLoop.Tick += GameLoop_Tick;
-            gameLoop.Start();
+            _network.OpponentStateReceived += UpdateOpponentPosition;
+            _network.StatusChanged += msg => StatusTextBlock.Text = msg;
+
+            await _network.StartOrConnectAsync(_serverIp);
+
+            _gameLoop = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(16)
+            };
+            _gameLoop.Tick += GameLoop_Tick;
+            _gameLoop.Start();
         }
 
         private void GameLoop_Tick(object sender, object e)
         {
             try
             {
-                // Get the actual server player (leftPlayer, isLeft = true)
-                Players serverPlayer = _manager._scene.getPlayer(true);
+                bool isLocalLeft = _role == GameRole.Server;
+                var localPlayer = _manager.Scene.GetPlayer(isLocalLeft);
+                if (localPlayer == null) return;
 
-                if (serverPlayer != null)
+                var state = new PlayerState
                 {
-                    // Create state with REAL position and data
-                    PlayerState state = new PlayerState
-                    {
-                        PlayerId = 1,
-                        X = serverPlayer._x,
-                        Y = serverPlayer._y,
-                        VelocityX = serverPlayer._speedX,
-                        VelocityY = serverPlayer._speedY,
-                        Rotation = serverPlayer.Image.Rotation,
-                        Type = serverPlayer.Type(),
-                        Action = serverPlayer._playerState.ToString(),
-                        Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-                    };
+                    PlayerId = isLocalLeft ? 1 : 2,
+                    X = localPlayer.X,
+                    Y = localPlayer.Y,
+                    VelocityX = localPlayer.SpeedX,
+                    VelocityY = localPlayer.SpeedY,
+                    Rotation = localPlayer.Image.Rotation,
+                    Type = localPlayer.WeaponTypeIndex,
+                    Action = localPlayer.State.ToString(),
+                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                };
 
-                    // Send to client
-                    _ = networkServer.SendPlayerStateAsync(state);
-                }
+                _ = _network.SendAsync(state);
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"GameLoopTick Error: {ex.Message}");
             }
         }
+
         private void UpdateOpponentPosition(PlayerState opponentState)
         {
             if (opponentState == null) return;
 
             try
             {
-                // On server, opponent is rightPlayer (isLeft = false)
-                Players opponentPlayer = _manager._scene.getPlayer(false);
+                bool opponentIsLeft = _role == GameRole.Client;
+                var opponentPlayer = _manager.Scene.GetPlayer(opponentIsLeft);
 
-                // FIRST: Check if character type changed and recreate if needed
-                bool needsRecreate = opponentPlayer == null || NeedToRecreatePlayer(opponentPlayer, opponentState.Type);
-
-                if (needsRecreate)
+                if (NeedsRecreate(opponentPlayer, opponentState.Type))
                 {
-                    Debug.WriteLine($"[Server] Recreating opponent - Type: {opponentState.Type}");
-                    RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, false);
-
-                    // CRITICAL: Get the newly created player!
-                    opponentPlayer = _manager._scene.getPlayer(false);
-
-                    if (opponentPlayer == null)
-                    {
-                        Debug.WriteLine("[Server] ERROR: Failed to create opponent player!");
-                        return;
-                    }
+                    RecreateOpponentPlayer(opponentState.Type, opponentState.X, opponentState.Y, opponentIsLeft);
+                    opponentPlayer = _manager.Scene.GetPlayer(opponentIsLeft);
+                    if (opponentPlayer == null) return;
                 }
 
-                // NOW update the (newly created or existing) player
-                if (opponentPlayer != null)
-                {
-                    opponentPlayer._x = opponentState.X;
-                    opponentPlayer._y = opponentState.Y;
-                    opponentPlayer._speedX = opponentState.VelocityX;
-                    opponentPlayer._speedY = opponentState.VelocityY;
-                    opponentPlayer.Image.Rotation = opponentState.Rotation;
-
-                    Debug.WriteLine($"[Server] Updated opponent - Type: {opponentState.Type}, Pos: ({opponentState.X:F2}, {opponentState.Y:F2})");
-                }
+                opponentPlayer.X = opponentState.X;
+                opponentPlayer.Y = opponentState.Y;
+                opponentPlayer.SpeedX = opponentState.VelocityX;
+                opponentPlayer.SpeedY = opponentState.VelocityY;
+                opponentPlayer.Image.Rotation = opponentState.Rotation;
             }
             catch (Exception ex)
             {
@@ -163,61 +135,74 @@ namespace final_project.Pages
             }
         }
 
-
-
-        private void Reload(bool obj)
+        private bool NeedsRecreate(Player current, int typeIndex)
         {
-            if(obj)
-            {
+            if (current == null) return true;
+            return current.WeaponTypeIndex != typeIndex;
+        }
 
-                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
-            }
-            else
+        private void RecreateOpponentPlayer(int typeIndex, double x, double y, bool isLeft)
+        {
+            var weapon = typeIndex switch
             {
-                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
+                0 => WeaponProfile.Pistol,
+                1 => WeaponProfile.Rifle,
+                2 => WeaponProfile.Shotgun,
+                _ => WeaponProfile.Pistol
+            };
+
+            var old = _manager.Scene.GetPlayer(isLeft);
+            if (old != null)
+            {
+                _manager.Scene.RemoveObject(old);
             }
 
+            var player = new Player(x, y, 80, _manager.Scene, isLeft, weapon);
+            _manager.Scene.AddObject(player);
             UpdateBullets();
         }
 
-        private void BulletShot(bool obj)
+        private void UpdateBullets()
         {
-            if (obj)
-            {
+            LeftPlayerBullets.Text = _manager.GetBullets(true).ToString();
+            RightPlayerBullets.Text = _manager.GetBullets(false).ToString();
+        }
 
-                LeftPlayerBullets.Text = _manager.getBullets(true).ToString();
-            }
-            else
-            {
-                RightPlayerBullets.Text = _manager.getBullets(false).ToString();
-            }
-
+        private void Reload(bool isLeft)
+        {
             UpdateBullets();
         }
 
-        private void RemoveLives(bool isLeft, int Lives)
+        private void BulletShot(bool isLeft)
         {
-            if(isLeft)
+            UpdateBullets();
+        }
+
+        private void RemoveLives(bool isLeft, int damage)
+        {
+            if (isLeft)
             {
-                LeftPlayerHealth.Value -= Lives;
+                LeftPlayerHealth.Value -= damage;
             }
             else
             {
-                RightPlayerHealth.Value -= Lives;
+                RightPlayerHealth.Value -= damage;
             }
-            if(LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
+
+            if (LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
             {
                 WinGrid.Visibility = Visibility.Visible;
-                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value ? "LeftPlayerWins" : "RightPlayerWins";
+                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value
+                    ? "LeftPlayerWins"
+                    : "RightPlayerWins";
             }
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
-            networkServer = null;
-            gameLoop = null;
-            _manager = null;
+            _network?.Stop();
+            _gameLoop?.Stop();
         }
     }
 }

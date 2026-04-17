@@ -33,7 +33,7 @@ namespace final_project.Pages
         }
         private async void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            string serverIP = "192.168.26.209"; // User enters "192.168.1.100"
+            string serverIP = ServerIPTextBox.Text; // User enters "192.168.1.100"
 
             // Connect to server
             await networkClient.ConnectAsync(serverIP);

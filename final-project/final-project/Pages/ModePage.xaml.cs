@@ -53,39 +53,63 @@ namespace final_project.Pages
             _registration = new Registration();
             await _registration.ShowAsync();
         }
-        private void NextImageButton_Click(object sender, RoutedEventArgs e)
-        {
-            NextImageButton(sender.Equals(NextButton1) ? ChosenImage1 : ChosenImage2);
-            GameConstants.leftPlayer = (int)ChosenImage1.Margin.Right;
-            GameConstants.rightPlayer = (int)ChosenImage2.Margin.Right;
-        }
-        private void NextImageButton(Image image)
-        {
-            switch (image.Margin.Right)
-            {
-                case 0:
-                    {
-                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/rifle/rifle-walk.gif"));
-                        image.Margin = new Thickness(1, 1, 1, 1);
-                        break;
-                    }
-                case 1:
-                    {
-                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/shotgun/shotgun-walk.gif"));
-                        image.Margin = new Thickness(2, 2, 2, 2);
-                        break;
-                    }
-                default:
-                    {
-                        image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Models/Players/pistol/pistol-walk.gif"));
-                        image.Margin = new Thickness(0, 0, 0, 0);
-                        break;
-                    }
-            }
-        }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
+        private WeaponType _leftWeapon = WeaponType.Pistol;
+        private WeaponType _rightWeapon = WeaponType.Pistol;
+
+        private void NextImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var target = sender.Equals(NextButton1) ? ref _leftWeapon : ref _rightWeapon;
+            target = NextWeapon(target);
+            UpdateWeaponImage(sender.Equals(NextButton1) ? ChosenImage1 : ChosenImage2, target);
+
+            GameConstants.LeftPlayerWeapon = target;
+            GameConstants.RightPlayerWeapon = _rightWeapon;
+        }
+
+        private WeaponType NextWeapon(WeaponType current)
+        {
+            return current switch
+            {
+                WeaponType.Pistol => WeaponType.Rifle,
+                WeaponType.Rifle => WeaponType.Shotgun,
+                _ => WeaponType.Pistol
+            };
+        }
+
+        private void UpdateWeaponImage(Image image, WeaponType type)
+        {
+            string path = type switch
+            {
+                WeaponType.Pistol => "Assets/Models/Players/pistol/pistol-walk.gif",
+                WeaponType.Rifle => "Assets/Models/Players/rifle/rifle-walk.gif",
+                WeaponType.Shotgun => "Assets/Models/Players/shotgun/shotgun-walk.gif",
+                _ => "Assets/Models/Players/pistol/pistol-walk.gif"
+            };
+
+            image.Source = new BitmapImage(new Uri($"ms-appx:///{path}"));
+        }
+    }
+
+    public enum WeaponType
+    {
+        Pistol = 0,
+        Rifle = 1,
+        Shotgun = 2
+    }
+
+    public static class WeaponSelector
+    {
+        public static WeaponProfile ToProfile(this WeaponType type) =>
+            type switch
+            {
+                WeaponType.Pistol => WeaponProfile.Pistol,
+                WeaponType.Rifle => WeaponProfile.Rifle,
+                WeaponType.Shotgun => WeaponProfile.Shotgun,
+                _ => WeaponProfile.Pistol
+            };
     }
 }

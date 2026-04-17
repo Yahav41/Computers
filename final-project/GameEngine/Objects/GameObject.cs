@@ -1,65 +1,72 @@
-﻿using GameEngine.Services;
+﻿// GameEngine/Objects/GameObject.cs
+using GameEngine.Services;
 using System;
 using Windows.Foundation;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace GameEngine.Objects
 {
     public abstract class GameObject
     {
-        public double _x;
-        public double _y;
-        private double _placeX;
-        private double _placeY;
-        public Image Image { get; set;}
-        protected string _fileName;
+        public double X { get; protected set; }
+        public double Y { get; protected set; }
+
+        private readonly double _initialX;
+        private readonly double _initialY;
+
+        public Image Image { get; }
         public bool Collisional { get; set; } = true;
-        public bool IsObjectCreated { get; set; } = false;
+        public bool IsCreated { get; protected set; }
 
-        protected GameObject(string fileName, double x, double y, double size)
+        protected GameObject(string assetPath, double x, double y, double width)
         {
-            _fileName = fileName;
-            _x = x;
-            _y = y;
-            _placeX = x;
-            _placeY = y;
-            Image = new Image();
-            Image.Width = size;
-            Image.Height = size*0.738;
+            _initialX = x;
+            _initialY = y;
+
+            X = x;
+            Y = y;
+
+            Image = new Image
+            {
+                Width = width,
+                Height = width * 0.738
+            };
+
+            if (!string.IsNullOrEmpty(assetPath))
+            {
+                SetSprite(assetPath);
+            }
+
             Render();
-            SetName(_fileName);
         }
 
-        public void Init()
+        public void Reset()
         {
-            _x = _placeX;
-            _y = _placeY;
+            X = _initialX;
+            Y = _initialY;
         }
 
-        protected void SetName(string fileName)
+        protected void SetSprite(string relativeAssetPath)
         {
-            Image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{fileName}"));
+            var uri = new Uri($"ms-appx:///Assets/{relativeAssetPath}");
+            Image.Source = new BitmapImage(uri);
         }
 
-        public virtual void Collide(GameObject gameObject)
+        public virtual void Render()
         {
-
+            Scene.SetLeft(Image, X);
+            Scene.SetTop(Image, Y);
         }
 
-        public virtual void Render() 
+        public virtual Rect Bounds()
         {
-            Scene.SetLeft(Image,_x);
-            Scene.SetTop(Image,_y);
-            Rect();
+            return new Rect(X, Y, Image.ActualWidth, Image.ActualHeight);
         }
 
-        public virtual Rect Rect()
+        public virtual void OnCollide(GameObject other)
         {
-            return new Rect(_x,_y, Image.ActualWidth, Image.ActualHeight);
+            // Override in children
         }
-
     }
 }

@@ -1,9 +1,7 @@
-﻿using GameEngine.Objects;
-using System;
+﻿// GameEngine/Services/Scene.cs
+using GameEngine.Objects;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -11,76 +9,72 @@ namespace GameEngine.Services
 {
     public abstract class Scene : Canvas
     {
-        protected List<GameObject> _gameObjects = new List<GameObject>();  //מאגר כל האובייקטים של המשחק
-        public double Ground { get; set; } //ריצפה
-        protected List<GameObject> _gameObjectsSnapshot => _gameObjects.ToList();   //העתק 
-        protected static bool _was = false;
-        public Scene()
+        private readonly List<GameObject> _gameObjects = new List<GameObject>();
+
+        protected IEnumerable<GameObject> GameObjectsSnapshot => _gameObjects.ToList();
+
+        protected Scene()
         {
             Manager.Events.OnRun = null;
-            Manager.Events.OnRun += Run;
-            Manager.Events.OnRun += CheckCollisional;
-
+            Manager.Events.OnRun += OnTick;
+            Manager.Events.OnRun += CheckCollisions;
         }
-        public void Init()                                                                        //הפעולה מחזירה את כל האובייקטים למיקום התחלתי
+
+        public void AddObject(GameObject obj)
         {
-            foreach (GameObject obj in _gameObjects)
+            _gameObjects.Add(obj);
+            Children.Add(obj.Image);
+        }
+
+        public void RemoveObject(GameObject obj)
+        {
+            if (!_gameObjects.Remove(obj)) return;
+            Children.Remove(obj.Image);
+        }
+
+        public void RemoveAll()
+        {
+            foreach (var obj in _gameObjects.ToList())
             {
-                obj.Init();
+                RemoveObject(obj);
             }
         }
-        private void CheckCollisional()
+
+        public void ResetAll()
         {
-            foreach (var gameObject in _gameObjectsSnapshot)//עוברים על כל רשימת האובייקטים
+            foreach (var obj in _gameObjects)
             {
-                if (gameObject.Collisional)             //אם האובייקט לא שקוף
+                obj.Reset();
+            }
+        }
+
+        private void OnTick()
+        {
+            foreach (var obj in GameObjectsSnapshot)
+            {
+                if (obj is GameMovingObject moving)
                 {
-                    //מחפשים מופע ראשון של אובייקט, אשר הוא לא אותו האובייקט, הוא לא שקוף והוא נגע באובייקט הנוכחי
-                    var otherObject = _gameObjectsSnapshot.FirstOrDefault(g =>
-                                            !ReferenceEquals(g, gameObject) &&
-                                            g.Collisional &&
-                                            !RectHelper.Intersect(g.Rect(), gameObject.Rect()).IsEmpty);
-                    if (otherObject != null)  //אם קיים אוביקט כזה
-                    {
-                        //של אותו האובייקט, כלומר, אם הפעולה נקראת, זה אומר שבוודאות קרתה התנגשות. כל אובייקט רושם מחדש את הפעולה מפני שמגיב אחרת Collide אם האובייקט מתנגש עם אובייקט אחר, נקראת הפעולה  
-                        //כדי שיוכל להגיב באופן מיוחד Collide כל אובייקט ידרוס את הפעולה 
-                        gameObject.Collide(otherObject);
-                    }
+                    moving.Render();
                 }
             }
         }
 
-        private void Run()
+        private void CheckCollisions()
         {
-            foreach (var gameObject in _gameObjectsSnapshot)
+            foreach (var obj in GameObjectsSnapshot)
             {
-                if (gameObject is GameMovingObject moveObj)
+                if (!obj.Collisional) continue;
+
+                var other = GameObjectsSnapshot.FirstOrDefault(o =>
+                    !ReferenceEquals(o, obj)
+                    && o.Collisional
+                    && !RectHelper.Intersect(o.Bounds(), obj.Bounds()).IsEmpty);
+
+                if (other != null)
                 {
-                    moveObj.Render();
+                    obj.OnCollide(other);
                 }
             }
-        }
-
-
-        public void RemoveObject(GameObject gameObject)           //הפעולה מוחקת אובייקט
-        {
-            if (_gameObjects.Contains(gameObject))           //האם האובייקט המבוקש נמצא ברשימה
-            {
-                _gameObjects.Remove(gameObject);           //מחיקתו מהמאגר
-                Children.Remove(gameObject.Image);         //מחיקת המראה של האובייקט מהמסך
-            }
-        }
-        public void RemoveAllObjects()                            //הפעולה מוחקת את כל האובייקטים
-        {
-            foreach (GameObject gameObject in _gameObjects)
-            {
-                RemoveObject(gameObject);
-            }
-        }
-        public void AddObject(GameObject gameObject)  //הפעולה מוסיפה אובייקט אל המאגר ולמסך
-        {
-            _gameObjects.Add(gameObject);
-            Children.Add(gameObject.Image);
         }
     }
 }
