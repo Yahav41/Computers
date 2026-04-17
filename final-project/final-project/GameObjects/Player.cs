@@ -275,7 +275,7 @@ namespace final_project.GameObjects
             Manager.Events.onReload?.Invoke(_isLeft);
         }
 
-        private void SetState(PlayerAnimationState newState)
+        public void SetState(PlayerAnimationState newState)
         {
             if (State == newState) return;
             State = newState;

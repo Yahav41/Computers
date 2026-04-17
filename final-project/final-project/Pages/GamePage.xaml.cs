@@ -133,6 +133,13 @@ namespace final_project.Pages
                 {
                     opponentPlayer.SpawnReplicatedBullet();
                 }
+
+                // NEW: sync animation state from network
+                PlayerAnimationState remoteState;
+                if (Enum.TryParse(opponentState.Action, out remoteState))
+                {
+                    opponentPlayer.SetState(remoteState);
+                }
             }
             catch (Exception ex)
             {
