@@ -35,7 +35,7 @@
             damage: 10,
             magazineSize: 6,
             fireIntervalMs: 500,
-            reloadDurationMs: 1500
+            reloadDurationMs: 1200
         );
 
         public static WeaponProfile Rifle => new WeaponProfile(
@@ -46,7 +46,7 @@
             damage: 5,
             magazineSize: 30,
             fireIntervalMs: 200,
-            reloadDurationMs: 2000
+            reloadDurationMs: 1750
         );
 
         public static WeaponProfile Shotgun => new WeaponProfile(

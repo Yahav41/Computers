@@ -20,6 +20,7 @@ namespace final_project.GameObjects
     {
         private readonly bool _isLeft;
         private readonly GameScene _scene;
+        private readonly bool _isLocalControlled;
         private readonly DispatcherTimer _fireTimer = new DispatcherTimer();
 
         private float _localOffsetX = 40f;
@@ -42,11 +43,13 @@ namespace final_project.GameObjects
             double size,
             GameScene scene,
             bool isLeft,
-            WeaponProfile weapon)
+            WeaponProfile weapon,
+            bool isLocalControlled)
             : base(string.Empty, x, y, size)
         {
             _scene = scene;
             _isLeft = isLeft;
+            _isLocalControlled = isLocalControlled;
             Weapon = weapon;
 
             BulletsInMagazine = weapon.MagazineSize;
@@ -152,7 +155,7 @@ namespace final_project.GameObjects
         private void OnKeyDown(VirtualKey key)
         {
             IsCreated = true;
-
+            if (!_isLocalControlled) return;
             bool isLeft = _isLeft;
             if (isLeft)
             {
@@ -177,7 +180,7 @@ namespace final_project.GameObjects
         private void OnKeyUp(VirtualKey key)
         {
             bool isLeft = _isLeft;
-
+            if (!_isLocalControlled) return;
             if (isLeft)
             {
                 if (key == GameKeys.LeftPlayerShoot)

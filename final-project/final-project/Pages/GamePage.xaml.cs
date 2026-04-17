@@ -207,7 +207,7 @@ namespace final_project.Pages
                 _manager.Scene.RemoveObject(old);
             }
 
-            var player = new Player(x, y, 80, _manager.Scene, isLeft, weapon);
+            var player = new Player(x, y, 80, _manager.Scene, isLeft, weapon, false);
             _manager.Scene.AddObject(player);
 
             UpdateBullets();

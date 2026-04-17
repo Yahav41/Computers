@@ -1,6 +1,7 @@
 ﻿using final_project.GameObjects;
 using final_project.Objects;
 using GameEngine.Services;
+using System;
 
 namespace final_project.GameServices
 {
@@ -19,6 +20,7 @@ namespace final_project.GameServices
             CreateObjects();
         }
 
+        
         private void CreateObjects()
         {
             //if (_isServer)
@@ -26,51 +28,38 @@ namespace final_project.GameServices
             //    for (int i = 0; i < 15; i++)
             //    {
             //        _scene.AddObject(new Covers(
-            //            (Covers.CoverType)_random.Next(0, 4),
-            //            _random.Next(100, 801),
-            //            _random.Next(401),
+            //            (Covers.CoverType)random.Next(0, 4),
+            //            random.Next(100, 801),
+            //            random.Next(401),
             //            100,
             //            _scene));
             //    }
             //}
 
+            bool leftLocal = _isServer;
+            bool rightLocal = !_isServer;
+
             WeaponProfile leftWeapon;
             switch (GameConstants.leftPlayer)
             {
-                case 0:
-                    leftWeapon = WeaponProfile.Pistol;
-                    break;
-                case 1:
-                    leftWeapon = WeaponProfile.Rifle;
-                    break;
-                case 2:
-                    leftWeapon = WeaponProfile.Shotgun;
-                    break;
-                default:
-                    leftWeapon = WeaponProfile.Pistol;
-                    break;
+                case 0: leftWeapon = WeaponProfile.Pistol; break;
+                case 1: leftWeapon = WeaponProfile.Rifle; break;
+                case 2: leftWeapon = WeaponProfile.Shotgun; break;
+                default: leftWeapon = WeaponProfile.Pistol; break;
             }
 
-            _scene.AddObject(new Player(100, 200, 80, _scene, true, leftWeapon));
+            _scene.AddObject(new Player(100, 200, 80, _scene, true, leftWeapon, leftLocal));
 
             WeaponProfile rightWeapon;
             switch (GameConstants.rightPlayer)
             {
-                case 0:
-                    rightWeapon = WeaponProfile.Pistol;
-                    break;
-                case 1:
-                    rightWeapon = WeaponProfile.Rifle;
-                    break;
-                case 2:
-                    rightWeapon = WeaponProfile.Shotgun;
-                    break;
-                default:
-                    rightWeapon = WeaponProfile.Pistol;
-                    break;
+                case 0: rightWeapon = WeaponProfile.Pistol; break;
+                case 1: rightWeapon = WeaponProfile.Rifle; break;
+                case 2: rightWeapon = WeaponProfile.Shotgun; break;
+                default: rightWeapon = WeaponProfile.Pistol; break;
             }
 
-            _scene.AddObject(new Player(800, 200, 80, _scene, false, rightWeapon));
+            _scene.AddObject(new Player(800, 200, 80, _scene, false, rightWeapon, rightLocal));
         }
 
         public int GetBullets(bool isLeft)

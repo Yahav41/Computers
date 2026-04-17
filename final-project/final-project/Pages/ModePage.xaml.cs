@@ -71,7 +71,7 @@ namespace final_project.Pages
         private WeaponType _leftWeapon = WeaponType.Pistol;
         private WeaponType _rightWeapon = WeaponType.Pistol;
 
-        private int _leftWeaponIndex = 0;   // 0 pistol, 1 rifle, 2 shotgun
+        private int _leftWeaponIndex = 0;   
         private int _rightWeaponIndex = 0;
 
         private void NextImageButton_Click(object sender, RoutedEventArgs e)
@@ -80,7 +80,6 @@ namespace final_project.Pages
             target = NextWeapon(target);
             UpdateWeaponImage(sender.Equals(NextButton1) ? ChosenImage1 : ChosenImage2, target);
 
-            // Keep using ints in GameConstants for now
             GameConstants.leftPlayer = (int)_leftWeapon;
             GameConstants.rightPlayer = (int)_rightWeapon;
         }
