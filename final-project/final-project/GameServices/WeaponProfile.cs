@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace final_project.GameServices
+﻿namespace final_project.GameServices
 {
     public class WeaponProfile
     {
@@ -16,10 +10,12 @@ namespace final_project.GameServices
         public int Damage { get; }
         public int MagazineSize { get; }
         public int FireIntervalMs { get; }
+        public int ReloadDurationMs { get; }   
 
         public WeaponProfile(
             string idle, string walk, string shoot, string reload,
-            int damage, int magazineSize, int fireIntervalMs)
+            int damage, int magazineSize, int fireIntervalMs,
+            int reloadDurationMs)              
         {
             IdleSprite = idle;
             WalkSprite = walk;
@@ -28,6 +24,7 @@ namespace final_project.GameServices
             Damage = damage;
             MagazineSize = magazineSize;
             FireIntervalMs = fireIntervalMs;
+            ReloadDurationMs = reloadDurationMs;
         }
 
         public static WeaponProfile Pistol => new WeaponProfile(
@@ -37,7 +34,9 @@ namespace final_project.GameServices
             "Models/Players/pistol/pistol-reload.gif",
             damage: 10,
             magazineSize: 6,
-            fireIntervalMs: 500);
+            fireIntervalMs: 500,
+            reloadDurationMs: 1500
+        );
 
         public static WeaponProfile Rifle => new WeaponProfile(
             "Models/Players/rifle/rifle-idle.gif",
@@ -46,7 +45,9 @@ namespace final_project.GameServices
             "Models/Players/rifle/rifle-reload.gif",
             damage: 5,
             magazineSize: 30,
-            fireIntervalMs: 200);
+            fireIntervalMs: 200,
+            reloadDurationMs: 2000
+        );
 
         public static WeaponProfile Shotgun => new WeaponProfile(
             "Models/Players/shotgun/shotgun-idle.gif",
@@ -55,6 +56,8 @@ namespace final_project.GameServices
             "Models/Players/shotgun/shotgun-reload.gif",
             damage: 50,
             magazineSize: 1,
-            fireIntervalMs: 100);
+            fireIntervalMs: 100,
+            reloadDurationMs: 2200
+        );
     }
 }

@@ -4,6 +4,7 @@ using GameEngine.Services;
 using System;
 using Windows.System;
 using Windows.UI.Xaml;
+using System.Threading.Tasks;
 
 namespace final_project.GameObjects
 {
@@ -33,6 +34,7 @@ namespace final_project.GameObjects
         public double AngleRad { get; private set; }
 
         public bool IsLeft => _isLeft;
+        private bool _isReloading;
 
         public Player(
             double x,
@@ -200,7 +202,7 @@ namespace final_project.GameObjects
                 }
             }
 
-            if (SpeedX == 0 && SpeedY == 0)
+            if (SpeedX == 0 && SpeedY == 0 && !_isReloading)
             {
                 SetState(PlayerAnimationState.Idle);
             }
@@ -239,12 +241,37 @@ namespace final_project.GameObjects
             _fireTimer.Start();
         }
 
-        private void Reload()
+        private async void Reload()
         {
-            CanShoot = true;
-            BulletsInMagazine = Weapon.MagazineSize;
+            // already full or already reloading -> ignore
+            if (_isReloading || BulletsInMagazine == Weapon.MagazineSize)
+                return;
+
+            _isReloading = true;
+            CanShoot = false;
             SpeedX = SpeedY = 0;
+
+            // stop any auto‑fire that might be running
+            _fireTimer.Stop();
+
+            // play reload animation
             SetState(PlayerAnimationState.Reloading);
+
+            // optional: update UI immediately if you want (shows old bullet count anyway)
+            // Manager.Events.onReload?.Invoke(_isLeft);
+
+            // wait for animation duration
+            await Task.Delay(Weapon.ReloadDurationMs);
+
+            // actually refill magazine
+            BulletsInMagazine = Weapon.MagazineSize;
+            CanShoot = true;
+            _isReloading = false;
+
+            // back to idle animation
+            SetState(PlayerAnimationState.Idle);
+
+            // notify UI that bullets changed
             Manager.Events.onReload?.Invoke(_isLeft);
         }
 

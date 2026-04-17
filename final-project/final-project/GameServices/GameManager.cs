@@ -34,7 +34,6 @@ namespace final_project.GameServices
             //    }
             //}
 
-            // Left player weapon
             WeaponProfile leftWeapon;
             switch (GameConstants.leftPlayer)
             {
@@ -54,7 +53,6 @@ namespace final_project.GameServices
 
             _scene.AddObject(new Player(100, 200, 80, _scene, true, leftWeapon));
 
-            // Right player weapon
             WeaponProfile rightWeapon;
             switch (GameConstants.rightPlayer)
             {
