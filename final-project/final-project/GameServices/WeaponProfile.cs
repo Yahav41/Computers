@@ -1,5 +1,12 @@
 ﻿namespace final_project.GameServices
 {
+    public enum WeaponType
+    {
+        Pistol = 0,
+        Rifle = 1,
+        Shotgun = 2
+    }
+
     public class WeaponProfile
     {
         public string IdleSprite { get; }
@@ -10,12 +17,15 @@
         public int Damage { get; }
         public int MagazineSize { get; }
         public int FireIntervalMs { get; }
-        public int ReloadDurationMs { get; }   
+        public int ReloadDurationMs { get; }
+
+        public WeaponType Type { get; }  // NEW
 
         public WeaponProfile(
             string idle, string walk, string shoot, string reload,
             int damage, int magazineSize, int fireIntervalMs,
-            int reloadDurationMs)              
+            int reloadDurationMs,
+            WeaponType type)               // NEW
         {
             IdleSprite = idle;
             WalkSprite = walk;
@@ -25,6 +35,7 @@
             MagazineSize = magazineSize;
             FireIntervalMs = fireIntervalMs;
             ReloadDurationMs = reloadDurationMs;
+            Type = type;
         }
 
         public static WeaponProfile Pistol => new WeaponProfile(
@@ -35,7 +46,8 @@
             damage: 10,
             magazineSize: 6,
             fireIntervalMs: 500,
-            reloadDurationMs: 1200
+            reloadDurationMs: 1200,
+            type: WeaponType.Pistol
         );
 
         public static WeaponProfile Rifle => new WeaponProfile(
@@ -46,7 +58,8 @@
             damage: 5,
             magazineSize: 30,
             fireIntervalMs: 200,
-            reloadDurationMs: 1750
+            reloadDurationMs: 1750,
+            type: WeaponType.Rifle
         );
 
         public static WeaponProfile Shotgun => new WeaponProfile(
@@ -57,7 +70,8 @@
             damage: 50,
             magazineSize: 1,
             fireIntervalMs: 100,
-            reloadDurationMs: 2200
+            reloadDurationMs: 2200,
+            type: WeaponType.Shotgun
         );
     }
 }

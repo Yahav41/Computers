@@ -67,9 +67,7 @@ namespace final_project.GameObjects
             Manager.Events.OnKeyRelease += OnKeyUp;
         }
 
-        public int WeaponTypeIndex =>
-            Weapon == WeaponProfile.Pistol ? 0 :
-            Weapon == WeaponProfile.Rifle ? 1 : 2;
+        public int WeaponTypeIndex => (int)Weapon.Type;
 
         private void FireTimer_Tick(object sender, object e)
         {
