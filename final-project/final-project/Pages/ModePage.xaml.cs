@@ -44,10 +44,20 @@ namespace final_project.Pages
             Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
 
-        private void OnlineButton_Click(object sender, RoutedEventArgs e)
+        private async void OnlineButton_Click(object sender, RoutedEventArgs e)
         {
-            // For now also start as server; later you can show Registration and start as client
-            Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
+            _registration = new Registration();
+            var result = await _registration.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                var ip = _registration.IpAddress;   // we add this property below
+
+                if (!string.IsNullOrWhiteSpace(ip))
+                {
+                    Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Client, ip));
+                }
+            }
         }
         private async Task StartReg()
         {

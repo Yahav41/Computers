@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+﻿using Windows.UI.Xaml.Controls;
 
 namespace final_project.Pages
 {
@@ -24,14 +9,22 @@ namespace final_project.Pages
             this.InitializeComponent();
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        public string IpAddress => IPTextBox.Text;
+
+        private void ContentDialog_PrimaryButtonClick(
+            ContentDialog sender,
+            ContentDialogButtonClickEventArgs args)
         {
+            // Optionally validate IP here.
+            // If invalid: args.Cancel = true;
         }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_SecondaryButtonClick(
+            ContentDialog sender,
+            ContentDialogButtonClickEventArgs args)
         {
-            IPTextBox.Text = String.Empty;
-            NameTextBox.Text = String.Empty;
+            IPTextBox.Text = string.Empty;
+            NameTextBox.Text = string.Empty;
             args.Cancel = true;
         }
     }
