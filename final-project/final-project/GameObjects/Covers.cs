@@ -1,63 +1,64 @@
 ﻿using final_project.GameServices;
 using GameEngine.Objects;
-using GameEngine.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI;
-using Windows.UI.Xaml.Controls;
 
 namespace final_project.Objects
 {
     public class Covers : GameObject
     {
         public enum CoverType { boxes, barrier, canister, foundation }
-        public CoverType _coverType { get; private set; }
-        private Random _random = new Random();
-        private GameScene _scene;
-        public Covers(CoverType type, double x, double y, double size, GameScene scene) : base(String.Empty, x, y, size)
+
+        public CoverType CoverKind { get; private set; }
+
+        private readonly Random _random = new Random();
+        private readonly GameScene _scene;
+
+        public Covers(CoverType type, double x, double y, double size, GameScene scene)
+            : base(string.Empty, x, y, size)
         {
-            _coverType = type;
-            if (type == CoverType.boxes)
+            CoverKind = type;
+
+            switch (type)
             {
-                Image.Height = Image.Width * 0.6678;
-                SetName("Covers/gameBoxes.png");
+                case CoverType.boxes:
+                    Image.Height = Image.Width * 0.6678;
+                    SetSprite("Models/Covers/gameBoxes.png");
+                    break;
+                case CoverType.barrier:
+                    Image.Height = Image.Width * 0.66616;
+                    SetSprite("Models/Covers/gameBarrier.png");
+                    break;
+                case CoverType.canister:
+                    Image.Height = Image.Width * 1.678 / 2.5;
+                    SetSprite("Models/Covers/gameCanister.png");
+                    break;
+                case CoverType.foundation:
+                default:
+                    Image.Height = Image.Width * 0.6675;
+                    SetSprite("Models/Covers/gameFoundation.png");
+                    break;
             }
-            else if (type == CoverType.barrier)
-            {
-                Image.Height = Image.Width * 0.66616;
-                SetName("Models/Covers/gameBarrier.png");
-            }
-            else if (type == CoverType.canister)
-            {
-                Image.Height = Image.Width * 1.678 / 2.5;
-                SetName("Models/Covers/gameCanister.png");
-            }
-            else
-            {
-                Image.Height = Image.Width * 0.6675;
-                SetName("Models/Covers/gameFoundation.png");
-            }
+
             _scene = scene;
-            //RectangleHelper.DrawRectangle(_scene, _x, _y, _image.Width, _image.Height, Color.FromArgb(255, 0, 0, 255));
         }
-        public override void Collide(GameObject gameObject)
+
+        public override void OnCollide(GameObject gameObject)
         {
-            if (gameObject is Covers cover)
+            if (gameObject is Covers)
             {
-                _x = _x + _random.Next(-250, 250);
-                _y = _y + _random.Next(-250, 250);
+                X = X + _random.Next(-250, 250);
+                Y = Y + _random.Next(-250, 250);
                 Render();
             }
         }
+
         public override void Render()
         {
-            if (_x < 0 || _x > 1050 || _y < 0 || _y > 400)
+            if (X < 0 || X > 1050 || Y < 0 || Y > 400)
             {
                 _scene.RemoveObject(this);
             }
+
             base.Render();
         }
     }

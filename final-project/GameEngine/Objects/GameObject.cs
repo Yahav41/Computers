@@ -9,8 +9,8 @@ namespace GameEngine.Objects
 {
     public abstract class GameObject
     {
-        public double X { get; protected set; }
-        public double Y { get; protected set; }
+        public double X { get; set; }
+        public double Y { get; set; }
 
         private readonly double _initialX;
         private readonly double _initialY;

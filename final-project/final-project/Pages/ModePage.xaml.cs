@@ -35,18 +35,19 @@ namespace final_project.Pages
 
         private void OfflineButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage_Client));
+            // Offline/local → server role, no IP needed
+            Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
 
         private void LocalButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(GamePage));
+            Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
 
         private void OnlineButton_Click(object sender, RoutedEventArgs e)
         {
-           // StartReg();
-            Frame.Navigate(typeof(GamePage));
+            // For now also start as server; later you can show Registration and start as client
+            Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
         private async Task StartReg()
         {
@@ -60,35 +61,52 @@ namespace final_project.Pages
         private WeaponType _leftWeapon = WeaponType.Pistol;
         private WeaponType _rightWeapon = WeaponType.Pistol;
 
+        private int _leftWeaponIndex = 0;   // 0 pistol, 1 rifle, 2 shotgun
+        private int _rightWeaponIndex = 0;
+
         private void NextImageButton_Click(object sender, RoutedEventArgs e)
         {
             var target = sender.Equals(NextButton1) ? ref _leftWeapon : ref _rightWeapon;
             target = NextWeapon(target);
             UpdateWeaponImage(sender.Equals(NextButton1) ? ChosenImage1 : ChosenImage2, target);
 
-            GameConstants.LeftPlayerWeapon = target;
-            GameConstants.RightPlayerWeapon = _rightWeapon;
+            // Keep using ints in GameConstants for now
+            GameConstants.leftPlayer = (int)_leftWeapon;
+            GameConstants.rightPlayer = (int)_rightWeapon;
         }
 
         private WeaponType NextWeapon(WeaponType current)
         {
-            return current switch
+            switch (current)
             {
-                WeaponType.Pistol => WeaponType.Rifle,
-                WeaponType.Rifle => WeaponType.Shotgun,
-                _ => WeaponType.Pistol
-            };
+                case WeaponType.Pistol:
+                    return WeaponType.Rifle;
+                case WeaponType.Rifle:
+                    return WeaponType.Shotgun;
+                default:
+                    return WeaponType.Pistol;
+            }
         }
 
         private void UpdateWeaponImage(Image image, WeaponType type)
         {
-            string path = type switch
+            string path;
+
+            switch (type)
             {
-                WeaponType.Pistol => "Assets/Models/Players/pistol/pistol-walk.gif",
-                WeaponType.Rifle => "Assets/Models/Players/rifle/rifle-walk.gif",
-                WeaponType.Shotgun => "Assets/Models/Players/shotgun/shotgun-walk.gif",
-                _ => "Assets/Models/Players/pistol/pistol-walk.gif"
-            };
+                case WeaponType.Pistol:
+                    path = "Assets/Models/Players/pistol/pistol-walk.gif";
+                    break;
+                case WeaponType.Rifle:
+                    path = "Assets/Models/Players/rifle/rifle-walk.gif";
+                    break;
+                case WeaponType.Shotgun:
+                    path = "Assets/Models/Players/shotgun/shotgun-walk.gif";
+                    break;
+                default:
+                    path = "Assets/Models/Players/pistol/pistol-walk.gif";
+                    break;
+            }
 
             image.Source = new BitmapImage(new Uri($"ms-appx:///{path}"));
         }
@@ -103,13 +121,19 @@ namespace final_project.Pages
 
     public static class WeaponSelector
     {
-        public static WeaponProfile ToProfile(this WeaponType type) =>
-            type switch
+        public static WeaponProfile ToProfile(this WeaponType type)
+        {
+            switch (type)
             {
-                WeaponType.Pistol => WeaponProfile.Pistol,
-                WeaponType.Rifle => WeaponProfile.Rifle,
-                WeaponType.Shotgun => WeaponProfile.Shotgun,
-                _ => WeaponProfile.Pistol
-            };
+                case WeaponType.Pistol:
+                    return WeaponProfile.Pistol;
+                case WeaponType.Rifle:
+                    return WeaponProfile.Rifle;
+                case WeaponType.Shotgun:
+                    return WeaponProfile.Shotgun;
+                default:
+                    return WeaponProfile.Pistol;
+            }
+        }
     }
 }

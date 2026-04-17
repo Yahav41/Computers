@@ -7,7 +7,7 @@ using Windows.UI.Xaml;
 
 namespace final_project.GameObjects
 {
-    public enum PlayerState
+    public enum PlayerAnimationState
     {
         Idle,
         Moving,
@@ -24,7 +24,7 @@ namespace final_project.GameObjects
         private float _localOffsetX = 40f;
         private float _localOffsetY = 15f;
 
-        public PlayerState State { get; private set; } = PlayerState.Idle;
+        public PlayerAnimationState State { get; private set; } = PlayerAnimationState.Idle;
         public WeaponProfile Weapon { get; private set; }
 
         public int BulletsInMagazine { get; private set; }
@@ -171,32 +171,32 @@ namespace final_project.GameObjects
 
             if (SpeedX == 0 && SpeedY == 0)
             {
-                SetState(PlayerState.Idle);
+                SetState(PlayerAnimationState.Idle);
             }
         }
 
         private void MoveLeft()
         {
             SpeedX = -GameConstants.playerSpeed;
-            SetState(PlayerState.Moving);
+            SetState(PlayerAnimationState.Moving);
         }
 
         private void MoveRight()
         {
             SpeedX = GameConstants.playerSpeed;
-            SetState(PlayerState.Moving);
+            SetState(PlayerAnimationState.Moving);
         }
 
         private void MoveUp()
         {
             SpeedY = -GameConstants.playerSpeed;
-            SetState(PlayerState.Moving);
+            SetState(PlayerAnimationState.Moving);
         }
 
         private void MoveDown()
         {
             SpeedY = GameConstants.playerSpeed;
-            SetState(PlayerState.Moving);
+            SetState(PlayerAnimationState.Moving);
         }
 
         private void StartShoot()
@@ -204,7 +204,7 @@ namespace final_project.GameObjects
             if (!CanShoot) return;
 
             SpeedX = SpeedY = 0;
-            SetState(PlayerState.Shooting);
+            SetState(PlayerAnimationState.Shooting);
             _fireTimer.Start();
         }
 
@@ -213,27 +213,27 @@ namespace final_project.GameObjects
             CanShoot = true;
             BulletsInMagazine = Weapon.MagazineSize;
             SpeedX = SpeedY = 0;
-            SetState(PlayerState.Reloading);
+            SetState(PlayerAnimationState.Reloading);
             Manager.Events.onReload?.Invoke(_isLeft);
         }
 
-        private void SetState(PlayerState newState)
+        private void SetState(PlayerAnimationState newState)
         {
             if (State == newState) return;
             State = newState;
 
             switch (State)
             {
-                case PlayerState.Idle:
+                case PlayerAnimationState.Idle:
                     SetSprite(Weapon.IdleSprite);
                     break;
-                case PlayerState.Moving:
+                case PlayerAnimationState.Moving:
                     SetSprite(Weapon.WalkSprite);
                     break;
-                case PlayerState.Shooting:
+                case PlayerAnimationState.Shooting:
                     SetSprite(Weapon.ShootSprite);
                     break;
-                case PlayerState.Reloading:
+                case PlayerAnimationState.Reloading:
                     SetSprite(Weapon.ReloadSprite);
                     break;
             }

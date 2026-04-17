@@ -136,13 +136,22 @@ namespace final_project.Pages
 
         private void RecreateOpponentPlayer(int typeIndex, double x, double y, bool isLeft)
         {
-            var weapon = typeIndex switch
+            WeaponProfile weapon;
+            switch (typeIndex)
             {
-                0 => WeaponProfile.Pistol,
-                1 => WeaponProfile.Rifle,
-                2 => WeaponProfile.Shotgun,
-                _ => WeaponProfile.Pistol
-            };
+                case 0:
+                    weapon = WeaponProfile.Pistol;
+                    break;
+                case 1:
+                    weapon = WeaponProfile.Rifle;
+                    break;
+                case 2:
+                    weapon = WeaponProfile.Shotgun;
+                    break;
+                default:
+                    weapon = WeaponProfile.Pistol;
+                    break;
+            }
 
             var old = _manager.Scene.GetPlayer(isLeft);
             if (old != null)
