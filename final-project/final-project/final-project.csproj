@@ -121,11 +121,7 @@
     </Compile>
     <Compile Include="GameObjects\Bullets.cs" />
     <Compile Include="GameObjects\Covers.cs" />
-    <Compile Include="GameObjects\PistolPlayer.cs" />
     <Compile Include="GameObjects\Player.cs" />
-    <Compile Include="GameObjects\Players.cs" />
-    <Compile Include="GameObjects\RiflePlayer.cs" />
-    <Compile Include="GameObjects\ShotgunPlayer.cs" />
     <Compile Include="GameServices\GameConstants.cs" />
     <Compile Include="GameServices\GameKeys.cs" />
     <Compile Include="GameServices\GameManager.cs" />
@@ -137,12 +133,6 @@
     <Compile Include="GameServices\RectangleHelper.cs" />
     <Compile Include="GameServices\ServerNetwork.cs" />
     <Compile Include="GameServices\WeaponProfile.cs" />
-    <Compile Include="Pages\GamePage - Client.xaml.cs">
-      <DependentUpon>GamePage - Client.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\GamePage - Server.xaml.cs">
-      <DependentUpon>GamePage - Server.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -264,14 +254,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Pages\GamePage - Client.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\GamePage - Server.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

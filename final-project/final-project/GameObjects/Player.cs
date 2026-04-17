@@ -2,10 +2,6 @@
 using GameEngine.Objects;
 using GameEngine.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.System;
 using Windows.UI.Xaml;
 
@@ -35,6 +31,8 @@ namespace final_project.GameObjects
         public bool CanShoot { get; private set; } = true;
 
         public double AngleRad { get; private set; }
+
+        public bool IsLeft => _isLeft;
 
         public Player(
             double x,
@@ -91,7 +89,7 @@ namespace final_project.GameObjects
 
         private void SpawnBullet(float muzzleX, float muzzleY)
         {
-            var bullet = new Bullet(Image.Rotation, muzzleX, muzzleY, 10, _scene, Weapon.Damage);
+            var bullet = new Bullets(Image.Rotation, muzzleX, muzzleY, 10, _scene, Weapon.Damage);
             _scene.AddObject(bullet);
         }
 
@@ -102,6 +100,7 @@ namespace final_project.GameObjects
             {
                 CanShoot = false;
             }
+
             Manager.Events.onBulletShot?.Invoke(_isLeft);
         }
 
@@ -109,33 +108,65 @@ namespace final_project.GameObjects
         {
             IsCreated = true;
 
-            var keys = _isLeft ? GameKeys.Left : GameKeys.Right;
-
-            if (key == keys.Left) MoveLeft();
-            else if (key == keys.Right) MoveRight();
-            else if (key == keys.Up) MoveUp();
-            else if (key == keys.Down) MoveDown();
-            else if (key == keys.Shoot) StartShoot();
-            else if (key == keys.Reload) Reload();
+            // For now use existing GameKeys static mapping
+            bool isLeft = _isLeft;
+            if (isLeft)
+            {
+                if (key == GameKeys.LeftPlayerLeft) MoveLeft();
+                else if (key == GameKeys.LeftPlayerRight) MoveRight();
+                else if (key == GameKeys.LeftPlayerUp) MoveUp();
+                else if (key == GameKeys.LeftPlayerDown) MoveDown();
+                else if (key == GameKeys.LeftPlayerShoot) StartShoot();
+                else if (key == GameKeys.LeftPlayerReload) Reload();
+            }
+            else
+            {
+                if (key == GameKeys.RightPlayerLeft) MoveLeft();
+                else if (key == GameKeys.RightPlayerRight) MoveRight();
+                else if (key == GameKeys.RightPlayerUp) MoveUp();
+                else if (key == GameKeys.RightPlayerDown) MoveDown();
+                else if (key == GameKeys.RightPlayerShoot) StartShoot();
+                else if (key == GameKeys.RightPlayerReload) Reload();
+            }
         }
 
         private void OnKeyUp(VirtualKey key)
         {
-            var keys = _isLeft ? GameKeys.Left : GameKeys.Right;
+            bool isLeft = _isLeft;
 
-            if (key == keys.Shoot)
+            if (isLeft)
             {
-                _fireTimer.Stop();
+                if (key == GameKeys.LeftPlayerShoot)
+                {
+                    _fireTimer.Stop();
+                }
+
+                if (key == GameKeys.LeftPlayerLeft || key == GameKeys.LeftPlayerRight)
+                {
+                    SpeedX = 0;
+                }
+
+                if (key == GameKeys.LeftPlayerUp || key == GameKeys.LeftPlayerDown)
+                {
+                    SpeedY = 0;
+                }
             }
-
-            if (key == keys.Left || key == keys.Right)
+            else
             {
-                SpeedX = 0;
-            }
+                if (key == GameKeys.RightPlayerShoot)
+                {
+                    _fireTimer.Stop();
+                }
 
-            if (key == keys.Up || key == keys.Down)
-            {
-                SpeedY = 0;
+                if (key == GameKeys.RightPlayerLeft || key == GameKeys.RightPlayerRight)
+                {
+                    SpeedX = 0;
+                }
+
+                if (key == GameKeys.RightPlayerUp || key == GameKeys.RightPlayerDown)
+                {
+                    SpeedY = 0;
+                }
             }
 
             if (SpeedX == 0 && SpeedY == 0)
@@ -146,25 +177,25 @@ namespace final_project.GameObjects
 
         private void MoveLeft()
         {
-            SpeedX = -GameConstants.PlayerSpeed;
+            SpeedX = -GameConstants.playerSpeed;
             SetState(PlayerState.Moving);
         }
 
         private void MoveRight()
         {
-            SpeedX = GameConstants.PlayerSpeed;
+            SpeedX = GameConstants.playerSpeed;
             SetState(PlayerState.Moving);
         }
 
         private void MoveUp()
         {
-            SpeedY = -GameConstants.PlayerSpeed;
+            SpeedY = -GameConstants.playerSpeed;
             SetState(PlayerState.Moving);
         }
 
         private void MoveDown()
         {
-            SpeedY = GameConstants.PlayerSpeed;
+            SpeedY = GameConstants.playerSpeed;
             SetState(PlayerState.Moving);
         }
 
@@ -214,16 +245,16 @@ namespace final_project.GameObjects
 
             AngleRad = Image.Rotation * Math.PI / 180.0;
 
-            // Clamping to scene bounds (you already have similar checks)
+            // Clamp to arena bounds
             if (X < 0) X = 10;
-            if (X > 1150 - Image.Width) X = 1150 - (float)Image.Width - 10;
+            if (X > 1150 - Image.Width) X = 1150 - Image.Width - 10;
             if (Y < 0) Y = 10;
-            if (Y > 475 - Image.Height) Y = 475 - (float)Image.Height - 10;
+            if (Y > 475 - Image.Height) Y = 475 - Image.Height - 10;
         }
 
         public override void OnCollide(GameObject other)
         {
-            if (other is Bullet bullet)
+            if (other is Bullets bullet)
             {
                 Manager.Events.OnRemoveLifes?.Invoke(_isLeft, bullet.Damage);
                 _scene.RemoveObject(bullet);
