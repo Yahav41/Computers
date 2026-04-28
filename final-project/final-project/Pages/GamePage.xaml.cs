@@ -54,7 +54,7 @@ namespace final_project.Pages
             Manager.Events.onReload += Reload;
 
             _network = _role == GameRole.Server
-                ? (IGameNetwork)new ServerNetwork()
+                ? (IGameNetwork)new Network()
                 : new ClientNetwork();
 
             _network.OpponentStateReceived += UpdateOpponentPosition;

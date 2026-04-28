@@ -131,7 +131,7 @@
     <Compile Include="GameServices\NetworkServer.cs" />
     <Compile Include="GameServices\PlayerState.cs" />
     <Compile Include="GameServices\RectangleHelper.cs" />
-    <Compile Include="GameServices\ServerNetwork.cs" />
+    <Compile Include="GameServices\Network.cs" />
     <Compile Include="GameServices\WeaponProfile.cs" />
     <Compile Include="Pages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>

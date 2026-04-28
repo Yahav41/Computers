@@ -66,7 +66,7 @@ namespace GameEngine.Objects
 
         public virtual void OnCollide(GameObject other)
         {
-            // Override in children
+            
         }
     }
 }

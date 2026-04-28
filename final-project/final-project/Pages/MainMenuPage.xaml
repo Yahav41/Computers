@@ -79,23 +79,13 @@
                 <Image Source="/Assets/Buttons/SettingsButton.png"></Image>
             </Button>
         </Viewbox>
-        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="LoginButton" Click="LoginButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
-                <Image Source="/Assets/Buttons/LoginButton.png"></Image>
-            </Button>
-        </Viewbox>
-        <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button x:Name="SignupButton" Click="SignupButton_Click"  Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
-                <Image Source="/Assets/Buttons/SignupButton.png"></Image>
-            </Button>
-        </Viewbox>
         <Viewbox Grid.Row="0" Grid.Column="23" Grid.ColumnSpan="3" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Button x:Name="HelpButton" Click="HelpButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                 <Image Source="/Assets/Buttons/HelpButton.png"></Image>
             </Button>
         </Viewbox>
 
-        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
+        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Visible">
             <Grid.Background>
                 <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
             </Grid.Background>
@@ -131,12 +121,35 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                <TextBlock Foreground="Black">Welcome to the help Page</TextBlock>
+            </Viewbox>
             <Viewbox Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <Button x:Name="CloseButton" Click="CloseButton_Click" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent">
                     <Image Source="/Assets/Buttons/CloseButton.png"></Image>
                 </Button>
             </Viewbox>
-
+            <Viewbox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Image Source="/Assets/Models/Players/pistol/pistol-walk.gif" ></Image>
+            </Viewbox>
+            <Viewbox Grid.Column="10" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Image Source="/Assets/Models/Players/rifle/rifle-walk.gif" FlowDirection="RightToLeft"></Image>
+            </Viewbox>
+            <Viewbox Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Image Source="/Assets/Models/Players/shotgun/shotgun-walk.gif" FlowDirection="RightToLeft"></Image>
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5">
+                <TextBlock Foreground="Black">This is your character, you can move him around, shoot and reload.</TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="5">
+                <TextBlock Foreground="Black">You can change his gun in the play screen, the controls can also be changed in the settings.</TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="5">
+                <TextBlock Foreground="Black">These are the two other available guns you can carry.</TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="5">
+                <TextBlock Foreground="Black">Each gun has different amount of ammo and damage dealt.</TextBlock>
+            </Viewbox>
         </Grid>
     </Grid>
 </Page>

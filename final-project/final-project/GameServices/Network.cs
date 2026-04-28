@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace final_project.GameServices
 {
-    public class ServerNetwork : IGameNetwork
+    public class Network : IGameNetwork
     {
         private readonly NetworkServer _server = new NetworkServer();
 
