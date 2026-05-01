@@ -27,32 +27,16 @@ namespace final_project.Pages
             this.InitializeComponent();
         }
 
-        private void KeysButton_Click(object sender, RoutedEventArgs e)
-        {
-            KeysGrid.Visibility = KeysGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            AudioGrid.Visibility = Visibility.Collapsed;
-        }
+        
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            KeysGrid.Visibility = Visibility.Collapsed;
-            AudioGrid.Visibility = Visibility.Collapsed;
-        }
-
         private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             
-        }
-
-        private void AudioButton_Click(object sender, RoutedEventArgs e)
-        {
-            AudioGrid.Visibility = AudioGrid.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            KeysGrid.Visibility = Visibility.Collapsed;
         }
     }
 }
