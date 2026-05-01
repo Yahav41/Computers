@@ -85,7 +85,7 @@
             </Button>
         </Viewbox>
 
-        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Visible">
+        <Grid x:Name="HelpGrid" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="15" Grid.RowSpan="13" Visibility="Collapsed">
             <Grid.Background>
                 <SolidColorBrush Color="#f3e3c1" Opacity="1"/>
             </Grid.Background>
