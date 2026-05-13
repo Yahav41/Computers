@@ -5,6 +5,7 @@ using System;
 using Windows.System;
 using Windows.UI.Xaml;
 using System.Threading.Tasks;
+using finalproject.GameServices;
 
 namespace final_project.GameObjects
 {

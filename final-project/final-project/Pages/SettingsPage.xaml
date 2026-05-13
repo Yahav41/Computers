@@ -79,6 +79,171 @@
         <Viewbox Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="9" Grid.RowSpan="2">
             <Slider x:Name="VolumeSlider" Minimum="0" Maximum="100" Value="100" ValueChanged="VolumeSlider_ValueChanged" Width="220"></Slider>
         </Viewbox>
+        <!-- LEFT PLAYER KEYS -->
+        <Grid Grid.Row="10" Grid.Column="17" Grid.ColumnSpan="3" Grid.RowSpan="14">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <!-- Move Left -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Move Left
+                </TextBlock>
+                <Button x:Name="BtnLeftMoveLeft"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerLeft"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Right -->
+            <StackPanel Grid.Row="1" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Move Right
+                </TextBlock>
+                <Button x:Name="BtnLeftMoveRight"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerRight"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Up -->
+            <StackPanel Grid.Row="2" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Move Up
+                </TextBlock>
+                <Button x:Name="BtnLeftMoveUp"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerUp"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Down -->
+            <StackPanel Grid.Row="3" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Move Down
+                </TextBlock>
+                <Button x:Name="BtnLeftMoveDown"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerDown"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Shoot -->
+            <StackPanel Grid.Row="4" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Shoot
+                </TextBlock>
+                <Button x:Name="BtnLeftShoot"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerShoot"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Reload -->
+            <StackPanel Grid.Row="5" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Left Player - Reload
+                </TextBlock>
+                <Button x:Name="BtnLeftReload"
+                Click="ChangeKeyClick"
+                Tag="LeftPlayerReload"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
         </Grid>
+        <!-- RIGHT PLAYER KEYS -->
+        <Grid Grid.Row="10" Grid.Column="21" Grid.ColumnSpan="3" Grid.RowSpan="14">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Move Left -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Move Left
+                </TextBlock>
+                <Button x:Name="BtnRightMoveLeft"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerLeft"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Right -->
+            <StackPanel Grid.Row="1" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Move Right
+                </TextBlock>
+                <Button x:Name="BtnRightMoveRight"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerRight"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Up -->
+            <StackPanel Grid.Row="2" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Move Up
+                </TextBlock>
+                <Button x:Name="BtnRightMoveUp"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerUp"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Move Down -->
+            <StackPanel Grid.Row="3" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Move Down
+                </TextBlock>
+                <Button x:Name="BtnRightMoveDown"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerDown"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Shoot -->
+            <StackPanel Grid.Row="4" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Shoot
+                </TextBlock>
+                <Button x:Name="BtnRightShoot"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerShoot"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+
+            <!-- Reload -->
+            <StackPanel Grid.Row="5" Margin="0,0,0,8">
+                <TextBlock Foreground="White" Margin="0,0,10,0">
+            Right Player - Reload
+                </TextBlock>
+                <Button x:Name="BtnRightReload"
+                Click="ChangeKeyClick"
+                Tag="RightPlayerReload"
+                HorizontalAlignment="Stretch"
+                Content="(press key)"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Page>
