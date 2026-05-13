@@ -24,7 +24,6 @@ namespace final_project.Pages
             ContentDialogButtonClickEventArgs args)
         {
             IPTextBox.Text = string.Empty;
-            NameTextBox.Text = string.Empty;
             args.Cancel = true;
         }
     }

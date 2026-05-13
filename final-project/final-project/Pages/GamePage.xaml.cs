@@ -92,7 +92,6 @@ namespace final_project.Pages
                     ShotFired = localPlayer.ConsumeShotFlag()
                 };
 
-                // NEW: server is authoritative for UI
                 if (_role == GameRole.Server)
                 {
                     state.LeftHealth = LeftPlayerHealth.Value;

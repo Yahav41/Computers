@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
- Title="Registration"
- PrimaryButtonText="Registration"
+ Title="Connection"
+ PrimaryButtonText="Connect"
  SecondaryButtonText="Clear"
  PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
  SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
@@ -22,7 +22,5 @@
         </Grid.RowDefinitions>
         <TextBlock Text="IP:" VerticalAlignment="Center" Margin="0,0,0,5"/>
         <TextBox x:Name="IPTextBox" Grid.Row="1" PlaceholderText="Enter IP" Margin="0,0,0,10"/>
-        <TextBlock Text="Name:" Grid.Row="2" VerticalAlignment="Center" Margin="0,0,0,5"/>
-        <TextBox x:Name="NameTextBox" Grid.Row="3" PlaceholderText="Enter Name"/>
     </Grid>
 </ContentDialog>

@@ -23,17 +23,13 @@ namespace final_project.Pages
             GameConstants.rightPlayer = (int)_rightWeapon;
         }
 
-        private void OfflineButton_Click(object sender, RoutedEventArgs e)
+        
+        private void ServerButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
 
-        private void LocalButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
-        }
-
-        private async void OnlineButton_Click(object sender, RoutedEventArgs e)
+        private async void ClientButton_Click(object sender, RoutedEventArgs e)
         {
             _registration = new Registration();
             var result = await _registration.ShowAsync();
