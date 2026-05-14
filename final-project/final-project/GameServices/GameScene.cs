@@ -37,8 +37,8 @@ namespace final_project.GameServices
             double distance = Math.Sqrt(dx * dx + dy * dy);
             double offsetAngle = Math.Atan2(45.9, distance) * 180 / Math.PI;
 
-            leftPlayer.Image.Rotation = (float)(angle - offsetAngle);
-            rightPlayer.Image.Rotation = (float)(angle + 180 - offsetAngle);
+            leftPlayer.Image.Rotation = (float)(angle - offsetAngle+10);
+            rightPlayer.Image.Rotation = (float)(angle + 180 - offsetAngle+10);
         }
 
         public Player GetPlayer(bool isLeft)

@@ -122,12 +122,14 @@
     <Compile Include="GameObjects\Bullets.cs" />
     <Compile Include="GameObjects\Covers.cs" />
     <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameServices\CoverState.cs" />
     <Compile Include="GameServices\GameConstants.cs" />
     <Compile Include="GameServices\GameKeys.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="GameServices\IGameNetwork.cs" />
     <Compile Include="GameServices\NetworkClient.cs" />
+    <Compile Include="GameServices\NetworkMessage.cs" />
     <Compile Include="GameServices\NetworkServer.cs" />
     <Compile Include="GameServices\PlayerState.cs" />
     <Compile Include="GameServices\RectangleHelper.cs" />
@@ -309,6 +311,9 @@
     <PackageReference Include="Newtonsoft.Json.Bson">
       <Version>1.0.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

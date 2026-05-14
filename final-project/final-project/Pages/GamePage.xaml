@@ -87,7 +87,7 @@
         <Viewbox Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="14">
             <TextBlock x:Name="StatusTextBlock" Width="409" Text="IP"></TextBlock>
         </Viewbox>
-        <Grid x:Name="WinGrid" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="21" Grid.RowSpan="18" Visibility="Collapsed" Background="white">
+        <Grid x:Name="WinGrid" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="21" Grid.RowSpan="18" Visibility="Collapsed" Background="Beige">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -138,6 +138,9 @@
             </Viewbox>
             <Viewbox Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="7" Grid.RowSpan="3">
                 <TextBlock x:Name="WinnerTextBlock" Text="Player X Wins!" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman"></TextBlock>
+            </Viewbox>
+            <Viewbox Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="7" Grid.RowSpan="3">
+                <TextBlock x:Name="WinnerHealthBlock" Text="Won with X health remaining" TextAlignment="Center" TextWrapping="Wrap" Foreground="Black" FontFamily="Times New Roman" Visibility="Collapsed"></TextBlock>
             </Viewbox>
         </Grid>
     </Grid>

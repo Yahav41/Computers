@@ -2,7 +2,9 @@ using final_project.GameObjects;
 using final_project.GameServices;
 using GameEngine.Services;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -22,6 +24,7 @@ namespace final_project.Pages
         private DispatcherTimer _gameLoop;
         private GameRole _role;
         private string _serverIp;
+        private bool _coversInitialized = false;
 
         public GamePage()
         {
@@ -58,7 +61,18 @@ namespace final_project.Pages
                 : new ClientNetwork();
 
             _network.OpponentStateReceived += UpdateOpponentPosition;
-            _network.StatusChanged += msg => StatusTextBlock.Text = msg;
+            _network.CoversReceived += ApplyCoverSnapshot;
+
+            _network.StatusChanged += msg =>
+            {
+                StatusTextBlock.Text = msg;
+                if (_role == GameRole.Server &&
+                    msg.StartsWith("Client connected", StringComparison.OrdinalIgnoreCase))
+                {
+                    var covers = _manager.GetCoverStates();
+                    _ = _network.SendCoversAsync(covers);
+                }
+            };
 
             await _network.StartOrConnectAsync(_serverIp);
 
@@ -106,6 +120,25 @@ namespace final_project.Pages
             {
                 Debug.WriteLine($"GameLoopTick Error: {ex.Message}");
             }
+        }
+
+        private void ApplyCoverSnapshot(IReadOnlyList<CoverState> covers)
+        {
+            if (_coversInitialized || covers == null) return;
+
+            foreach (var c in covers)
+            {
+                var cover = new final_project.Objects.Covers(
+                    (final_project.Objects.Covers.CoverType)c.Type,
+                    c.X,
+                    c.Y,
+                    c.Size,
+                    _manager.Scene);
+
+                _manager.Scene.AddObject(cover);
+            }
+
+            _coversInitialized = true;
         }
 
         private void UpdateOpponentPosition(PlayerState opponentState)
@@ -246,10 +279,12 @@ namespace final_project.Pages
 
             if (LeftPlayerHealth.Value <= 0 || RightPlayerHealth.Value <= 0)
             {
+                bool winner = LeftPlayerHealth.Value >= RightPlayerHealth.Value;
                 WinGrid.Visibility = Visibility.Visible;
-                WinnerTextBlock.Text = LeftPlayerHealth.Value >= RightPlayerHealth.Value
+                WinnerTextBlock.Text = winner
                     ? "LeftPlayerWins"
                     : "RightPlayerWins";
+                WinnerHealthBlock.Text = winner ? "Won with " + LeftPlayerHealth.Value + " health remaining" : "Won with " + RightPlayerHealth.Value + " health remaining";
             }
         }
 

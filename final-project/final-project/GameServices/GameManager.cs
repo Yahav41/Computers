@@ -2,6 +2,8 @@
 using final_project.Objects;
 using GameEngine.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace final_project.GameServices
 {
@@ -20,7 +22,6 @@ namespace final_project.GameServices
             CreateObjects();
         }
 
-        
         private void CreateObjects()
         {
             if (_isServer)
@@ -66,6 +67,20 @@ namespace final_project.GameServices
         {
             var player = _scene.GetPlayer(isLeft);
             return player?.BulletsInMagazine ?? 0;
+        }
+
+        public IReadOnlyList<CoverState> GetCoverStates()
+        {
+            return _scene.GameObjectsSnapshot
+                .OfType<Covers>()
+                .Select(c => new CoverState
+                {
+                    Type = (int)c.CoverKind,
+                    X = c.X,
+                    Y = c.Y,
+                    Size = c.Image.Width
+                })
+                .ToList();
         }
     }
 }

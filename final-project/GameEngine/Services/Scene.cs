@@ -11,7 +11,7 @@ namespace GameEngine.Services
     {
         private readonly List<GameObject> _gameObjects = new List<GameObject>();
 
-        protected IEnumerable<GameObject> GameObjectsSnapshot => _gameObjects.ToList();
+        public IEnumerable<GameObject> GameObjectsSnapshot => _gameObjects.ToList();
 
         protected Scene()
         {

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace final_project.GameServices
@@ -14,6 +12,12 @@ namespace final_project.GameServices
         {
             add => _server.OpponentDataReceived += value;
             remove => _server.OpponentDataReceived -= value;
+        }
+
+        public event Action<IReadOnlyList<CoverState>> CoversReceived
+        {
+            add => _server.CoversReceived += value;
+            remove => _server.CoversReceived -= value;
         }
 
         public event Action<string> StatusChanged
@@ -34,6 +38,11 @@ namespace final_project.GameServices
             return _server.SendPlayerStateAsync(state);
         }
 
+        public Task SendCoversAsync(IReadOnlyList<CoverState> covers)
+        {
+            return _server.SendCoverStatesAsync(covers);
+        }
+
         public void Stop()
         {
             _server.StopServer();
@@ -48,6 +57,12 @@ namespace final_project.GameServices
         {
             add => _client.OpponentDataReceived += value;
             remove => _client.OpponentDataReceived -= value;
+        }
+
+        public event Action<IReadOnlyList<CoverState>> CoversReceived
+        {
+            add => _client.CoversReceived += value;
+            remove => _client.CoversReceived -= value;
         }
 
         public event Action<string> StatusChanged
@@ -66,6 +81,11 @@ namespace final_project.GameServices
         public Task SendAsync(PlayerState state)
         {
             return _client.SendPlayerStateAsync(state);
+        }
+
+        public Task SendCoversAsync(IReadOnlyList<CoverState> covers)
+        {
+            return Task.CompletedTask;
         }
 
         public void Stop()

@@ -6,7 +6,6 @@ using Windows.ApplicationModel.Core;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using Windows.UI.Core;
-using final_project.GameObjects;
 
 namespace final_project.GameServices
 {
@@ -20,6 +19,7 @@ namespace final_project.GameServices
         private const string PORT = "11111";
 
         public event Action<PlayerState> OpponentDataReceived;
+        public event Action<IReadOnlyList<CoverState>> CoversReceived;
         public event Action<string> StatusChanged;
 
         public async Task StartServerAsync()
@@ -50,7 +50,6 @@ namespace final_project.GameServices
                 dataReader.UnicodeEncoding = UnicodeEncoding.Utf8;
                 dataWriter.UnicodeEncoding = UnicodeEncoding.Utf8;
 
-                // FIX: Dispatch to UI thread - this event fires on background thread
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     () => OnStatusChanged($"Client connected from {clientSocket.Information.RemoteAddress}")
@@ -60,7 +59,6 @@ namespace final_project.GameServices
             }
             catch (Exception ex)
             {
-                // FIX: Dispatch to UI thread
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     () => OnStatusChanged("Connection error: " + ex.Message)
@@ -84,17 +82,39 @@ namespace final_project.GameServices
                         break;
 
                     string json = dataReader.ReadString(messageLength);
-                    PlayerState opponentState = JsonConvert.DeserializeObject<PlayerState>(json);
+                    var message = JsonConvert.DeserializeObject<NetworkMessage>(json);
 
-                    var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                        CoreDispatcherPriority.Normal,
-                        () => OpponentDataReceived?.Invoke(opponentState)
-                    );
+                    if (message == null)
+                        continue;
+
+                    switch (message.MessageType)
+                    {
+                        case NetworkMessageType.PlayerState:
+                            var opponentState = JsonConvert.DeserializeObject<PlayerState>(message.Payload);
+                            if (opponentState != null)
+                            {
+                                var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                                    CoreDispatcherPriority.Normal,
+                                    () => OpponentDataReceived?.Invoke(opponentState)
+                                );
+                            }
+                            break;
+
+                        case NetworkMessageType.CoversSnapshot:
+                            var covers = JsonConvert.DeserializeObject<List<CoverState>>(message.Payload);
+                            if (covers != null)
+                            {
+                                var task = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                                    CoreDispatcherPriority.Normal,
+                                    () => CoversReceived?.Invoke(covers)
+                                );
+                            }
+                            break;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                // FIX: Dispatch to UI thread for error message
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                     CoreDispatcherPriority.Normal,
                     () => OnStatusChanged("Error listening for data: " + ex.Message)
@@ -114,7 +134,14 @@ namespace final_project.GameServices
                 if (dataWriter == null)
                     return;
 
-                string json = JsonConvert.SerializeObject(state);
+                var payload = JsonConvert.SerializeObject(state);
+                var message = new NetworkMessage
+                {
+                    MessageType = NetworkMessageType.PlayerState,
+                    Payload = payload
+                };
+
+                string json = JsonConvert.SerializeObject(message);
                 uint messageLength = (uint)json.Length;
 
                 dataWriter.WriteUInt32(messageLength);
@@ -129,10 +156,38 @@ namespace final_project.GameServices
             }
         }
 
+        public async Task SendCoverStatesAsync(IReadOnlyList<CoverState> covers)
+        {
+            try
+            {
+                if (dataWriter == null || covers == null)
+                    return;
+
+                var payload = JsonConvert.SerializeObject(covers);
+                var message = new NetworkMessage
+                {
+                    MessageType = NetworkMessageType.CoversSnapshot,
+                    Payload = payload
+                };
+
+                string json = JsonConvert.SerializeObject(message);
+                uint messageLength = (uint)json.Length;
+
+                dataWriter.WriteUInt32(messageLength);
+                dataWriter.WriteString(json);
+
+                await dataWriter.StoreAsync();
+                await dataWriter.FlushAsync();
+            }
+            catch (Exception ex)
+            {
+                OnStatusChanged("Error sending covers: " + ex.Message);
+            }
+        }
+
         public void StopServer()
         {
             isListening = false;
-
             try
             {
                 socketListener?.Dispose();

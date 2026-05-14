@@ -14,7 +14,6 @@ namespace GameEngine.Services
         private Scene _scene;
         protected Random _random = new Random();
         private DispatcherTimer _runTimer;
-        protected GameEvents _gameEvents { get; set;}
 
 
         public static GameEvents Events { get; set; } = new GameEvents();
