@@ -23,18 +23,18 @@ namespace final_project.GameServices
         
         private void CreateObjects()
         {
-            //if (_isServer)
-            //{
-            //    for (int i = 0; i < 15; i++)
-            //    {
-            //        _scene.AddObject(new Covers(
-            //            (Covers.CoverType)random.Next(0, 4),
-            //            random.Next(100, 801),
-            //            random.Next(401),
-            //            100,
-            //            _scene));
-            //    }
-            //}
+            if (_isServer)
+            {
+                for (int i = 0; i < 15; i++)
+                {
+                    _scene.AddObject(new Covers(
+                        (Covers.CoverType)_random.Next(0, 4),
+                        _random.Next(100, 801),
+                        _random.Next(401),
+                        100,
+                        _scene));
+                }
+            }
 
             bool leftLocal = _isServer;
             bool rightLocal = !_isServer;
