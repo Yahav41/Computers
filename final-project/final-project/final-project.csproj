@@ -162,6 +162,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Audio\pistol-reload.mp3" />
+    <Content Include="Assets\Audio\pistol-shot.mp3" />
+    <Content Include="Assets\Audio\rifle-reload.mp3" />
+    <Content Include="Assets\Audio\rifle-shot.mp3" />
+    <Content Include="Assets\Audio\shotgun-reload.mp3" />
+    <Content Include="Assets\Audio\shotgun-shot.mp3" />
     <Content Include="Assets\BackGrounds\gameBackground.png" />
     <Content Include="Assets\BackGrounds\gameFloor.png" />
     <Content Include="Assets\Buttons\AudioButton.png" />
