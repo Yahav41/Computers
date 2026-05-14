@@ -72,7 +72,7 @@
         <Shlomi:GameScene x:Name="scene"
                           Grid.Column="2" Grid.Row="6"
                           Grid.ColumnSpan="21" Grid.RowSpan="18">
-            <Image Source="/Assets/BackGrounds/gameFloor.png" Stretch="None" Width="1260" Height="693" ></Image>
+            <Image Source="/Assets/BackGrounds/gameFloor.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" Height="496" Width="1146"></Image>
         </Shlomi:GameScene>
         <ProgressBar x:Name="LeftPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
         <ProgressBar x:Name="RightPlayerHealth" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="100" Minimum="0" Maximum="100" Foreground="red" Grid.ColumnSpan="8" Grid.Row="4" Grid.Column="15" BorderBrush="Black" BorderThickness="3" CornerRadius="10"></ProgressBar>
