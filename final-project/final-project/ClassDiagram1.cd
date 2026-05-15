@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="final_project.App" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3.5" Y="4" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
@@ -9,56 +9,66 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.GameObjects.Bullets" Collapsed="true">
-    <Position X="6.5" Y="3" Width="1.5" />
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAACAAAAAAAAAAAAAABAAAAAAAAAAAJIAAAAAAAA=</HashCode>
       <FileName>GameObjects\Bullets.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameObjects.Player" Collapsed="true">
-    <Position X="4.25" Y="3" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAEABAAABAmEAAAgADQBAAAAAgIAIAgYSBIQhAEAQAA=</HashCode>
       <FileName>GameObjects\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.Objects.Covers" Collapsed="true">
-    <Position X="8" Y="1.75" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="final_project.Objects.Covers.CoverType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameObjects\Covers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAE=</HashCode>
       <FileName>GameObjects\Covers.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.CoverState" Collapsed="true">
-    <Position X="7" Y="6" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAYAA=</HashCode>
       <FileName>GameServices\CoverState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.GameConstants" Collapsed="true">
-    <Position X="8.75" Y="6" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAgAAAhAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAhAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\GameConstants.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.GameManager" Collapsed="true">
-    <Position X="3.5" Y="1.75" Width="1.5" />
+    <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAgQAAAAAAAAAgAAAAAAIAAACAAAA=</HashCode>
       <FileName>GameServices\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="final_project.GameServices.GameScene" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
+  <Class Name="final_project.GameServices.GameScene">
+    <Position X="12.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\GameScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.Network" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.25" Y="5" Width="1.5" />
+    <Position X="4" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EgBACAAAAAAAAABAQAAAAAAAAEAAAAAAIAAAACAAAAA=</HashCode>
       <FileName>GameServices\Network.cs</FileName>
@@ -66,7 +76,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.GameServices.LocalNetwork" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1.75" Y="6.75" Width="1.5" />
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EgBACAAAAAAAAEBAAAAAAAAAAEAAAAAAIAAAACAAAAA=</HashCode>
       <FileName>GameServices\Network.cs</FileName>
@@ -74,56 +84,56 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.GameServices.NetworkClient" Collapsed="true">
-    <Position X="7" Y="5" Width="1.5" />
+    <Position X="5.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQIAAAAAEAAAIpAAAAAIAAAAEgAAAAIAAAgAAAAAAA=</HashCode>
       <FileName>GameServices\NetworkClient.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.NetworkMessage" Collapsed="true">
-    <Position X="8.75" Y="5" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\NetworkMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.NetworkServer" Collapsed="true">
-    <Position X="7" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAIAAAEAkAAAIpAAAAAABAIQEABAAAIAAAgAAAAAAA=</HashCode>
       <FileName>GameServices\NetworkServer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.PlayerState" Collapsed="true">
-    <Position X="3.5" Y="7" Width="1.5" />
+    <Position X="4" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAIAEAAACAQAAAgAABAAAAQAIAAAEYAQ=</HashCode>
       <FileName>GameServices\PlayerState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.RectangleHelper" Collapsed="true">
-    <Position X="1.75" Y="6" Width="1.5" />
+    <Position X="5.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\RectangleHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.GameServices.WeaponProfile" Collapsed="true">
-    <Position X="5.25" Y="6" Width="1.5" />
+    <Position X="2.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQCAAAAAAAEAAAAAAgAAABAMAAgAIQAAIAAAAAg=</HashCode>
       <FileName>GameServices\WeaponProfile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="finalproject.GameServices.GameKeys" Collapsed="true">
-    <Position X="5.25" Y="4" Width="1.5" />
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACEEBAQAAAAAAAAAEoAADQgAQAJAABAAA=</HashCode>
       <FileName>GameServices\GameKeys.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="final_project.Pages.GamePage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="3" Width="1.5" />
+    <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAhAAAAACIBIAAAAAAQQAAYAAAAAACAARACEEAAA=</HashCode>
       <FileName>Pages\GamePage.xaml.cs</FileName>
@@ -131,7 +141,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.Pages.MainMenuPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1.75" Y="5" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAQAAAAAAAAAAAAAEAAQAAAABAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\MainMenuPage.xaml.cs</FileName>
@@ -139,7 +149,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.Pages.ModePage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3.5" Y="5" Width="1.5" />
+    <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABABQAAAACCAAAAAAAAQAAAAAAAAAAAAAAAACCAgAAA=</HashCode>
       <FileName>Pages\ModePage.xaml.cs</FileName>
@@ -147,7 +157,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.Pages.Registration" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3.5" Y="6" Width="1.5" />
+    <Position X="7.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACCAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Pages\Registration.xaml.cs</FileName>
@@ -155,70 +165,50 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="final_project.Pages.SettingsPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="4" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAACAAQAgAACAAJAA=</HashCode>
       <FileName>Pages\SettingsPage.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="GameEngine.Objects.GameMovingObject" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="GameEngine.Objects.GameObject" Collapsed="true">
-    <Position X="6.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="GameEngine.Services.GameEvents" Collapsed="true">
-    <Position X="5.25" Y="6.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="GameEngine.Services.Manager" Collapsed="true">
-    <Position X="3.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="GameEngine.Services.Scene" Collapsed="true">
-    <Position X="9.75" Y="0.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
   <Interface Name="final_project.GameServices.IGameNetwork" Collapsed="true">
-    <Position X="1.75" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EgBACAAAAAAAAABAAAAAAAAAAEAAAAAAIAAAACAAAAA=</HashCode>
       <FileName>GameServices\IGameNetwork.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="final_project.GameObjects.PlayerAnimationState" Collapsed="true">
-    <Position X="1.75" Y="2" Width="1.5" />
+    <Position X="4" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAIAA=</HashCode>
       <FileName>GameObjects\Player.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="final_project.GameServices.NetworkMessageType" Collapsed="true">
-    <Position X="1.75" Y="1.25" Width="1.5" />
+    <Position X="2.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>GameServices\NetworkMessage.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="final_project.GameServices.WeaponType" Collapsed="true">
-    <Position X="1.75" Y="2.75" Width="1.5" />
+    <Position X="5.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameServices\WeaponProfile.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="final_project.Pages.GameRole" Collapsed="true">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQ=</HashCode>
       <FileName>Pages\GamePage.xaml.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="final_project.Pages.WeaponType" Collapsed="true">
-    <Position X="1.75" Y="3.5" Width="1.5" />
+    <Position X="7.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\ModePage.xaml.cs</FileName>

@@ -7,21 +7,26 @@ using Windows.Foundation;
 
 namespace final_project.GameServices
 {
+    // סצנה מותאמת למשחק — יורשת מ־`Scene` ומוסיפה לוגיקה ספציפית לשחקנים
     public class GameScene : Scene
     {
         public GameScene() : base()
         {
+            // בריצה של המשחק נוסיף מאזין שמסובב את השחקנים בכל טיק
             Manager.Events.OnRun += RotatePlayers;
         }
 
+        // סובב את השחקנים כך שיעמדו/יתבוננו זה לעבר זה עם זווית מטעמי רקע/אסתטיקה
         private void RotatePlayers()
         {
-            var leftPlayer = GetPlayer(true);
-            var rightPlayer = GetPlayer(false);
+            var leftPlayer = GetPlayer(true);   // מקבל את השחקן השמאלי דרך `GetPlayer`
+            var rightPlayer = GetPlayer(false); // מקבל את השחקן הימני
 
+            // אם אחד מהשחקנים חסר — אין מה לעשות
             if (leftPlayer == null || rightPlayer == null)
                 return;
 
+            // מחשבים את מרכז הגבולות של כל שחקן (כדי לסובב סביב מרכזם)
             Point center1 = new Point(
                 rightPlayer.Bounds().Left + rightPlayer.Bounds().Width / 2,
                 rightPlayer.Bounds().Top + rightPlayer.Bounds().Height / 2);
@@ -30,46 +35,31 @@ namespace final_project.GameServices
                 leftPlayer.Bounds().Left + leftPlayer.Bounds().Width / 2,
                 leftPlayer.Bounds().Top + leftPlayer.Bounds().Height / 2);
 
+            // הבדל במיקום בין המרכזים ושיוך זווית (במעלות) באמצעות Atan2
             double dx = center1.X - center2.X;
             double dy = center1.Y - center2.Y;
             double angle = Math.Atan2(dy, dx) * 180 / Math.PI;
 
+            // מרחק בין השחקנים
             double distance = Math.Sqrt(dx * dx + dy * dy);
+            // חישוב זווית-תיקון (offset) המבוססת על מרחק — במטרה לשנות מעט את הזווית להצגה
             double offsetAngle = Math.Atan2(45.9, distance) * 180 / Math.PI;
 
-            leftPlayer.Image.Rotation = (float)(angle - offsetAngle+10);
-            rightPlayer.Image.Rotation = (float)(angle + 180 - offsetAngle+10);
+            // הגדרת רוטציה לכל שחקן עם התחשבות ב־offset ובכיוון הכללי
+            leftPlayer.Image.Rotation = (float)(angle - offsetAngle + 10);
+            rightPlayer.Image.Rotation = (float)(angle + 180 - offsetAngle + 10);
         }
 
+        // מחזיר את ה־`Player` שמתאים לצד המבוקש (`isLeft`), או `null` אם לא נמצא
         public Player GetPlayer(bool isLeft)
         {
+            // משתמש ב־`GameObjectsSnapshot` (עותק בטוח של הרשימה) כדי לא לבצע שינויים תוך איטרציה
             foreach (GameObject obj in GameObjectsSnapshot)
             {
                 if (obj is Player player && player.IsLeft == isLeft)
                     return player;
             }
             return null;
-        }
-
-        private Vector2 GetBulletStartPosition(Player player, double angle)
-        {
-            var rect = player.Bounds();
-            float centerX = (float)(rect.Left + rect.Width / 2f);
-            float centerY = (float)(rect.Top + rect.Height / 2f);
-
-            float localOffsetX = 40f;
-            float localOffsetY = 0f;
-
-            float cosA = (float)Math.Cos(angle);
-            float sinA = (float)Math.Sin(angle);
-
-            float rotatedOffsetX = localOffsetX * cosA - localOffsetY * sinA;
-            float rotatedOffsetY = localOffsetX * sinA + localOffsetY * cosA;
-
-            float muzzleX = centerX + rotatedOffsetX;
-            float muzzleY = centerY + rotatedOffsetY;
-
-            return new Vector2(muzzleX, muzzleY);
         }
     }
 }
