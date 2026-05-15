@@ -58,7 +58,7 @@ namespace final_project.Pages
 
             _network = _role == GameRole.Server
                 ? (IGameNetwork)new Network()
-                : new ClientNetwork();
+                : new LocalNetwork();
 
             _network.OpponentStateReceived += UpdateOpponentPosition;
             _network.CoversReceived += ApplyCoverSnapshot;

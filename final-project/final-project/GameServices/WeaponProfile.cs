@@ -19,13 +19,13 @@
         public int FireIntervalMs { get; }
         public int ReloadDurationMs { get; }
 
-        public WeaponType Type { get; }  // NEW
+        public WeaponType Type { get; }  
 
         public WeaponProfile(
             string idle, string walk, string shoot, string reload,
             int damage, int magazineSize, int fireIntervalMs,
             int reloadDurationMs,
-            WeaponType type)               // NEW
+            WeaponType type)               
         {
             IdleSprite = idle;
             WalkSprite = walk;

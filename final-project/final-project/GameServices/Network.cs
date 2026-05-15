@@ -49,7 +49,7 @@ namespace final_project.GameServices
         }
     }
 
-    public class ClientNetwork : IGameNetwork
+    public class LocalNetwork : IGameNetwork
     {
         private readonly NetworkClient _client = new NetworkClient();
 

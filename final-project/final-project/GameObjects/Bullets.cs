@@ -51,7 +51,6 @@ namespace final_project.GameObjects
         {
             base.Render();
 
-            // Remove bullet when it leaves the play area
             if (X < 0 || X > 1150 || Y < 0 || Y > 475)
             {
                 _scene.RemoveObject(this);
