@@ -16,21 +16,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace final_project.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    // דף הגדרות המקשר את כפתורי הממשק ל-GameKeys ושומר/טוען אותם מהגדרות מקומיות
     public sealed partial class SettingsPage : Page
     {
         public SettingsPage()
         {
             this.InitializeComponent();
-            RefreshKeyTexts();
+            RefreshKeyTexts(); // מעדכן טקסטים על הכפתורים לפי מיפויי המקש הנוכחיים
         }
 
+        // מעדכן את הטקסט של כל כפתורי המיפוי לפי הערכים הנוכחיים ב-GameKeys
         private void RefreshKeyTexts()
         {
             // Left player
@@ -50,21 +47,23 @@ namespace final_project.Pages
             BtnRightReload.Content = GameKeys.RightPlayerReload.ToString();
         }
 
-        private string _waitingForAction = null;
+        private string _waitingForAction = null; // שם הפעולה שאנו מחכים לקשירת מקש חדש עבורה
 
+        // נרוץ כאשר המשתמש לוחץ על כפתור "שנה מקש" — מתחילים להאזין לאירוע KeyDown הגלובלי
         private void ChangeKeyClick(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.Tag is string actionName)
             {
-                _waitingForAction = actionName;
-                btn.Content = "Press key...";
-                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDownForBinding;
+                _waitingForAction = actionName;        // שומרים איזו פעולה לשייך
+                btn.Content = "Press key...";         // משנים טקסט כדי לתת משוב למשתמש
+                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDownForBinding; // מאזינים למקש הבא
             }
         }
 
+        // מטפל בלחיצה על מקש בזמן שאנו במצב קשירת מקש חדש
         private void CoreWindow_KeyDownForBinding(CoreWindow sender, KeyEventArgs args)
         {
-            // Only handle one key press
+            // מטפל רק בפעם הראשונה ואז מסיר את המאזין
             Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDownForBinding;
 
             if (_waitingForAction == null)
@@ -72,15 +71,16 @@ namespace final_project.Pages
 
             VirtualKey key = args.VirtualKey;
 
-            // Optionally: block Escape or other forbidden keys
-            ApplyKeyBinding(_waitingForAction, key);
-            GameKeys.SaveToSettings();
+            // ניתן להוסיף כאן בדיקות למקשים אסורים (למשל Escape) לפני שמיישמים
+            ApplyKeyBinding(_waitingForAction, key); // מיישם את הקישור החדש ב-GameKeys
+            GameKeys.SaveToSettings();               // שומר את המיפוי בהגדרות המקומיות
             _waitingForAction = null;
 
-            // Update button texts with new key names
+            // מרענן את טקסטי הכפתורים על ה-UI thread
             _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, RefreshKeyTexts);
         }
 
+        // ממפה את שם הפעולה לשדה המתאים ב-GameKeys
         private void ApplyKeyBinding(string action, VirtualKey key)
         {
             switch (action)
@@ -101,11 +101,13 @@ namespace final_project.Pages
             }
         }
 
+        // כפתור חזרה - חוזר לדף הקודם
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
 
+        // מטפל בשינוי עוצמת קול (כרגע ריק - מקום להוספת לוגיקה)
         private void VolumeSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             

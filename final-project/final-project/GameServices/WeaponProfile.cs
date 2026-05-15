@@ -1,5 +1,6 @@
 ﻿namespace final_project.GameServices
 {
+    // טיפוס נשק פשוט המשמש כאינדקס לסוגי נשק שונים
     public enum WeaponType
     {
         Pistol = 0,
@@ -7,20 +8,25 @@
         Shotgun = 2
     }
 
+    // פרופיל נשק שמאגד את כל ההגדרות והמשאבים של נשק יחיד
     public class WeaponProfile
     {
+        // שמות קבצי ה-sprite עבור מצבי אנימציה שונים
         public string IdleSprite { get; }
         public string WalkSprite { get; }
         public string ShootSprite { get; }
         public string ReloadSprite { get; }
 
-        public int Damage { get; }
-        public int MagazineSize { get; }
-        public int FireIntervalMs { get; }
-        public int ReloadDurationMs { get; }
+        // תכונות ביצועים של הנשק
+        public int Damage { get; }               // נזק לכדור בודד
+        public int MagazineSize { get; }         // מספר כדורים במגזין
+        public int FireIntervalMs { get; }       // מרווח בין יריות במילישניות
+        public int ReloadDurationMs { get; }     // משך טעינה מחדש במילישניות
 
+        // סוג הנשק כמ_ENUM כדי לאפשר זיהוי קל וקומפקטי
         public WeaponType Type { get; }  
 
+        // קונסטרקטור פרמטרי שמקבל את כל ההגדרות ומאחסן אותן
         public WeaponProfile(
             string idle, string walk, string shoot, string reload,
             int damage, int magazineSize, int fireIntervalMs,
@@ -38,6 +44,8 @@
             Type = type;
         }
 
+        // פרופילים סטטיים מוכנים מראש לשימוש נוח בקוד:
+        // כל פרופיל מייצג מופע חדש עם נתוני ברירת מחדל מתאימים
         public static WeaponProfile Pistol => new WeaponProfile(
             "Models/Players/pistol/pistol-idle.gif",
             "Models/Players/pistol/pistol-walk.gif",

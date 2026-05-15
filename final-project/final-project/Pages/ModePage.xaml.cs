@@ -7,28 +7,31 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace final_project.Pages
 {
+    // דף בחירת מצב/תצורה לפני כניסה למשחק
     public sealed partial class ModePage : Page
     {
-        private Registration _registration;
+        private Registration _registration; // דיאלוג רישום/הזנת כתובת למצב לקוח
 
+        // מצביעים לבחירת נשק לשני הצדדים (ברירת מחדל: אקדח)
         private WeaponType _leftWeapon = WeaponType.Pistol;
         private WeaponType _rightWeapon = WeaponType.Pistol;
 
         public ModePage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); // אתחול רכיבי XAML
 
-            // Ensure constants match the initial UI (pistols)
+            // מוודא שקבועי המשחק ישקפו את הבחירה הראשונית בממשק
             GameConstants.leftPlayer = (int)_leftWeapon;
             GameConstants.rightPlayer = (int)_rightWeapon;
         }
 
-        
+        // לחיצה על כפתור 'שרת' - ניווט לעמוד המשחק בתפקיד שרת
         private void ServerButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(GamePage), Tuple.Create(GameRole.Server, (string)null));
         }
 
+        // לחיצה על כפתור 'לקוח' - פותח דיאלוג להזנת IP ואז נווט כלקוח אם התקבל IP
         private async void ClientButton_Click(object sender, RoutedEventArgs e)
         {
             _registration = new Registration();
@@ -45,20 +48,22 @@ namespace final_project.Pages
             }
         }
 
+        // לחיצה על כפתור חזרה - חוזר לדף הקודם
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
 
+        // לחיצה על חץ לשינוי תמונה/נשק: מחליפה את הנשק המתאים (שמאל/ימין)
         private void NextImageButton_Click(object sender, RoutedEventArgs e)
         {
-            // Which side?
+            // בודק האם הכפתור ששוחרר שייך לשחקן השמאלי או הימני
             bool isLeftButton = ReferenceEquals(sender, NextButton1);
 
             if (isLeftButton)
             {
-                _leftWeapon = NextWeapon(_leftWeapon);
-                UpdateWeaponImage(ChosenImage1, _leftWeapon);
+                _leftWeapon = NextWeapon(_leftWeapon); // מקבל את הנשק הבא בסדרה
+                UpdateWeaponImage(ChosenImage1, _leftWeapon); // מעדכן את התמונה ב-UI
             }
             else
             {
@@ -66,11 +71,12 @@ namespace final_project.Pages
                 UpdateWeaponImage(ChosenImage2, _rightWeapon);
             }
 
-            // Persist selection so GameManager can read it
+            // שומר את הבחירות בקבועי המשחק כדי ש-GameManager יקרא אותן בהמשך
             GameConstants.leftPlayer = (int)_leftWeapon;
             GameConstants.rightPlayer = (int)_rightWeapon;
         }
 
+        // מתחלף בין הנשקים בזוּת קבועה: Pistol -> Rifle -> Shotgun -> Pistol
         private WeaponType NextWeapon(WeaponType current)
         {
             switch (current)
@@ -82,6 +88,7 @@ namespace final_project.Pages
             }
         }
 
+        // מעדכן את מקור התמונה של ה-`Image` בהתאם לטיפוס הנשק (שימוש ב־BitmapImage)
         private void UpdateWeaponImage(Image image, WeaponType type)
         {
             string path;
@@ -102,10 +109,12 @@ namespace final_project.Pages
                     break;
             }
 
+            // הנחיה לטעינת תמונה מתוך חבילת היישום (ms-appx:///)
             image.Source = new BitmapImage(new Uri($"ms-appx:///{path}"));
         }
     }
 
+    // enum מקומי למימוש בחירה במסך זה (מתאים ל-WeaponProfile.Type בהמשך)
     public enum WeaponType
     {
         Pistol = 0,

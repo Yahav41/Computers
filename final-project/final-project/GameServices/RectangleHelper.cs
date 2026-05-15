@@ -15,31 +15,37 @@ namespace final_project.GameServices
         /// <summary>
         /// הפעולה מציירת מלבן במקום ובגודל ובצבע שקובעים
         /// </summary>
-        /// <param name="scene">במה</param>
-        /// <param name="x">מקום אופקי של הפינה העליונה השמאלית של המלבן</param>
-        /// <param name="y">מיקום אנכי של הפינה השמאלית העליונה של המלבן</param>
+        /// <param name="scene">במה (`GameScene`) עליה לצייר את המלבן</param>
+        /// <param name="x">מיקום אופקי של הפינה העליונה-שמאלית של המלבן</param>
+        /// <param name="y">מיקום אנכי של הפינה העליונה-שמאלית של המלבן</param>
         /// <param name="width">רוחב המלבן</param>
         /// <param name="height">גובה המלבן</param>
-        /// <param name="color">צבע המלבן</param>
+        /// <param name="color">צבע המילוי של המלבן (`Windows.UI.Color`)</param>
         public static void DrawRectangle(GameScene scene, double x, double y, double width, double height, Color color)
         {
+            // יוצרים אובייקט `Rectangle` ומגדירים לו רוחב, גובה וצבע מילוי
             Rectangle rectangle = new Rectangle
             {
                 Width = (int)width,
                 Height = (int)height,
                 Fill = new SolidColorBrush(color),
             };
+
+            // מגדירים את המיקום על ה-`Canvas` (הסצנה היא יורשת של `Canvas`)
             Canvas.SetLeft(rectangle, x);
             Canvas.SetTop(rectangle, y);
 
+            // מחפשים אם כבר קיים מלבן קרוב מאוד למיקום כדי להחליף אותו במקום לצרף עוד אחד.
+            // השוואה מבוצעת לפי מרחק אופקי ואנכי קטן מ-50 פיקסלים.
             var rect = scene.Children.FirstOrDefault(r => r is Rectangle &&
                                         Math.Abs(Canvas.GetLeft(r) - x) < 50 && Math.Abs(Canvas.GetTop(r) - y) < 50);
             if (rect != null)
             {
+                // אם נמצא מלבן קיים קרוב — מסירים אותו כדי לא לצבור מלבנים חופפים
                 scene.Children.Remove(rect);
             }
-            //scene.Children.RemoveAt(scene.Children.Count - 1);
 
+            // מוסיפים את המלבן החדש ל־Children של ה־`scene` כדי שיוצג ב־UI
             scene.Children.Add(rectangle);
         }
     }
