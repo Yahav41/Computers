@@ -12,7 +12,7 @@ namespace final_project.GameServices
 {
     public class NetworkClient
     {
-        private StreamSocket socket;
+        private StreamSocket ServerSocket;
         private DataWriter dataWriter;
         private DataReader dataReader;
         private const string PORT = "11111";
@@ -27,12 +27,12 @@ namespace final_project.GameServices
             {
                 Disconnect();
 
-                socket = new StreamSocket();
+                ServerSocket = new StreamSocket();
                 HostName hostName = new HostName(serverIpAddress);
-                await socket.ConnectAsync(hostName, PORT);
+                await ServerSocket.ConnectAsync(hostName, PORT);
 
-                dataWriter = new DataWriter(socket.OutputStream);
-                dataReader = new DataReader(socket.InputStream);
+                dataWriter = new DataWriter(ServerSocket.OutputStream);
+                dataReader = new DataReader(ServerSocket.InputStream);
                 dataReader.UnicodeEncoding = UnicodeEncoding.Utf8;
                 dataWriter.UnicodeEncoding = UnicodeEncoding.Utf8;
 
@@ -51,7 +51,7 @@ namespace final_project.GameServices
         {
             try
             {
-                while (socket != null && socket.InputStream != null)
+                while (ServerSocket != null && ServerSocket.InputStream != null)
                 {
                     uint bytesRead = await dataReader.LoadAsync(sizeof(uint));
                     if (bytesRead < sizeof(uint))
@@ -139,14 +139,14 @@ namespace final_project.GameServices
         {
             try
             {
-                socket?.Dispose();
+                ServerSocket?.Dispose();
                 dataWriter?.Dispose();
                 dataReader?.Dispose();
             }
             catch { }
             finally
             {
-                socket = null;
+                ServerSocket = null;
                 dataWriter = null;
                 dataReader = null;
             }
@@ -157,6 +157,6 @@ namespace final_project.GameServices
             StatusChanged?.Invoke(status);
         }
 
-        public bool IsConnected => socket != null;
+        public bool IsConnected => ServerSocket != null;
     }
 }

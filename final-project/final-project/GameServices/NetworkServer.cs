@@ -38,9 +38,7 @@ namespace final_project.GameServices
             }
         }
 
-        private async void OnConnectionReceived(
-            StreamSocketListener sender,
-            StreamSocketListenerConnectionReceivedEventArgs args)
+        private async void OnConnectionReceived(StreamSocketListener sender,StreamSocketListenerConnectionReceivedEventArgs args)
         {
             try
             {

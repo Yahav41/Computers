@@ -20,8 +20,7 @@ namespace finalproject.GameServices
         public static VirtualKey RightPlayerShoot { get; set; } = VirtualKey.Shift;
         public static VirtualKey RightPlayerReload { get; set; } = VirtualKey.L;
 
-        private static readonly ApplicationDataContainer Settings =
-            ApplicationData.Current.LocalSettings;
+        private static readonly ApplicationDataContainer Settings = ApplicationData.Current.LocalSettings;
 
         public static void LoadFromSettings()
         {

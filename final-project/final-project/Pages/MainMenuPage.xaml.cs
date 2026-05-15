@@ -23,8 +23,6 @@ namespace final_project.Pages
     /// </summary>
     public sealed partial class MainMenuPage : Page
     {
-        private Login _login;
-        private SignUp _signUp;
         
         public MainMenuPage()
         {
@@ -39,18 +37,6 @@ namespace final_project.Pages
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SettingsPage));
-        }
-
-        private async void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            _login = new Login();
-            await _login.ShowAsync();
-        }
-
-        private async void SignupButton_Click(object sender, RoutedEventArgs e)
-        {
-            _signUp = new SignUp();
-            await _signUp.ShowAsync();
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)

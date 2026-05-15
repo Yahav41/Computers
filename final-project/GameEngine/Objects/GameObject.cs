@@ -1,4 +1,4 @@
-﻿// GameEngine/Objects/GameObject.cs
+﻿
 using GameEngine.Services;
 using System;
 using Windows.Foundation;
